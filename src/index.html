@@ -5,21 +5,137 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
-    <link href="css/styles.scss" type="text/css" />
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <link href="styles/styles.scss" type="text/css" />
     <script src="./js/index.js" defer></script>
     <title>Document</title>
 </head>
 
-<body>
+<body class="body">
     <header class="header">
         <h1 class="header__title">List of vacancies</h1>
         <div class="header__filter-block">
             <div class="header__filter-item" id="filter-form">....</div>
             <div class="header__filter-item" id="filter-position">....</div>
-        </div>
+            <div class="header__button">Search</div>
     </header>
+    <main class="main">
+        <section class="list">
+            <ul class="list__block">
+                <li class="card">
+                    <div class="card__main-block">
+                        <h3 class="card__title">A.I. Sports Startup seeks talented iOS engineer</h3>
+                        <button class="card__button">Respond</button>
+                    </div>
+                    <div class="div card__info-block">
+                        <div class="card__info-item">
+                            <p class="card__info-item-text">Form</p>
+                            <span class="card__info-item-text card__info-iem-text--light">Half time</span>
+                        </div>
 
+                        <div class="card__info-item">
+                            <p class="card__info-item-text">Company</p>
+                            <span class="card__info-item-text card__info-iem-text--light">SoloProtect</span>
+                        </div>
+
+                        <div class="card__info-item">
+                            <p class="card__info-item-text">Web</p>
+                            <span class="card__info-item-text card__info-iem-text--light">https://www.soloprotect.com/uk/</span>
+                        </div>
+
+                        <div class="card__info-item">
+                            <p class="card__info-item-text">Address</p>
+                            <span class="card__info-item-text card__info-iem-text--light">United Kingdom</span>
+                        </div>
+                    </div>
+                    <p class="card__description">We are looking for an experienced and talented Software Developer to develop, test, document, and implement solutions for SoloProtect clients and devices. The ideal candidate will be self-motivated, have experience working in agile teams, and excellent communication skills</p>
+                    <h4 class="card__success-title">Success Snapshot:</h4>
+                    <ul class="card__list">
+                        <li class="card-list-item">Develop solutions for SoloProtect product offerings using .NET languages and your experience of GIS solutions;</li>
+                        <li class="card-list-item">Develop solutions for SoloProtect product offerings using .NET languages and your experience of GIS solutions;</li>
+                        <li class="card-list-item">Develop solutions for SoloProtect product offerings using .NET languages and your experience of GIS solutions;</li>
+                        <li class="card-list-item">Develop solutions for SoloProtect product offerings using .NET languages and your experience of GIS solutions;</li>
+                    </ul>
+
+                </li>
+
+            </ul>
+        </section>
+        <section class="request">
+            <h2 class="request__title">Leave a request</h2>
+            <p class="requeat__subtitle">We will advise you and help you start a new project</p>
+            <form action="submit" class="request__form">
+                <fieldset class="request__fieldset">
+                    <lebel class="request__label" for="name">Your name</lebel>
+                    <input type="text" class="request__input" id="name">
+
+                    <lebel class="request__label" for="email">Email</lebel>
+                    <input type="text" class="request__input" id="email">
+
+                    <lebel class="request__label" for="phone">Phone number</lebel>
+                    <input type="text" class="request__input" id="phone">
+
+                    <lebel class="request__label" for="comment">Comment</lebel>
+                    <textarea type="text" class="request__textarea" id="comment"></textarea>
+                </fieldset>
+                <button class="request__button">Send</button>
+            </form>
+            <span class="request__span">By clicking "Send" you confirm your consent to the</span>
+            <a class="reques__link" href="#">processing of personal data</a>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer__contacts">
+            <span class="footer__text">+7 499 391-66-69</span>
+            <span class="footer__text">mail@greensight.ru</span>
+        </div>
+        <div class="footer__contacts">
+            <span class="footer__text footer__text--small">322A, 2nd Floor, Zelenograd, Moscow, Russia</span>
+            <span class="footer__text footer__text--small">Directions</span>
+        </div>
+    </footer>
+
+
+
+    <template id="card">
+        <li class="card">
+            <div class="card__main-block">
+                <h3 class="card__title">A.I. Sports Startup seeks talented iOS engineer</h3>
+                <button class="card__button">Respond</button>
+            </div>
+            <div class="div card__info-block">
+                <div class="card__info-item">
+                    <p class="card__info-item-text">Form</p>
+                    <span class="card__info-item-text card__info-iem-text--light">Half time</span>
+                </div>
+
+                <div class="card__info-item">
+                    <p class="card__info-item-text">Company</p>
+                    <span class="card__info-item-text card__info-iem-text--light">SoloProtect</span>
+                </div>
+
+                <div class="card__info-item">
+                    <p class="card__info-item-text">Web</p>
+                    <span class="card__info-item-text card__info-iem-text--light">https://www.soloprotect.com/uk/</span>
+                </div>
+
+                <div class="card__info-item">
+                    <p class="card__info-item-text">Address</p>
+                    <span class="card__info-item-text card__info-iem-text--light">United Kingdom</span>
+                </div>
+            </div>
+            <p class="card__description">We are looking for an experienced and talented Software Developer to develop, test, document, and implement solutions for SoloProtect clients and devices. The ideal candidate will be self-motivated, have experience working in agile teams, and excellent communication skills</p>
+            <h4 class="card__success-title">Success Snapshot:</h4>
+            <ul class="card__list">
+                <li class="card-list-item">Develop solutions for SoloProtect product offerings using .NET languages and your experience of GIS solutions;</li>
+                <li class="card-list-item">Develop solutions for SoloProtect product offerings using .NET languages and your experience of GIS solutions;</li>
+                <li class="card-list-item">Develop solutions for SoloProtect product offerings using .NET languages and your experience of GIS solutions;</li>
+                <li class="card-list-item">Develop solutions for SoloProtect product offerings using .NET languages and your experience of GIS solutions;</li>
+            </ul>
+
+        </li>
+
+    </template>
 </body>
-
 </html>
