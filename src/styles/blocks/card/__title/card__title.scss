@@ -1,0 +1,12 @@
+@import "../../../global/constants.scss";
+
+.card__title{
+    margin: 0;
+    padding: 0;
+    color: $colorBlack;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 125%; /* 30px */
+    letter-spacing: -0.24px;
+}

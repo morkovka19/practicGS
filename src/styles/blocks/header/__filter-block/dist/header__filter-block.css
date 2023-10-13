@@ -1,0 +1,6 @@
+.header__filter-block {
+  display: flex;
+  flex-direction: row;
+  width: calc(692/1200*100%);
+  justify-content: space-between;
+}

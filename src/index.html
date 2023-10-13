@@ -14,17 +14,21 @@
     <header class="header">
         <h1 class="header__title">List of vacancies</h1>
         <div class="header__filter-block">
-            <div class="header__filter-item" id="filter-form">....</div>
-            <div class="header__filter-item" id="filter-position">....</div>
-            <div class="header__button">Search</div>
+            <div class="header__section">
+                <div class="header__filter-item" id="filter-form">....</div>
+                <div class="header__filter-item" id="filter-position">....</div>
+            </div>
+            <button class="button header__button">Search </button>
+        </div>
     </header>
     <main class="main">
         <section class="list">
             <ul class="list__block">
                 <li class="card">
                     <div class="card__main-block">
-                        <h3 class="card__title">A.I. Sports Startup seeks talented iOS engineer</h3>
-                        <button class="card__button">Respond</button>
+                        <h4 class="card__title">A.I. Sports Startup seeks talented iOS engineer</h4>
+                        <img class="card__logo" src="https://hhcdn.ru/employer-logo/3790847.png">
+                        <button class="button card__button">Respond</button>
                     </div>
                     <div class="div card__info-block">
                         <div class="card__info-item">
@@ -77,7 +81,7 @@
                     <lebel class="request__label" for="comment">Comment</lebel>
                     <textarea type="text" class="request__textarea" id="comment"></textarea>
                 </fieldset>
-                <button class="request__button">Send</button>
+                <button class="button request__button">Send</button>
             </form>
             <span class="request__span">By clicking "Send" you confirm your consent to the</span>
             <a class="reques__link" href="#">processing of personal data</a>
@@ -99,7 +103,7 @@
     <template id="card">
         <li class="card">
             <div class="card__main-block">
-                <h3 class="card__title">A.I. Sports Startup seeks talented iOS engineer</h3>
+                <h4 class="card__title">A.I. Sports Startup seeks talented iOS engineer</h4>
                 <button class="card__button">Respond</button>
             </div>
             <div class="div card__info-block">
