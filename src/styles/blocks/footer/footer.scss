@@ -1,0 +1,12 @@
+@import "../../global/constants.scss";
+
+.footer{
+    background: $colorBlackButton;
+    display: flex;
+    width: 100%;
+    height: 140px;
+    padding: 40px 120px;
+    justify-content: space-between;
+    align-items: flex-end;
+    box-sizing: border-box;
+}

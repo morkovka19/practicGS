@@ -1,5 +1,7 @@
 .list{
     margin: 0 auto;
     padding: 0;
-    width: 100%;
+    width: calc(1200/1440*100%);
+    max-width: 1200px;
+    padding-bottom: 104px;
 }

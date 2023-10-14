@@ -1,11 +1,9 @@
 @import "../../../global/constants.scss";
 
-.card__success-title{
+.request__label{
     color: $colorBlack;
-    font-size: 16px;
+    font-size: 12px;
     font-style: normal;
     font-weight: 500;
-    line-height: 140%;
-    margin: 0;
-    padding: 0;
+    line-height: 125%;
 }

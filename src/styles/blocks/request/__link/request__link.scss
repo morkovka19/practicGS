@@ -1,11 +1,10 @@
 @import "../../../global/constants.scss";
 
-.card__info-item-text{
-    margin: 0;
-    padding: 0;
-    color: $colorBlack;
+.request__link{
+    color: $colorBlue;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 145%; 
+    line-height: 145%;
+    text-decoration: none;
 }
