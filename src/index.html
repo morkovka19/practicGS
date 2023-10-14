@@ -15,11 +15,26 @@
         <h1 class="header__title">List of vacancies</h1>
         <div class="header__filter-block">
             <div class="header__section">
-                <div class="header__filter-item" id="filter-form">....</div>
-                <div class="header__filter-item" id="filter-position">....</div>
+                <div class="header__filter">
+                    <div class="header__filter-item" id="filter-form">Not selected<img class="header__icon" src="./img/chevronDown.svg" alt="стрелочка фильтрации"></div>
+                    <div class="header__options-block">
+                        <div class="header__option">Full</div>
+                        <div class="header__option">Full</div>
+                        <div class="header__option">Full</div>
+                    </div>
+                </div>
+                <div class="header__filter">
+                    <div class="header__filter-item" id="filter-position">Not selected<img class="header__icon" src="./img/chevronDown.svg" alt="стрелочка фильтрации"></div>
+                    <div class="header__options-block">
+                        <div class="header__option">Full</div>
+                        <div class="header__option">Full</div>
+                        <div class="header__option">Full</div>
+                    </div>
+                </div>
             </div>
             <button class="button header__button">Search </button>
         </div>
+        <span class="header__clear"><img class="header__icon" src="./img/close.svg">Clear filters</span>
     </header>
     <main class="main">
         <section class="list">
@@ -68,8 +83,9 @@
                             <li class="card-list-item">Develop solutions for SoloProtect product offerings using .NET
                                 languages and your experience of GIS solutions;</li>
                         </ul>
+                        <div class="card__limited-block"></div>
                     </div>
-
+                    <button class="card__button-more">More details<img src="./img/chevronDownBlue.svg" alt="стрелочка" className="card__icon "/></button>
                 </li>
 
             </ul>
@@ -126,7 +142,8 @@
         <li class="card">
             <div class="card__main-block">
                 <h4 class="card__title">A.I. Sports Startup seeks talented iOS engineer</h4>
-                <button class="card__button">Respond</button>
+                <img class="card__logo" src="https://hhcdn.ru/employer-logo/3790847.png">
+                <button class="button card__button">Respond</button>
             </div>
             <div class="div card__info-block">
                 <div class="card__info-item">
@@ -136,12 +153,12 @@
 
                 <div class="card__info-item">
                     <p class="card__info-item-text card__info-item-text--light">Company</p>
-                    <span class="card__info-item-text">SoloProtect</span>
+                    <span class="card__info-item-text ">SoloProtect</span>
                 </div>
 
                 <div class="card__info-item">
                     <p class="card__info-item-text card__info-item-text--light">Web</p>
-                    <span class="card__info-item-text">https://www.soloprotect.com/uk/</span>
+                    <span class="card__info-item-text ">https://www.soloprotect.com/uk/</span>
                 </div>
 
                 <div class="card__info-item">
@@ -149,20 +166,27 @@
                     <span class="card__info-item-text ">United Kingdom</span>
                 </div>
             </div>
-            <p class="card__description">We are looking for an experienced and talented Software Developer to develop,
-                test, document, and implement solutions for SoloProtect clients and devices. The ideal candidate will be
-                self-motivated, have experience working in agile teams, and excellent communication skills</p>
-            <h4 class="card__success-title">Success Snapshot:</h4>
-            <ul class="card__list">
-                <li class="card-list-item">Develop solutions for SoloProtect product offerings using .NET languages and
-                    your experience of GIS solutions;</li>
-                <li class="card-list-item">Develop solutions for SoloProtect product offerings using .NET languages and
-                    your experience of GIS solutions;</li>
-                <li class="card-list-item">Develop solutions for SoloProtect product offerings using .NET languages and
-                    your experience of GIS solutions;</li>
-                <li class="card-list-item">Develop solutions for SoloProtect product offerings using .NET languages and
-                    your experience of GIS solutions;</li>
-            </ul>
+            
+            <p class="card__description">We are looking for an experienced and talented Software Developer to
+                develop, test, document, and implement solutions for SoloProtect clients and devices. The ideal
+                candidate will be self-motivated, have experience working in agile teams, and excellent
+                communication skills</p>
+            <div class="card__success-block">
+                <p class="card__success-title">Success Snapshot:</p>
+                <ul class="card__list">
+                    <li class="card-list-item">Develop solutions for SoloProtect product offerings using .NET
+                        languages and your experience of GIS solutions;</li>
+                    <li class="card-list-item">Develop solutions for SoloProtect product offerings using .NET
+                        languages and your experience of GIS solutions;</li>
+                    <li class="card-list-item">Develop solutions for SoloProtect product offerings using .NET
+                        languages and your experience of GIS solutions;</li>
+                    <li class="card-list-item">Develop solutions for SoloProtect product offerings using .NET
+                        languages and your experience of GIS solutions;</li>
+                </ul>
+                <div class="card__limited-block"></div>
+            </div>
+            <button class="card__button-more">More details<img src="./img/chevronDownBlue.svg" alt="стрелочка" className="card__icon "/></button>
+        </li>
         </li>
 
     </template>

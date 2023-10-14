@@ -1,0 +1,17 @@
+@import "../../../global/constants.scss";
+
+.card__button-more{
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 145%; 
+    border: none;
+    background: none;
+    display: flex;
+    gap: 0;
+    align-items: center;
+    padding: 0;
+    margin: 0 auto;
+    color: $colorBlue;
+    justify-self: flex-end;
+}

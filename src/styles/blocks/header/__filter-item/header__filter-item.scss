@@ -1,6 +1,6 @@
 @use "../../../global/constants";
 
-.header__filter-item{
+.header__filter-item {
     color: $colorGrey;
     font-size: 14px;
     font-style: normal;
@@ -16,4 +16,5 @@
     border: 1px solid $colorGreyBorder;
     background: $colorWhite;
     box-sizing: border-box;
+    justify-content: space-between;
 }

@@ -1,0 +1,23 @@
+@import "../../../global/constants.scss";
+
+.header__option{
+    display: flex;
+    height: 40px;
+    padding: 8px 12px;
+    align-items: center;
+    align-self: stretch;
+    width: 100%;
+    color: $colorBlack;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+    background-color: $colorWhite;
+    box-sizing: border-box;
+}
+
+.header__option:hover{
+    cursor: pointer;
+    background-color: $colorBlue;
+    color: $colorWhite;
+}
