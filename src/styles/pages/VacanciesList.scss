@@ -23,6 +23,7 @@
 @import "../blocks/card/__success-title/card__success-title.scss";
 @import "../blocks/card/__title/card__title.scss";
 @import "../blocks/card/card.scss";
+@import "../blocks/header/__icon/--rotate/header__icon--rotate.scss";
 @import "../blocks/card/__logo/card__logo.scss";
 @import "../blocks/card/__success-block/card__success-block.scss";
 @import "../blocks/footer/footer.scss";
@@ -52,3 +53,11 @@
 @import "../blocks/card/__limited-block/card__limited-block.scss";
 @import "../blocks/card/__icon/card__icon.scss";
 @import "../blocks/card/__button-more/card__button-more.scss";
+@import "../blocks/list/__block-buttons/list__block-buttons.scss";
+@import "../blocks/list/__button/list__button.scss";
+@import "../blocks/list/__button/--active/list__button--active.scss";;
+@import "../blocks/list/__block-buttons/--unvisible/list__block-buttons--unvisible.scss";
+@import "../blocks/card/__limited-block/--unvisible/card__limited-block--unvisible.scss";
+@import "../blocks/card/--big/card--bid.scss";
+@import "../blocks/card/__icon/--rotate/card__icon--rotate.scss";
+@import "../blocks/card/__span/card__span.scss";

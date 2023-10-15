@@ -16,31 +16,38 @@
         <div class="header__filter-block">
             <div class="header__section">
                 <div class="header__filter">
-                    <div class="header__filter-item" id="filter-form">Not selected<img class="header__icon"
+                    <div class="header__filter-item" id="filter-form"><span class="header__span">Not selected</span><img class="header__icon"
                             src="./img/chevronDown.svg" alt="стрелочка фильтрации"></div>
                     <div class="header__options-block">
-                        <div class="header__option">Full</div>
-                        <div class="header__option">Full</div>
-                        <div class="header__option">Full</div>
+                        <div class="header__option">Полная занятость</div>
+                        <div class="header__option">Частичная занятость</div>
                     </div>
                 </div>
                 <div class="header__filter">
-                    <div class="header__filter-item" id="filter-position">Not selected<img class="header__icon"
+                    <div class="header__filter-item" id="filter-position"><span class="header__span">Not selected</span><img class="header__icon"
                             src="./img/chevronDown.svg" alt="стрелочка фильтрации"></div>
                     <div class="header__options-block">
-                        <div class="header__option">Full</div>
-                        <div class="header__option">Full</div>
-                        <div class="header__option">Full</div>
+                        <div class="header__option">Алматы</div>
+                        <div class="header__option">Москва</div>
+                        <div class="header__option">Россия</div>
+                        <div class="header__option">Гомель</div>
+                        <div class="header__option">Минск</div>
                     </div>
                 </div>
             </div>
-            <button class="button header__button">Search </button>
+            <button class="button header__button">Search</button>
         </div>
         <span class="header__clear"><img class="header__icon" src="./img/close.svg">Clear filters</span>
     </header>
     <main class="main">
         <section class="list">
             <ul class="list__block"></ul>
+            <dic class="list__block-buttons">
+                <button class="list__button list__button--active" type="button">1</button>
+                <button class="list__button" type="button">2</button>
+                <button class="list__button" type="button">3</button>
+                <button class="list__button" type="button">4</button>
+            </dic>
         </section>
         <section class="request">
             <h2 class="request__title">Leave a request</h2>
@@ -95,7 +102,7 @@
         <li class="card">
             <div class="card__main-block">
                 <h4 class="card__title"></h4>
-                <img class="card__logo" src="https://hhcdn.ru/employer-logo/3790847.png" alt="#">
+                <img class="card__logo">
                 <button class="button card__button">Respond</button>
             </div>
             <div class="div card__info-block">
@@ -127,15 +134,12 @@
                     <li class="card-list-item card-list-item--requirement"></li>
                     <li class="card-list-item card-list-item--responsibility"></li>
                     <li class="card-list-item card-list-item--working-time-modes"></li>
-                    <li class="card-list-item"></li>
                 </ul>
                 <div class="card__limited-block"></div>
             </div>
-            <button class="card__button-more">More details<img src="./img/chevronDownBlue.svg" alt="стрелочка"
+            <button class="card__button-more"><span class="card__span">More details</span><img class="card__icon" src="./img/chevronDownBlue.svg" alt="стрелочка"
                     className="card__icon " /></button>
         </li>
-        </li>
-
     </template>
 </body>
 
