@@ -4,3 +4,16 @@
     background-color: $colorBlackButton;
     margin-left: auto;
 }
+
+@media screen and (max-width: 800px){
+    .card__button{
+        margin-top: 24px;
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .card__button{
+        width: 100%;
+    }
+}

@@ -6,3 +6,11 @@
     margin: 0 auto;
     padding: 0;
 }
+
+@media screen and (max-width: 800px){
+    .request__form{
+        width: calc(288/320*100%);
+        box-sizing: border-box;
+    }
+    
+}

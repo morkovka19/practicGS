@@ -6,3 +6,10 @@
     width: 50%;
     box-sizing: border-box;
 }
+
+@media screen and (max-width: 800px){
+    .list__block-buttons{
+        width: 80%;
+    }
+    
+}

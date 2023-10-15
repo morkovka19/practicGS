@@ -7,6 +7,15 @@
     font-size: 24px;
     font-style: normal;
     font-weight: 500;
-    line-height: 125%; /* 30px */
+    line-height: 125%;
     letter-spacing: -0.24px;
+}
+
+@media screen and (max-width: 800px){
+    .card__title {
+        font-size: 20px;
+        line-height: 120%;
+        letter-spacing: -0.2px;
+        width: 100%;
+    }
 }

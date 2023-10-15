@@ -6,3 +6,10 @@
     row-gap: 32px;
     list-style-type: none;
 }
+
+@media screen and (max-width: 340px){
+    .list__block{
+        max-width: 288px;
+    }
+    
+}

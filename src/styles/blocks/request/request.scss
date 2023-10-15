@@ -6,3 +6,10 @@
     background: $colorGreyBackground;
     justify-content: center;
 }
+
+@media screen and (max-width: 800px){
+    .request{
+        padding: 32px 0;
+    }
+    
+}

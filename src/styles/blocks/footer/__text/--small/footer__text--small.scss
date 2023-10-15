@@ -4,3 +4,12 @@
     line-height: 145%;
     text-align: end;
 }
+
+@media screen and (max-width: 800px){
+    .footer__text--small{
+        text-align: start;
+        font-size: 14px;
+        line-height: 140%;
+    }
+    
+}

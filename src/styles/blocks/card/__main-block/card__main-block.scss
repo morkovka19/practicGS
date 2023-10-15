@@ -4,5 +4,12 @@
     width: 100%;
     align-items: center;
     gap: 12px;
+}
 
+@media screen and (max-width: 800px){
+    .card__main-block{
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+    }
 }

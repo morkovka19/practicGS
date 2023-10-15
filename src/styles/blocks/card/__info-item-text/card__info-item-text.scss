@@ -9,3 +9,10 @@
     font-weight: 400;
     line-height: 145%; 
 }
+
+@media screen and (max-width: 1180px){
+    .card__info-item-text{
+        font-size: 13px;
+    }
+    
+}

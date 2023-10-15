@@ -8,3 +8,11 @@
     box-sizing: border-box;
     padding-top: 64px;
 }
+
+@media screen and (max-width: 800px){
+    .header{
+        padding-top: 32px;
+        width: calc(288/320*100%);
+        gap: 24px;
+    }
+}

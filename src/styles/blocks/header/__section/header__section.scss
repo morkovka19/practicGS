@@ -6,3 +6,12 @@
     justify-content: space-between;
     column-gap: 16px;
 }
+
+
+@media screen and (max-width: 800px){
+    .header__section{
+        width: 100%;
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}

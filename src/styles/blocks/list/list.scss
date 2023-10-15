@@ -5,3 +5,10 @@
     max-width: 1200px;
     padding-bottom: 104px;
 }
+
+@media screen and (max-width: 800px){
+    .list{
+        width: calc(288/320*100%);
+        padding-bottom: 32px;
+    }
+}
