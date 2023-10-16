@@ -85,43 +85,42 @@ filterPositionBlock.addEventListener("click", (e) => {
     handleClickFilter(e.currentTarget);
 });
 
-
-optionsBlockForm.addEventListener("click", (e) => {
-    filterFormValue = e.target.textContent;
+const handleClickOption = (e) => {
+    if (e.target.parentElement.parentElement.querySelector("#filter-form") !== null) {filterFormValue = e.target.textContent}
+    else {filterPositionValue = e.target.textContent};
     e.currentTarget.parentElement.querySelector(".header__span").textContent = e.target.textContent;
     e.currentTarget.classList.remove("header__options-block--visible");
     e.currentTarget.parentElement.querySelector(".header__icon").classList.toggle("header__icon--rotate");
-    console.log(e.currentTarget.parentElement)
     e.currentTarget.parentElement.classList.add("header__filter-item--active");
+}
+
+
+optionsBlockForm.addEventListener("click", (e) => {
+    handleClickOption(e);
 });
 
 optionsBlockPosition.addEventListener("click", (e) => {
-    filterPositionValue = e.target.textContent;
-    e.currentTarget.parentElement.querySelector(".header__span").textContent = e.target.textContent;
-    e.currentTarget.classList.remove("header__options-block--visible");
-    e.currentTarget.parentElement.querySelector(".header__icon").classList.toggle("header__icon--rotate");
-    e.currentTarget.parentElement.classList.add("header__filter-item--active");
+    handleClickOption(e);
 })
 
 buttonSearch.addEventListener("click", () => {
-    if (filterFormValue !== "" || filterPositionValue !== "") {
-        const filterCards = data.filter((item) => {
-            if (filterPositionValue === "") {
-                return item.employment?.name === filterFormValue && item;
-            } else if (filterFormValue === "") {
-                return item.area?.name === filterPositionValue && item;
-            } else {
-                return (item.area?.name === filterPositionValue && item.employment?.name === filterFormValue) ? item : null;
-            }
+    if (filterFormValue === "" && filterPositionValue === "") return;
+    const filterCards = data.filter((item) => {
+        if (filterPositionValue === "") {
+            return item.employment?.name === filterFormValue;
+        } else if (filterFormValue === "") {
+            return item.area?.name === filterPositionValue;
+        } else {
+            return (item.area?.name === filterPositionValue && item.employment?.name === filterFormValue) ? item : null;
         }
-        )
-        list.innerHTML = "";
-        filterCards.forEach((card) => {
-            addCard(card);
-        })
-        paginationButtonsBlock.classList.add("list__block-buttons--unvisible");
-        buttonClear.classList.add("header__clear--visible");
     }
+    )
+    list.innerHTML = "";
+    filterCards.forEach((card) => {
+        addCard(card);
+    })
+    paginationButtonsBlock.classList.add("list__block-buttons--unvisible");
+    buttonClear.classList.add("header__clear--visible");
 }
 );
 
@@ -148,7 +147,7 @@ list.addEventListener("click", (e) => {
 })
 
 
-form.addEventListener("submit", (e) =>{
+form.addEventListener("submit", (e) => {
     e.preventDefault();
 })
 

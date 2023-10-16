@@ -14,7 +14,7 @@
     <header class="header">
         <h1 class="header__title">List of vacancies</h1>
         <div class="header__filter-block">
-            <div class="header__section">
+            <div class="header__filter-block-section">
                 <div class="header__filter">
                     <span class="header__label">Form</span>
                     <div class="header__filter-item" id="filter-form"><span class="header__span">Not selected</span><img class="header__icon"
@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div class="header__filter">
-                    <span class="header__label">Position</span>
+                    <span class="header__filter-label">Position</span>
                     <div class="header__filter-item" id="filter-position"><span class="header__span">Not selected</span><img class="header__icon"
                             src="./img/chevronDown.svg" alt="стрелочка фильтрации"></div>
                     <div class="header__options-block">
@@ -41,7 +41,9 @@
         </div>
         <span class="header__clear"><img class="header__icon" src="./img/close.svg">Clear filters</span>
     </header>
+
     <main class="main">
+
         <section class="list">
             <ul class="list__block"></ul>
             <div class="list__block-buttons">
@@ -51,6 +53,7 @@
                 <button class="list__button" type="button">4</button>
             </div>
         </section>
+
         <section class="request">
             <h2 class="request__title">Leave a request</h2>
             <p class="request__subtitle">We will advise you and help you start a new project</p>
@@ -86,7 +89,9 @@
                 <a class="request__link" href="#">processing of personal data</a>
             </div>
         </section>
+
     </main>
+
     <footer class="footer">
         <div class="footer__contacts">
             <span class="footer__text">+7 499 391-66-69</span>
@@ -97,8 +102,6 @@
             <span class="footer__text footer__text--small"><a class="footer__link" href="#">Directions</a></span>
         </div>
     </footer>
-
-
 
     <template id="card">
         <li class="card">

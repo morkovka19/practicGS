@@ -13,14 +13,14 @@ const path = {
         css: 'build/css/',
         img: 'build/img/',
         fonts: 'build/fonts/',
-        js: 'build/js/',
+        js: 'build/.js/',
     },
     src: {
         html: 'src/*.*',
         css: 'src/styles/*.scss',
         img: 'src/img/*.*',
         fonts: 'src/fonts/*.*',
-        js: 'src/js/*js'
+        js: 'src/js/*.js'
     },
     watch: {
         html: 'src/*.*',

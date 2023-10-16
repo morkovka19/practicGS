@@ -1,4 +1,4 @@
-@import "../../global/constants.scss";
+@import "../global/constants.scss";
 
 .button{
     height: 44px;
@@ -10,8 +10,10 @@
     border: none;
     border-radius: 4px;
     box-sizing: border-box;
-}
 
-.button:hover{
-    cursor: pointer;
+
+    &:hover{
+        cursor: pointer;
+    }
+
 }

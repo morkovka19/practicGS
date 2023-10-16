@@ -1,0 +1,198 @@
+@import "../global/constants.scss";
+
+.request{
+    width: 100%;
+    padding: 64px 0 88px;
+    background: $colorGreyBackground;
+    justify-content: center;
+
+    @media screen and (max-width: 800px){
+            padding: 32px 0;
+    }
+
+    @media screen and (max-width: 400px){
+            padding: 32px 16px;
+            box-sizing: border-box;
+    }
+
+    &__button{
+        background-color: $colorBlue;
+        max-width: 380px;
+        width: calc(380/590*100%);
+        margin: 32px auto 0;
+
+        @media screen and (max-width: 800px){
+                margin-top: 24px;
+                width: 100%;
+        }
+    }
+
+    &__fieldset{
+        display: flex;
+        flex-direction: column;
+        margin-top: 48px;
+        border: none;
+        gap: 18px;
+        padding: 0;
+
+        @media screen and (max-width: 800px) {
+                gap: 16px;
+                margin-top: 24px;
+        }
+    }
+
+    &__form{
+        display: flex;
+        flex-direction: column;
+        width: calc(590/1440*100%);
+        max-width: 590px;
+        margin: 0 auto;
+        padding: 0;
+
+        @media screen and (max-width: 800px){
+                width: calc(288/320*100%);
+                box-sizing: border-box;
+        }
+
+        @media screen and (max-width: 400px){
+                width: 288px;
+        }
+    }
+
+    &__input{
+        display: flex;
+        height: 44px;
+        padding: 4px 12px;
+        align-items: center;
+        align-self: stretch;
+        border-radius: 4px;
+        border: 1px solid $colorGreyBorder;
+        background: $colorWhite;
+        box-sizing: border-box;
+        width: 100%;
+
+        &::placeholder{
+            color: $colorGrey;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%;
+        }
+    }
+
+    &__input-block{
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        width: 100%;
+    }
+
+    &__label{
+        color: $colorBlack;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 125%;
+    }
+
+    &__link{
+        color: $colorBlue;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 145%;
+        text-decoration: none;
+        border-bottom: 1px solid  rgba($colorBlue, .2);
+    }
+
+    &__link-block{
+        margin: 18px auto 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        align-items: center;
+    }
+
+    &__span{
+        color: $colorBlack;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 145%;
+        text-align: center;
+
+
+        @media screen and (max-width: 800px){
+                font-size: 14px;
+                line-height: 140%;
+                max-width: 288px;
+        }
+    }
+
+    &__subtitle{
+        color: $colorBlack;
+        text-align: center;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%;
+        margin: 0;
+        padding: 0;
+        margin-top: 20px;
+
+        @media screen and (max-width: 800px){
+
+                font-size: 16px;
+                line-height: 145%;
+                max-width: 288px;
+                margin: 16px auto 0;
+            }
+    }
+
+
+    &__textarea{
+        display: flex;
+        padding: 12px;
+        align-items: flex-start;
+        gap: 8px;
+        flex: 1 0 0;
+        align-self: stretch;
+        border-radius: 4px;
+        border: 1px solid $colorGreyBorder;
+        background: $colorWhite;
+        min-height: 88px;
+        box-sizing: border-box;
+        resize: none;
+        width: 100%;
+
+        &::placeholder{
+            color: $colorGrey;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%;
+        }
+    }
+
+    &__title{
+        color: $colorBlack;
+        text-align: center;
+        font-family: Roboto;
+        font-size: 34px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 125%;
+        letter-spacing: -0.34px;
+        margin: 0;
+        padding: 0;
+
+        @media screen and (max-width: 800px){
+                font-size: 28px;
+                line-height: 120%;
+                letter-spacing: -0.28px;
+                max-width: 288px;
+                margin: 0 auto
+            }
+    }
+}
