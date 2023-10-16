@@ -11,5 +11,12 @@
     .request{
         padding: 32px 0;
     }
+}
+
+@media screen and (max-width: 400px){
+    .request{
+        padding: 32px 16px;
+        box-sizing: border-box;
+    }
     
 }
