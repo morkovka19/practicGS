@@ -1,0 +1,21 @@
+@import "../../../global/constants";
+
+.header__title{
+    color: $colorBlack;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 58px;
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (max-width: 800px){
+    .header__title{
+        font-size: 34px;
+        font-weight: 500;
+        line-height: 120%;
+        letter-spacing: -0.34px;
+        text-align: center;
+    }
+}

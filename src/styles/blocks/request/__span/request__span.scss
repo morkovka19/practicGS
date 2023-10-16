@@ -1,0 +1,19 @@
+@import "../../../global/constants.scss";
+
+.request__span{
+    color: $colorBlack;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 145%;
+    text-align: center;
+}
+
+@media screen and (max-width: 800px){
+    .request__span{
+        font-size: 14px;
+        line-height: 140%;
+        max-width: 288px;
+    }
+    
+}

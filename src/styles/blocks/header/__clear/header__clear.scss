@@ -1,0 +1,26 @@
+@import "../../../global/constants.scss";
+
+.header__clear{
+    position: absolute;
+    top: 240px;
+    color: $colorBlue;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 145%;
+    display: none;
+    flex-direction: row;
+    gap: 4px;
+    align-items: center;
+}
+
+.header__clear:hover{
+    cursor: pointer;
+}
+
+@media screen and (max-width: 800px){
+    .header__clear{
+        font-size: 10px;
+    }
+    
+}

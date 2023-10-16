@@ -1,0 +1,22 @@
+@import "../../global/constants.scss";
+
+.request{
+    width: 100%;
+    padding: 64px 0 88px;
+    background: $colorGreyBackground;
+    justify-content: center;
+}
+
+@media screen and (max-width: 800px){
+    .request{
+        padding: 32px 0;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .request{
+        padding: 32px 16px;
+        box-sizing: border-box;
+    }
+    
+}

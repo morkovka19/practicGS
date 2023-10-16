@@ -1,0 +1,16 @@
+@import "../../../global/constants.scss";
+
+.request__button{
+    background-color: $colorBlue;
+    max-width: 380px;
+    width: calc(380/590*100%);
+    margin: 32px auto 0;
+}
+
+@media screen and (max-width: 800px){
+    .request__button{
+        margin-top: 24px;
+        width: 100%;
+    }
+    
+}

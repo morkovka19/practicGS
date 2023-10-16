@@ -1,0 +1,16 @@
+@import "../../../global/constants.scss";
+
+.footer__text{
+    color: $colorWhite;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+}
+
+@media screen and (max-width: 800px){
+    .footer__text{
+        font-size: 16px;
+    }
+    
+}

@@ -1,38 +1,46 @@
-const browserSync = require('browser-sync');
 const gulp = require('gulp'),
-    gutil = require('gulp-util')
+    gutil = require('gulp-util'),
     del = require('del'),
     sourcemaps = require('gulp-sourcemaps'),
     autoprefixer = require('gulp-autoprefixer'),
-    sass = require('gulp-sass')(require('sass'));
+    sass = require('gulp-sass')(require('sass')),
+    sync = require('browser-sync')
+
 
 const path = {
     build: {
         html: 'build/',
         css: 'build/css/',
-        js: 'build/js/',
         img: 'build/img/',
-        fonts: 'build/fonts/'
+        fonts: 'build/fonts/',
+        js: 'build/js/',
     },
     src: {
         html: 'src/*.*',
         css: 'src/styles/*.scss',
-        js: 'src/js/index.js',
-        img: 'src/img/',
-        fonts: 'src/fonts/'
+        img: 'src/img/*.*',
+        fonts: 'src/fonts/*.*',
+        js: 'src/js/*js'
+    },
+    watch: {
+        html: 'src/*.*',
+        css: 'src/styles/*.scss',
+        img: 'src/img/*.*',
+        fonts: 'src/fonts/*.*',
+        js: 'src/js/*.js'
     },
     clean: 'build',
 };
-
-const clean = () => del(path.clean);
-
 const buildHtml = () =>
     gulp
         .src(path.src.html)
         .on('error', function (e) {
-        gutil.log(e.plugin, gutil.colors.red(e.message));
+            gutil.log(e.plugin, gutil.colors.red(e.message));
         })
         .pipe(gulp.dest(path.build.html));
+
+const clean = () => del(path.clean);
+
 
 const buildCSS = () =>
     gulp
@@ -53,7 +61,6 @@ const buildCSS = () =>
         .pipe(gulp.dest(path.build.css));
 
 
-
 const buildJs = () =>
     gulp
         .src(path.src.js)
@@ -62,23 +69,18 @@ const buildJs = () =>
         })
         .pipe(gulp.dest(path.build.js));
 
-
 const buildImg = () => gulp.src(path.src.img).pipe(gulp.dest(path.build.img));
 
 const buildFonts = () =>
-        gulp.src(path.src.fonts).pipe(gulp.dest(path.build.fonts));
+    gulp.src(path.src.fonts).pipe(gulp.dest(path.build.fonts));
 
 
 const buildFunction = () =>
     gulp.series(clean, buildHtml, buildCSS, buildJs, buildImg, buildFonts);
 
 
-
-
-
-
 const serverFunction = () =>
-    browserSync({
+    sync({
         server: {
             baseDir: ['build', 'src'],
         },
@@ -86,14 +88,12 @@ const serverFunction = () =>
         host: 'localhost',
         port: 3000,
     });
-
-
 const watchFunction = () => {
-    gulp.watch([path.src.html], gulp.series(buildHtml));
-    gulp.watch([path.src.css], gulp.series(buildCSS));
-    gulp.watch([path.src.js], gulp.series(buildJs));
-    gulp.watch([path.src.img], gulp.series(buildImg));
+    gulp.watch([path.watch.html], gulp.series(buildHtml));
+    gulp.watch([path.watch.css], gulp.series(buildCSS));
+    gulp.watch([path.watch.js], gulp.series(buildJs));
+    gulp.watch([path.watch.img], gulp.series(buildImg));
 };
 
-exports.dev = gulp.parallel(buildFunction, watchFunction, serverFunction);
 exports.build = buildFunction();
+exports.dev = gulp.parallel(buildFunction, watchFunction, serverFunction);
