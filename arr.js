@@ -54,8 +54,8 @@ const fun5 = (arr) => {
 
 }
 
-//console.log(fun1(arr))
-//console.log(fun2(arr));
-//console.log(fun3(arr));
-//console.log(fun4(3, 4, 5, 6, 10))
+console.log(fun1(arr))
+console.log(fun2(arr));
+console.log(fun3(arr));
+console.log(fun4(3, 4, 5, 6, 10))
 console.log(fun5(['fruit', 'keyboard', 'word', 'word', 'keyboard', 'word', 'fruit', 'banana']))
