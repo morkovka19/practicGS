@@ -96,12 +96,12 @@ const handleClickOption = (e) => {
 
 
 optionsBlockForm.addEventListener("click", (e) => {
-    filterFormValue = e.target.textContent
+    filterFormValue = e.target.textContent;
     handleClickOption(e);
 });
 
 optionsBlockPosition.addEventListener("click", (e) => {
-    filterPositionValue = e.target.textContent
+    filterPositionValue = e.target.textContent;
     handleClickOption(e);
 })
 
