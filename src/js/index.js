@@ -10,6 +10,7 @@ const buttonSearch = document.querySelector(".header__button");
 const buttonClear = document.querySelector(".header__clear");
 const form = document.querySelector(".request__form");
 
+
 let filterFormValue = "";
 let filterPositionValue = "";
 let startPage = 1;
