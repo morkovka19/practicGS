@@ -1,0 +1,19 @@
+@import "../global/constants.scss";
+
+.button{
+    height: 44px;
+    padding: 8px 32px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    color: $colorWhite;
+    border: none;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+
+    &:hover{
+        cursor: pointer;
+    }
+
+}

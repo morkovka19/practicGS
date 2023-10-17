@@ -1,0 +1,30 @@
+{
+  "name": "practicgs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp build",
+    "dev": "gulp dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/morkovka19/practicGS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/morkovka19/practicGS/issues"
+  },
+  "homepage": "https://github.com/morkovka19/practicGS#readme",
+  "devDependencies": {
+    "browser-sync": "^2.29.3",
+    "del": "^4.1.1",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "sass": "^1.69.3"
+  }
+}
