@@ -1,19 +1,20 @@
 const url = "https://api.hh.ru/vacancies";
 const list = document.querySelector(".list__block");
-let data = [];
-let numderCards = 5;
 const paginationButtonsBlock = document.querySelector(".list__block-buttons");
-let startPage = 1;
 const paginationButtons = document.querySelectorAll(".list__button");
 const filterFormBlock = document.querySelector("#filter-form");
 const filterPositionBlock = document.querySelector("#filter-position");
 const optionsBlockForm = filterFormBlock.parentElement.querySelector(".header__options-block");
 const optionsBlockPosition = filterPositionBlock.parentElement.querySelector(".header__options-block");
-let filterFormValue = "";
-let filterPositionValue = "";
 const buttonSearch = document.querySelector(".header__button");
 const buttonClear = document.querySelector(".header__clear");
 const form = document.querySelector(".request__form");
+
+let filterFormValue = "";
+let filterPositionValue = "";
+let startPage = 1;
+let data = [];
+let numderCards = 5;
 
 const getCards = () => {
     return fetch(url).then(res => res.json()).then(res => res).catch(err => err)
