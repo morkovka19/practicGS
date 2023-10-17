@@ -16,31 +16,31 @@
         <div class="header__filter-block">
             <div class="header__filter-block-section">
                 <div class="header__filter">
-                    <span class="header__label">Form</span>
+                    <span class="header__filter-label">Form</span>
                     <div class="header__filter-item" id="filter-form"><span class="header__span">Not selected</span><img class="header__icon"
-                            src="./img/chevronDown.svg" alt="стрелочка фильтрации"></div>
-                    <div class="header__options-block">
-                        <div class="header__option">Полная занятость</div>
-                        <div class="header__option">Частичная занятость</div>
+                            src="./img/chevronDown.svg" alt="filter arrow"></div>
+                    <div class="header__options">
+                        <div class="header__options-item">Полная занятость</div>
+                        <div class="header__options-item">Частичная занятость</div>
                     </div>
                 </div>
                 <div class="header__filter">
                     <span class="header__filter-label">Position</span>
                     <div class="header__filter-item" id="filter-position"><span class="header__span">Not selected</span><img class="header__icon"
-                            src="./img/chevronDown.svg" alt="стрелочка фильтрации"></div>
-                    <div class="header__options-block">
-                        <div class="header__option">Воронеж</div>
-                        <div class="header__option">Москва</div>
-                        <div class="header__option">Россия</div>
-                        <div class="header__option">Казань</div>
-                        <div class="header__option">Минск</div>
-                        <div class="header__option">Самара</div>
+                            src="./img/chevronDown.svg" alt="filer arrow"></div>
+                    <div class="header__options">
+                        <div class="header__options-item">Воронеж</div>
+                        <div class="header__options-item">Москва</div>
+                        <div class="header__options-item">Россия</div>
+                        <div class="header__options-item">Казань</div>
+                        <div class="header__options-item">Минск</div>
+                        <div class="header__options-item">Самара</div>
                     </div>
                 </div>
             </div>
             <button class="button header__button">Search</button>
         </div>
-        <span class="header__clear"><img class="header__icon" src="./img/close.svg">Clear filters</span>
+        <span class="header__clear"><img class="header__icon" src="./img/close.svg" alt="close">Clear filters</span>
     </header>
 
     <main class="main">
@@ -63,12 +63,12 @@
 
                     <div class="request__input-block">
                         <label class="request__label" for="name">Your name</label>
-                        <input type="text" class="request__input" id="name" placeholder="Please introduce yourself">
+                        <input type="text" class="request__input" id="name" placeholder="Please introduce yourself" required minlength="2" maxlength="20">
                     </div>
 
                     <div class="request__input-block">
                         <label class="request__label" for="email">Email</label>
-                        <input type="email" class="request__input" id="email" placeholder="ivanov@gmail.com">
+                        <input type="email" class="request__input" id="email" placeholder="ivanov@gmail.com" required>
                     </div>
 
                     <div class="request__input-block">
@@ -79,7 +79,7 @@
                     <div class="request__input-block">
                         <label class="request__label" for="comment">Comment</label>
                         <textarea type="text" class="request__textarea" id="comment"
-                            placeholder="Message text"></textarea>
+                            placeholder="Message text" minlength="20"></textarea>
                     </div>
 
                 </fieldset>
@@ -108,7 +108,7 @@
         <li class="card">
             <div class="card__main-block">
                 <h4 class="card__title"></h4>
-                <img class="card__logo">
+                <img class="card__logo" alt="logo">
                 <button class="button card__button">Respond</button>
             </div>
             <div class="div card__info-block">
@@ -143,7 +143,7 @@
                 </ul>
                 <div class="card__limited-block"></div>
             </div>
-            <button class="card__button-more"><span class="card__span">More details</span><img class="card__icon" src="./img/chevronDownBlue.svg" alt="стрелочка"
+            <button class="card__button card__button--more"><span class="card__span">More details</span><img class="card__icon" src="./img/chevronDownBlue.svg" alt="arrow"
                     className="card__icon " /></button>
         </li>
     </template>

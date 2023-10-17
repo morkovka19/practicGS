@@ -4,12 +4,17 @@ const paginationButtonsBlock = document.querySelector(".list__block-buttons");
 const paginationButtons = document.querySelectorAll(".list__button");
 const filterFormBlock = document.querySelector("#filter-form");
 const filterPositionBlock = document.querySelector("#filter-position");
-const optionsBlockForm = filterFormBlock.parentElement.querySelector(".header__options-block");
-const optionsBlockPosition = filterPositionBlock.parentElement.querySelector(".header__options-block");
+const optionsBlockForm = filterFormBlock.parentElement.querySelector(".header__options");
+const optionsBlockPosition = filterPositionBlock.parentElement.querySelector(".header__options");
 const buttonSearch = document.querySelector(".header__button");
 const buttonClear = document.querySelector(".header__clear");
 const form = document.querySelector(".request__form");
-
+const inputName = form.querySelector("#name");
+const inputPhone = form.querySelector("#phone");
+const inputEmail = form.querySelector("#email");
+const inputComment = form.querySelector("#comment");
+const regPhone = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
+const regEmail = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
 
 let filterFormValue = "";
 let filterPositionValue = "";
@@ -35,14 +40,14 @@ const generateCard = (card) => {
     } else {
         logo.remove();
     }
-    cardTemplate.querySelector(".card__info-item-text--form").textContent = card?.employment?.name;
-    cardTemplate.querySelector(".card__info-item-text--company").textContent = card.employer.name;
-    cardTemplate.querySelector(".card__info-item-text--web").textContent = card?.alternate_url;
-    cardTemplate.querySelector(".card__info-item-text--address").textContent = card?.area?.name;
-    cardTemplate.querySelector(".card__description").textContent = card?.schedule?.name;
-    cardTemplate.querySelector('.card-list-item--requirement').textContent = card?.snippet?.requirement;
-    cardTemplate.querySelector(".card-list-item--responsibility").textContent = card?.snippet?.responsibility;
-    cardTemplate.querySelector(".card-list-item--working-time-modes").textContent = card?.working_time_modes[0]?.name;
+    cardTemplate.querySelector(".card__info-item-text--form").textContent = card?.employment.name || 'Не указано';
+    cardTemplate.querySelector(".card__info-item-text--company").textContent = card.employer.name || 'Не указано';
+    cardTemplate.querySelector(".card__info-item-text--web").textContent = card?.alternate_url || 'Не указано';
+    cardTemplate.querySelector(".card__info-item-text--address").textContent = card?.area?.name || 'Не указано';
+    cardTemplate.querySelector(".card__description").textContent = card?.schedule?.name || 'Не указано';
+    cardTemplate.querySelector('.card-list-item--requirement').textContent = card?.snippet?.requirement || 'Не указано';
+    cardTemplate.querySelector(".card-list-item--responsibility").textContent = card?.snippet?.responsibility || 'Не указано';
+    cardTemplate.querySelector(".card-list-item--working-time-modes").textContent = card?.working_time_modes[0]?.name || 'Не указано';
     return cardTemplate;
 }
 
@@ -55,7 +60,7 @@ const addCard = (card) => {
 
 const handleClickFilter = (formBlock) => {
     formBlock.querySelector(".header__icon").classList.toggle("header__icon--rotate");
-    formBlock.parentElement.querySelector(".header__options-block").classList.toggle("header__options-block--visible");
+    formBlock.parentElement.querySelector(".header__options").classList.toggle("header__options--visible");
 }
 
 const paginationFunction = (startPage, endPage) => {
@@ -68,7 +73,7 @@ const paginationFunction = (startPage, endPage) => {
 paginationButtonsBlock.addEventListener("click", (e) => {
     if (e.target.classList.contains("list__button")) {
         startPage = e.target.textContent;
-        paginationFunction((startPage - 1) * numderCards, (startPage - 1) * numderCards + numderCards);
+        paginationFunction((startPage - 1) * numderCards, startPage * numderCards);
         paginationButtons.forEach((button) => {
             if (button.classList.contains("list__button--active")) {
                 button.classList.remove("list__button--active");
@@ -89,7 +94,7 @@ filterPositionBlock.addEventListener("click", (e) => {
 
 const handleClickOption = (e) => {
     e.currentTarget.parentElement.querySelector(".header__span").textContent = e.target.textContent;
-    e.currentTarget.classList.remove("header__options-block--visible");
+    e.currentTarget.classList.remove("header__options--visible");
     e.currentTarget.parentElement.querySelector(".header__icon").classList.toggle("header__icon--rotate");
     e.currentTarget.parentElement.classList.add("header__filter-item--active");
 }
@@ -140,18 +145,36 @@ buttonClear.addEventListener("click", (e) => {
 
 
 list.addEventListener("click", (e) => {
-    if (e.target.parentElement.classList.contains("card__button-more")) {
+    if (e.target.parentElement.classList.contains("card__button--more")) {
         e.target.parentElement.parentElement.classList.toggle("card--big");
         e.target.parentElement.parentElement.querySelector(".card__limited-block").classList.toggle("card__limited-block--unvisible");
         e.target.firstChild.textContent = e.target.firstChild.textContent === "More details" ? "Less details" : "More details";
         e.target.parentElement.querySelector(".card__icon").classList.toggle("card__icon--rotate");
     }
-})
+});
 
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
-})
+    if (!regPhone.test(inputPhone.value)){
+        alert("Введите, пожалуйчта, номер телефона в необходимом формате");
+        inputPhone.value = "";
+        return;
+    }
+    if (!regEmail.test(inputEmail.value)){
+        alert("Введите, пожалуйста, почту в необходимом формате");
+        inputEmail.value = '';
+        return;
+    }
+    alert(`name: ${inputName.value}\nemail: ${inputEmail.value}\nphone: ${inputPhone}\ncomment: ${inputComment.value}`);
+    inputComment.value = "";
+    inputEmail.value = "";
+    inputName.value = "";
+    inputPhone.value = "";
+    return;
+});
+
+
 
 getCards()
     .then(cards => {

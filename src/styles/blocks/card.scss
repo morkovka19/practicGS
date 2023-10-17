@@ -1,6 +1,6 @@
 @import "../global/constants.scss";
 
-.card{
+.card {
     width: 100%;
     display: flex;
     max-width: 1200px;
@@ -14,13 +14,13 @@
     height: 336px;
     justify-content: space-evenly;
 
-    @media screen and (max-width: 800px){
+    @media screen and (max-width: 800px) {
         height: 610px;
         padding: 20px;
     }
 
 
-    &--big{
+    &--big {
         height: auto;
     }
 
@@ -29,59 +29,61 @@
         background-color: $colorBlackButton;
         margin-left: auto;
 
-        @media screen and (max-width: 800px){
+        @media screen and (max-width: 800px) {
             margin-top: 24px;
             margin-left: 0;
         }
 
-        @media screen and (max-width: 400px){
-                width: 100%;
+        @media screen and (max-width: 400px) {
+            width: 100%;
+        }
+
+        &--more {
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 145%;
+            border: none;
+            background: none;
+            display: flex;
+            gap: 0;
+            align-items: center;
+            padding: 0;
+            margin: 0 auto;
+            color: $colorBlue;
+            justify-self: flex-end;
+
+            :hover {
+                cursor: pointer;
             }
-    }
-
-    &__button-more {
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 145%;
-        border: none;
-        background: none;
-        display: flex;
-        gap: 0;
-        align-items: center;
-        padding: 0;
-        margin: 0 auto;
-        color: $colorBlue;
-        justify-self: flex-end;
-
-        :hover{
-            cursor: pointer;
         }
     }
 
-    &__description{
+
+
+    &__description {
         color: $colorBlack;
         font-size: 16px;
         font-style: normal;
         font-weight: 400;
         line-height: 145%;
-        margin:32px 0  0;
-        padding:  0;
+        margin: 32px 0 0;
+        padding: 0;
 
-        @media screen and (max-width: 800px){
-                margin-top: 16px;
-                font-size: 14px;
-                line-height: 140%;
+        @media screen and (max-width: 800px) {
+            margin-top: 16px;
+            font-size: 14px;
+            line-height: 140%;
         }
     }
 
-    &__icon{
-        &--rotate{
+    &__icon {
+        &--rotate {
             transform: rotate(180deg);
         }
     }
 
-    &__info-block{
+    &__info-block {
         display: flex;
         flex-direction: row;
         width: 100%;
@@ -89,42 +91,44 @@
         margin: 32px 0 0;
 
 
-        @media screen and (max-width: 1180px){
-                gap: 25px;
+        @media screen and (max-width: 1180px) {
+            gap: 25px;
         }
 
-        @media screen and (max-width: 800px){
-                flex-direction: column;
-                gap: 8px;
+        @media screen and (max-width: 800px) {
+            flex-direction: column;
+            gap: 8px;
         }
     }
 
-    &__info-item{
+    &__info-item {
         display: flex;
         flex-direction: row;
         align-items: center;
         gap: 8px;
-    }
 
-    &__info-item-text{
-        margin: 0;
-        padding: 0;
-        color: $colorBlack;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 145%;
+        &-text {
+            margin: 0;
+            padding: 0;
+            color: $colorBlack;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 145%;
 
-        @media screen and (max-width: 1180px){
+            @media screen and (max-width: 1180px) {
                 font-size: 13px;
-        }
+            }
 
-        &--light{
-            color: $colorGreyText;
+            &--light {
+                color: $colorGreyText;
+            }
         }
     }
 
-    &__limited-block{
+
+
+    &__limited-block {
         position: absolute;
         bottom: 0;
         background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
@@ -133,12 +137,12 @@
         opacity: 1;
         transition: .3s;
 
-        &--unvisible{
+        &--unvisible {
             display: none;
         }
     }
 
-    &__list{
+    &__list {
         color: $colorBlack;
         font-size: 16px;
         font-style: normal;
@@ -150,65 +154,68 @@
         gap: 8px;
         width: 100%;
 
-        @media screen and (max-width: 800px){
-                box-sizing: border-box;
-            }
-    }
-
-    &__list-item{
-        @media screen and (max-width: 800px){
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 140%;
+        @media screen and (max-width: 800px) {
+            box-sizing: border-box;
         }
 
-        @media screen and (max-width: 800px){
+
+        &-item {
+            @media screen and (max-width: 800px) {
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 140%;
+            }
+
+            @media screen and (max-width: 800px) {
                 box-sizing: border-box;
                 width: calc(248/320*100%);
-        }
+            }
 
+        }
     }
 
-    &__logo{
+    &__logo {
         max-width: 150px;
         height: 40px;
 
-        @media screen and (max-width: 800px){
-                order: -1;
-                max-width: 100%;
-                align-self: flex-start;
+        @media screen and (max-width: 800px) {
+            order: -1;
+            max-width: 100%;
+            align-self: flex-start;
         }
     }
 
-    &__main-block{
+    &__main-block {
         display: flex;
         flex-direction: row;
         width: 100%;
         align-items: center;
         gap: 12px;
 
-        @media screen and (max-width: 800px){
-                flex-direction: column;
-                gap: 8px;
-                align-items: flex-start;
+        @media screen and (max-width: 800px) {
+            flex-direction: column;
+            gap: 8px;
+            align-items: flex-start;
         }
     }
 
-    &__success-block{.card--big{
-        height: auto;
-    }
+    &__success-block {
+        .card--big {
+            height: auto;
+        }
+
         flex-direction: column;
         gap: 8px;
         position: relative;
         width: 100%;
         overflow: hidden;
 
-        @media screen and (max-width: 800px){
-                margin-top: 16px;
-            }
+        @media screen and (max-width: 800px) {
+            margin-top: 16px;
+        }
     }
 
-    &__success-title{
+    &__success-title {
         color: $colorBlack;
         font-size: 16px;
         font-style: normal;
@@ -217,12 +224,12 @@
         margin: 0;
         padding: 0;
 
-        @media screen and (max-width: 800px){
-                font-size: 14px;
+        @media screen and (max-width: 800px) {
+            font-size: 14px;
         }
     }
 
-    &__title{
+    &__title {
         margin: 0;
         padding: 0;
         color: $colorBlack;
@@ -232,42 +239,11 @@
         line-height: 125%;
         letter-spacing: -0.24px;
 
-        @media screen and (max-width: 800px){
-                font-size: 20px;
-                line-height: 120%;
-                letter-spacing: -0.2px;
-                width: 100%;
+        @media screen and (max-width: 800px) {
+            font-size: 20px;
+            line-height: 120%;
+            letter-spacing: -0.2px;
+            width: 100%;
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
