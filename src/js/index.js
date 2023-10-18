@@ -1,4 +1,3 @@
-
 import {url, regPhone, regEmail} from "./utils/constants.js";
 
 const list = document.querySelector(".list__block");
