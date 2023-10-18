@@ -58,21 +58,6 @@
     &__filter {
         position: relative;
 
-        &-block-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            flex-direction: row;
-            width: calc(547/692*100%);
-            justify-content: space-between;
-            column-gap: 16px;
-
-            @media screen and (max-width: 800px) {
-                width: 100%;
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
-        }
-
         &-block {
             display: flex;
             flex-direction: row;
@@ -88,6 +73,21 @@
                 width: 100%;
                 flex-direction: column;
                 gap: 32px;
+            }
+
+            &-section {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                flex-direction: row;
+                width: calc(547/692*100%);
+                justify-content: space-between;
+                column-gap: 16px;
+
+                @media screen and (max-width: 800px) {
+                    width: 100%;
+                    grid-template-columns: 1fr;
+                    gap: 16px;
+                }
             }
         }
 
