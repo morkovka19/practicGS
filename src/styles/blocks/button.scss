@@ -1,6 +1,6 @@
 @import "../global/constants.scss";
 
-.button{
+.button {
     height: 44px;
     padding: 8px 32px;
     justify-content: center;
@@ -11,8 +11,7 @@
     border-radius: 4px;
     box-sizing: border-box;
 
-
-    &:hover{
+    &:hover {
         cursor: pointer;
     }
 

@@ -1,6 +1,6 @@
 @import "../global/constants.scss";
 
-.header{
+.header {
     width: calc(1200/1440*100%);
     max-width: 1200px;
     margin: 0 auto;
@@ -10,76 +10,88 @@
     box-sizing: border-box;
     padding-top: 64px;
 
-    @media screen and (max-width: 800px){
-            padding-top: 32px;
-            width: calc(288/320*100%);
-            gap: 24px;
+    @media screen and (max-width: 800px) {
+        padding-top: 32px;
+        width: calc(288/320*100%);
+        gap: 24px;
+    }
+
+    &__button {
+        background-color: $colorBlue;
+        align-self: flex-end;
+
+        @media screen and (max-width: 800px) {
+            align-self: center;
         }
 
-        &__button{
-            background-color: $colorBlue;
-            align-self: flex-end;
+        @media screen and (max-width: 400px) {
+            width: 100%;
+        }
+    }
 
-            @media screen and (max-width: 800px){
-                    align-self: center;
-            }
+    &__clear {
+        position: absolute;
+        top: 240px;
+        color: $colorBlue;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 145%;
+        display: none;
+        flex-direction: row;
+        gap: 4px;
+        align-items: center;
 
-            @media screen and (max-width: 400px){
-                width: 100%;
-            }
+        &:hover {
+            cursor: pointer;
         }
 
-        &__clear{
-            position: absolute;
-            top: 240px;
-            color: $colorBlue;
-            font-size: 16px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 145%;
-            display: none;
+        &--visible {
+            display: flex;
+        }
+
+        @media screen and (max-width: 800px) {
+            font-size: 10px;
+        }
+    }
+
+    &__filter {
+        position: relative;
+
+        &-block-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
             flex-direction: row;
-            gap: 4px;
-            align-items: center;
+            width: calc(547/692*100%);
+            justify-content: space-between;
+            column-gap: 16px;
 
-            &:hover{
-                cursor: pointer;
+            @media screen and (max-width: 800px) {
+                width: 100%;
+                grid-template-columns: 1fr;
+                gap: 16px;
             }
-
-            &--visible{
-                display: flex;
-            }
-
-            @media screen and (max-width: 800px){
-                    font-size: 10px;
-                }
         }
 
-        &__filter{
+        &-block {
+            display: flex;
+            flex-direction: row;
+            width: calc(692/1200*100%);
+            justify-content: space-between;
             position: relative;
 
-            &-block{
-                display: flex;
-                flex-direction: row;
-                width: calc(692/1200*100%);
-                justify-content: space-between;
-                position: relative;
+            @media screen and (max-width: 1180px) {
+                width: 90%;
+            }
 
-                @media screen and (max-width: 1180px){
-                        width: 90%;
-                }
-
-                @media screen and (max-width: 800px){
-                        width: 100%;
-                        flex-direction: column;
-                        gap: 32px;
-                }
+            @media screen and (max-width: 800px) {
+                width: 100%;
+                flex-direction: column;
+                gap: 32px;
             }
         }
 
-
-
-        &__filter-item {
+        &-item {
             color: $colorGrey;
             font-size: 14px;
             font-style: normal;
@@ -97,32 +109,43 @@
             box-sizing: border-box;
             justify-content: space-between;
 
-            &:hover{
+            &:hover {
                 cursor: pointer;
             }
 
-            &--active{
+            &--active {
                 color: $colorBlack;
             }
         }
 
-
-
-        &__icon{
-            &--rotate{
-                transform: rotate(180deg);
-            }
-        }
-
-        &__filter-label{
+        &-label {
             color: $colorBlack;
             font-size: 12px;
             font-style: normal;
             font-weight: 500;
             line-height: 125%;
         }
+    }
 
-        &__options-item{
+    &__icon {
+        &--rotate {
+            transform: rotate(180deg);
+        }
+    }
+
+    &__options {
+        position: absolute;
+        box-shadow: 0px 0px 16px 0px rgba(30, 30, 30, 0.10);
+        width: 100%;
+        top: 66px;
+        display: none;
+        z-index: 2;
+
+        &--visible {
+            display: block;
+        }
+
+        &-item {
             display: flex;
             height: 40px;
             padding: 8px 12px;
@@ -137,56 +160,29 @@
             background-color: $colorWhite;
             box-sizing: border-box;
 
-            &:hover{
+            &:hover {
                 cursor: pointer;
                 background-color: $colorBlue;
                 color: $colorWhite;
             }
         }
+    }
 
-        &__options{
-            position: absolute;
-            box-shadow: 0px 0px 16px 0px rgba(30, 30, 30, 0.10);
-            width: 100%;
-            top: 66px;
-            display: none;
-            z-index: 2;
+    &__title {
+        color: $colorBlack;
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 58px;
+        margin: 0;
+        padding: 0;
 
-            &--visible{
-                display: block;
-            }
-        }
-
-        &__filter-block-section{
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            flex-direction: row;
-            width: calc(547/692*100%);
-            justify-content: space-between;
-            column-gap: 16px;
-
-            @media screen and (max-width: 800px){
-                    width: 100%;
-                    grid-template-columns: 1fr;
-                    gap: 16px;
-                }
-        }
-
-        &__title{
-            color: $colorBlack;
-            font-size: 48px;
-            font-style: normal;
+        @media screen and (max-width: 800px) {
+            font-size: 34px;
             font-weight: 500;
-            line-height: 58px;
-            margin: 0;
-            padding: 0;
-
-            @media screen and (max-width: 800px){
-                font-size: 34px;
-                font-weight: 500;
-                line-height: 120%;
-                letter-spacing: -0.34px;
-                text-align: center;
-            }
+            line-height: 120%;
+            letter-spacing: -0.34px;
+            text-align: center;
         }
+    }
 }

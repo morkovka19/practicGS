@@ -19,11 +19,9 @@
         padding: 20px;
     }
 
-
     &--big {
         height: auto;
     }
-
 
     &__button {
         background-color: $colorBlackButton;
@@ -59,8 +57,6 @@
         }
     }
 
-
-
     &__description {
         color: $colorBlack;
         font-size: 16px;
@@ -83,50 +79,51 @@
         }
     }
 
-    &__info-block {
+
+
+    &__info {
         display: flex;
         flex-direction: row;
-        width: 100%;
-        gap: 48px;
-        margin: 32px 0 0;
 
 
-        @media screen and (max-width: 1180px) {
-            gap: 25px;
-        }
-
-        @media screen and (max-width: 800px) {
-            flex-direction: column;
-            gap: 8px;
-        }
-    }
-
-    &__info-item {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 8px;
-
-        &-text {
-            margin: 0;
-            padding: 0;
-            color: $colorBlack;
-            font-size: 16px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 145%;
+        &-block {
+            width: 100%;
+            gap: 48px;
+            margin: 32px 0 0;
 
             @media screen and (max-width: 1180px) {
-                font-size: 13px;
+                gap: 25px;
             }
 
-            &--light {
-                color: $colorGreyText;
+            @media screen and (max-width: 800px) {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+
+        &-item {
+            align-items: center;
+            gap: 8px;
+
+            &-text {
+                margin: 0;
+                padding: 0;
+                color: $colorBlack;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 145%;
+
+                @media screen and (max-width: 1180px) {
+                    font-size: 13px;
+                }
+
+                &--light {
+                    color: $colorGreyText;
+                }
             }
         }
     }
-
-
 
     &__limited-block {
         position: absolute;
@@ -157,7 +154,6 @@
         @media screen and (max-width: 800px) {
             box-sizing: border-box;
         }
-
 
         &-item {
             @media screen and (max-width: 800px) {

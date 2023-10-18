@@ -13,7 +13,7 @@ const path = {
         css: 'build/css/',
         img: 'build/img/',
         fonts: 'build/fonts/',
-        js: 'build/.js/',
+        js: 'build/js/',
     },
     src: {
         html: 'src/*.*',

@@ -1,4 +1,6 @@
-const url = "https://api.hh.ru/vacancies";
+
+import {url, regPhone, regEmail} from "./utils/constants.js";
+
 const list = document.querySelector(".list__block");
 const paginationButtonsBlock = document.querySelector(".list__block-buttons");
 const paginationButtons = document.querySelectorAll(".list__button");
@@ -13,8 +15,6 @@ const inputName = form.querySelector("#name");
 const inputPhone = form.querySelector("#phone");
 const inputEmail = form.querySelector("#email");
 const inputComment = form.querySelector("#comment");
-const regPhone = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
-const regEmail = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
 
 let filterFormValue = "";
 let filterPositionValue = "";
@@ -157,7 +157,7 @@ list.addEventListener("click", (e) => {
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     if (!regPhone.test(inputPhone.value)){
-        alert("Введите, пожалуйчта, номер телефона в необходимом формате");
+        alert("Введите, пожалуйcта, номер телефона в необходимом формате");
         inputPhone.value = "";
         return;
     }
