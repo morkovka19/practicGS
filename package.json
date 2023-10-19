@@ -1,0 +1,19 @@
+{
+  "name": "practicgs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "task1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/morkovka19/practicGS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/morkovka19/practicGS/issues"
+  },
+  "homepage": "https://github.com/morkovka19/practicGS#readme"
+}
