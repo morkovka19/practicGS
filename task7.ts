@@ -1,11 +1,21 @@
+enum SIZE {
+    big,
+    small
+}
+
+
 interface Wolf {
-    size: 'big' | 'small',
+    size: SIZE.big
     tail: boolean,
-    color: string
+    color: string,
+    forest: string
   }
 
-  interface SmallDog extends Wolf {
-    toy: string
+  interface SmallDog {
+    size: SIZE.small,
+    tail: boolean,
+    color: string,
+    toy: string,
   }
 
 
@@ -15,25 +25,27 @@ interface Wolf {
     console.log(obj.color)
     console.log(obj.tail)
     console.log(obj.size)
-    if (obj.size === 'small') {
+    if (obj.size === SIZE.small) {
       const smallDog = obj as SmallDog;
       console.log(smallDog.toy)
     } else {
-        console.log("it's big wolf!!!!!")
+        const bigDog = obj as Wolf;
+        console.log(bigDog.forest)
     }
   }
 
-  const small : SmallDog = {
-    size: 'small',
+  const small : Corgi = {
+    size: SIZE.small,
     tail: true,
     color: 'eff',
     toy: 'jefj'
   }
 
-  const big : Wolf = {
-    size: 'big',
+  const big : Corgi = {
+    size: SIZE.big,
     tail: true,
-    color: 'ef'
+    color: 'ef',
+    forest: 'fdgfdg'
   }
 
   processObject(small)
