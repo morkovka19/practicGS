@@ -1,23 +1,23 @@
-enum Gender {
-    Man = 'man',
-    Woman = 'woman'
+enum GENDER {
+    man = 'man',
+    woman = 'woman'
 }
 
 type Person = {
     name: string,
     age: number,
-    gender: Gender
+    gender: GENDER
 }
 
-interface IUser extends Person {
+interface User extends Person {
     email: string,
     password: string
 }
 
-let user : IUser = {
+let user : User = {
     email: 'rf',
     name: 'fdff',
-    gender: Gender.Man,
+    gender: GENDER.man,
     password: 'dfdf',
     age: 12
 }

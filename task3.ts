@@ -1,10 +1,10 @@
 enum Status{
     ready = "ready",
-    inProgress = "in progress",
+    in_progress = "in progress",
     appointed = "appointed"
 }
 
-interface IDate {
+interface DateMy {
     day: number,
     month: number,
     year: number
@@ -14,7 +14,7 @@ type Task = {
     name: string,
     description: string,
     status: Status,
-    date: IDate
+    date: DateMy
 }
 
 class TaskList {
@@ -53,14 +53,14 @@ class TaskList {
   const task1: Task = {
     name: '11',
     description: ' 11',
-    status: Status.inProgress,
+    status: Status.in_progress,
     date: { day: 1, month: 1, year: 1 },
   };
 
   const task2: Task = {
     name: '222',
     description: '222',
-    status: Status.inProgress,
+    status: Status.in_progress,
     date: { day: 2, month: 2, year: 2 },
   };
 

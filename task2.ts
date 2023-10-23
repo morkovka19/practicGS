@@ -1,4 +1,4 @@
-enum Type {
+enum TYPE {
     Mammal = 'mammal',
     Bird = 'bird',
     Fish = 'fish'
@@ -7,46 +7,46 @@ enum Type {
 type Animal = {
     name: string,
     age: number,
-    type: Type
+    type: TYPE
 }
 
-interface ICat extends Animal {
+interface Cat extends Animal {
     mustache: boolean,
     coloring: string
 }
 
-interface IDog extends Animal {
+interface Dog extends Animal {
     nickname: string,
     favoriteToy: boolean,
 }
 
-interface IBird extends Animal{
-    lengtBeak: number,
+interface Bird extends Animal{
+    lenghtBeak: number,
     habitat: string
 }
 
 
-let dog : IDog = {
+let dog : Dog = {
     name: 'Бобик',
     age: 2,
-    type: Type.Mammal,
+    type: TYPE.Mammal,
     nickname: 'Боб',
     favoriteToy: true
 };
 
-let cat : ICat =  {
+let cat : Cat =  {
     name: 'Барсик',
     age: 1,
-    type: Type.Mammal,
+    type: TYPE.Mammal,
     mustache: false,
     coloring: 'в полосочку'
 }
 
-let bird : IBird = {
+let bird : Bird = {
     name: "Гоша",
     age: 0.5,
-    type: Type.Bird,
-    lengtBeak: 10,
+    type: TYPE.Bird,
+    lenghtBeak: 10,
     habitat: 'тропики'
 }
 console.log(dog, bird, cat)
