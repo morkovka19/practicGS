@@ -26,10 +26,10 @@ interface Wolf {
     console.log(obj.tail)
     console.log(obj.size)
     if (obj.size === SIZE.small) {
-      const smallDog = obj as SmallDog;
+      const smallDog = obj;
       console.log(smallDog.toy)
     } else {
-        const bigDog = obj as Wolf;
+        const bigDog = obj;
         console.log(bigDog.forest)
     }
   }
