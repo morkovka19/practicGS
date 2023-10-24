@@ -1,5 +1,7 @@
 import type { AppProps } from 'next/app';
 import { FC } from 'react';
+import getAllVacancies from 'src/api/controls/getAllVacancies';
+import { GetServerSideProps } from 'next';
 
 import AppProviders from '@components/AppProviders';
 
@@ -12,5 +14,4 @@ function MyApp(props: AppProps) {
         </AppProviders>
     );
 }
-
 export default MyApp;
