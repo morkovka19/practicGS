@@ -19,7 +19,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    //"jsxImportSource": "@emotion/react",
+    "jsxImportSource": "@emotion/core",
     "baseUrl": ".",
     "types": [
         "@emotion/react/types/css-prop"
@@ -47,4 +47,3 @@
     "node_modules"
   ]
 }
-

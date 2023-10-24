@@ -14,7 +14,7 @@ export default function HomePage(props: any) {
   return (
   //   <Body>
   //     {/* <Head children={undefined}></Head> */}
-    <div>{JSON.stringify(vacancies.items)}</div>
+    <div css={{background: 'lightblue'}}>{JSON.stringify(vacancies.items)}</div>
 
   //     <Header />
   //     <Main />

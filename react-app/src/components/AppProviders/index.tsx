@@ -2,6 +2,7 @@ import { ReactNode, useState } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 
+import { ThemeProvider, theme } from '../../scripts/gds';
 
 interface AppProvidersProps {
     children: ReactNode;
@@ -22,10 +23,12 @@ const AppProviders = ({ children }: AppProvidersProps) => {
     );
 
     return (
-        <QueryClientProvider client={queryClient}>
-            {children}
-            <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
-        </QueryClientProvider>
+        <ThemeProvider theme={theme}>
+            <QueryClientProvider client={queryClient}>
+                {children}
+                <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
+            </QueryClientProvider>
+        </ThemeProvider>
     );
 };
 
