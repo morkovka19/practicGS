@@ -1,9 +1,12 @@
-import { useQueryClient, useQuery } from "react-query";
+import { useQuery } from "react-query";
 import getAllVacancies from "./controls/getAllVacancies";
 
-export const  useAllVacsncies = () => {
-   useQuery<Vacancies[]>({
-    queryKey: ['vacancies'],
-    queryFn: () => getAllVacancies()
-   })
+export default function useAllVacancies(props: any) {
+   const { data } = useQuery({
+      queryKey: ['vacancies'],
+      queryFn: getAllVacancies,
+      initialData: props.vacancies
+   }
+   )
+   return data;
 }

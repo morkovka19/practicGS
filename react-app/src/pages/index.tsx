@@ -1,26 +1,26 @@
-import Head from 'next/head'
-import { useQuery } from 'react-query';
+// import Head from 'next/head'
 import getAllVacancies from 'src/api/controls/getAllVacancies';
+import useAllVacancies from 'src/api/useAllVacancies';
+import Body from 'src/containers/Page';
 
-export async function getServerSideProps(){
-  const vacacies = await getAllVacancies();
-  return {props: { vacacies } }
+export async function getServerSideProps() {
+  const vacancies = await getAllVacancies();
+  return { props: { vacancies } }
 }
 
-export default function  HomePage(props: any){
-  // const { data } = useQuery({
-  //   queryKey: ['vacancies'],
-  //   queryFn: getAllVacancies,
-  //   initialData: props.vacancies
-  // })
-  console.log(props.vacacies)
+export default function HomePage(props: any) {
+
+  const vacancies = useAllVacancies(props);
   return (
-    <Head children={undefined}></Head>
+  //   <Body>
+  //     {/* <Head children={undefined}></Head> */}
+    <div>{JSON.stringify(vacancies.items)}</div>
+
+  //     <Header />
+  //     <Main />
+  //     <Footer />
+
+  //   <Body/>
+
   );
 };
-
-
-
-
-
-``
