@@ -1,7 +1,11 @@
 // import Head from 'next/head'
 import getAllVacancies from 'src/api/controls/getAllVacancies';
 import useAllVacancies from 'src/api/useAllVacancies';
-import Body from 'src/containers/Page';
+import { MyButton } from '@components/Button';
+import { useTheme } from '@emotion/react';
+import { Button } from '@greensight/gds';
+import { FutureButtonTheme } from '@greensight/gds';
+
 
 export async function getServerSideProps() {
   const vacancies = await getAllVacancies();
@@ -14,7 +18,11 @@ export default function HomePage(props: any) {
   return (
   //   <Body>
   //     {/* <Head children={undefined}></Head> */}
-    <div css={{background: 'lightblue'}}>{JSON.stringify(vacancies.items)}</div>
+    <div>
+      {JSON.stringify(vacancies.items)}
+      <MyButton />
+      <Button size='sm'>fe</Button>
+      </div>
 
   //     <Header />
   //     <Main />

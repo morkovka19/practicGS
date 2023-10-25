@@ -2,7 +2,8 @@ import { ReactNode, useState } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 
-import { ThemeProvider, theme } from '../../scripts/gds';
+import { ThemeProvider } from '@greensight/gds';
+import  {theme} from '../../scripts/gds'
 
 interface AppProvidersProps {
     children: ReactNode;
