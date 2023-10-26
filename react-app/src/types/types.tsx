@@ -1,4 +1,4 @@
- interface Vacancies{
+ export interface CardType{
      img: string,
      title: string,
      description: string,
@@ -9,3 +9,7 @@
      responsibility: string;
      working_time_modes: string
  }
+
+ export interface CardsProps{
+    cards: CardType[]
+}

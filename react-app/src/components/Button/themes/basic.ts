@@ -29,7 +29,6 @@ const basicTheme: ButtonTheme<typeof Variant, typeof Size> = {
             "primary": {
                 backgroundColor: colors.blue,
                 color: colors.white,
-                borderRadius: scale(1, true),
                 size: 44,
                 ':hover': {
                     backgroundColor: colors.blueHover,
@@ -38,11 +37,15 @@ const basicTheme: ButtonTheme<typeof Variant, typeof Size> = {
                     backgroundColor: colors.grey200,
                     color: colors.grey800,
                 }),
+                ...(state.rounded && {
+                    borderRadius: scale(1, true),
+                })
             },
             "secondary": {
                 backgroundColor: colors.grey900,
                 color: colors.white,
                 borderRadius: scale(1, true),
+                marginLeft: "auto",
                 ':hover': {
                     backgroundColor: colors.black
                 }
