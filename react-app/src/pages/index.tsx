@@ -1,7 +1,7 @@
 // import Head from 'next/head'
 import getAllVacancies from 'src/api/controls/getAllVacancies';
 import useAllVacancies from 'src/api/useAllVacancies';
-import { Container, Section } from '@greensight/gds';
+import { Container, Layout, Section } from '@greensight/gds';
 import Main from '@components/Main';
 import Header from '@components/Header';
 import Footer from '@components/Footer';
@@ -23,9 +23,9 @@ export default function HomePage(props: any) {
   const cards = getCardsInfo(vacancies?.items);
 
   return (
-    <Section container={false}  css={{alignItems: 'center', display: 'flex', flexDirection: 'column'}}>
+    <Layout type="flex" direction="column">
       <Content cards={cards} />
       <FooterContainer />
-    </Section>
+    </Layout>
   );
 };
