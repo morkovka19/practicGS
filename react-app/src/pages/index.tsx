@@ -11,6 +11,7 @@ import tokens from '../../public/tokens.json'
 import Form from '@components/Form';
 import FormSection from '@components/FormSection/FormSection';
 import Content from '@components/Content';
+import FooterContainer from '@components/FooterSection';
 
 export async function getServerSideProps() {
   const vacancies = await getAllVacancies();
@@ -24,8 +25,7 @@ export default function HomePage(props: any) {
   return (
     <Section container={false}  css={{alignItems: 'center', display: 'flex', flexDirection: 'column'}}>
       <Content cards={cards} />
-      <FormSection />
-      <Footer />
+      <FooterContainer />
     </Section>
   );
 };

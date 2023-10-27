@@ -8,13 +8,13 @@ import { CardsProps } from "./types";
 
 export default function Content(cards: CardsProps) {
     return (
-        <div css={{
+        <Container css={{
             margin: `${MAJOR_STEP * 8}px ${tokens.layout.padding.xl}px ${MAJOR_STEP * 13}px ${tokens.layout.padding.xl}px `,
             padding: '0',
-            maxWidth: `${tokens.typography.breakpoints[0]}px`
+            maxWidth: '1200px'
         }}>
             <Header />
             <Main cards={cards.cards} />
-        </div>
+        </Container>
     )
 }
