@@ -1,7 +1,7 @@
 import { OptionizedCSS, extractCSSOption, scale} from "@greensight/gds";
+import { colors } from "src/scripts/gds";
 import {SelectTheme} from "../types";
 import { Size, Variant } from "../enums";
-import { colors } from "src/scripts/gds";
 import tokens from '../../../../../public/tokens.json'
 
 const basicTheme: SelectTheme<typeof Variant, typeof Size> = {

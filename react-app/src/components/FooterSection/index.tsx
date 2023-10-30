@@ -1,6 +1,6 @@
 import Footer from "@components/Footer";
 import FormSection from "@components/FormSection/FormSection";
-import { Container, Layout, scale } from "@greensight/gds";
+import { Layout } from "@greensight/gds";
 import { colors } from "src/scripts/gds";
 
 export default function FooterContainer() {

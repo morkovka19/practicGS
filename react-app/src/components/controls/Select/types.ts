@@ -8,6 +8,8 @@ export interface State {
     open: boolean
 }
 
+export type SelectStateFull<V extends EnumLike, S extends EnumLike> = BaseThemeState<V, S> & State
+
 export interface SelectTheme<V extends EnumLike, S extends EnumLike> {
     select: StyleDefinition<SelectStateFull<V, S>>;
     option: StyleDefinition<SelectStateFull<V, S>>;
@@ -30,6 +32,3 @@ export interface SelectProps<V extends EnumLike, S extends EnumLike> extends Par
     handleClickSelected: any,
     handleClickOption: any
 };
-
-
-export type SelectStateFull<V extends EnumLike, S extends EnumLike> = BaseThemeState<V, S> & State

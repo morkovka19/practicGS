@@ -1,6 +1,6 @@
 import { CardType } from "src/types/types";
-import { haveProp } from "./haveProp";
 import { arrPosition } from "src/utils/constants";
+import { haveProp } from "./haveProp";
 
 export default function getCardsInfo(vacancies: any[]): CardType[]{
     const cards: CardType[] = vacancies.map((item) =>{

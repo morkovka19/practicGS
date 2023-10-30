@@ -1,12 +1,12 @@
+import { CSSObject } from '@emotion/core';
 import tokens from '../../public/tokens.json';
 import { ComponentsTheme, Theme, createTheme, useTheme as useGDSTheme, typography as GDStypography } from "@greensight/gds";
 import { global } from './themes/global';
-import { CSSObject } from '@emotion/core';
+
+
+const {colors, shadows} = tokens;
 export type ColorsTheme = typeof colors;
 export type TypographyParam = keyof typeof tokens.typography.styles;
-
-const colors = tokens.colors;
-const shadows = tokens.shadows
 
 export interface ExtendedTheme extends Omit<Theme, 'colors'> {
     components?: ComponentsTheme;

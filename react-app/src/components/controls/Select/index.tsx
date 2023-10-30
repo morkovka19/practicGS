@@ -6,23 +6,18 @@ import { SelectProps, SelectStateFull, SelectTheme } from "./types";
 
 export const BaseSelect = <V extends EnumLike, S extends EnumLike>(
     {
-        children,
         theme, // theme, variant, size будут
         size, // будет типизированы дальше, поэтому не имеют значения по-умолчанию
         variant,
         Icon,
         value = 'Not selected',
         disabled = true,
-        css,
         label,
         optionsArr,
         open,
         handleClickSelected,
         handleClickOption,
-        ...props
-    }: SelectProps<V, S>,
-    ref: Ref<HTMLSelectElement>,
-) => {
+    }: SelectProps<V, S>) => {
 
     const state = useMemo<SelectStateFull<V, S>>(
         () => ({
@@ -50,7 +45,7 @@ export const BaseSelect = <V extends EnumLike, S extends EnumLike>(
     return (
         <div css={selectContainerCSS as any} onClick={handleClickSelected}>
             <span css={labelCSS as any}>{label}</span>
-            <div css={totalCSS as any}><span>{value ? value : 'Not selected'}</span><Icon css={iconCSS as any} /></div>
+            <div css={totalCSS as any}>{value ? value : 'Not selected'}<Icon css={iconCSS as any} /></div>
             <ul css={optionsGroupCSS as any}>
                 {[...optionsArr].map((item, i) => (
                     <li key={i} css={optionCSS as any} onClick={onClickOption}>{item}</li>
@@ -71,7 +66,7 @@ export const createSelectWithTheme = <V extends EnumLike, S extends EnumLike>(
 ) => {
     type SelectReturn = ReturnType<typeof SelectRef>;
 
-    const ThemedButton = (({ theme = defaultTheme, variant = defaultVariant, size = defaultSize, ...props }, ref) => (
+    const ThemedButton = (({ theme = defaultTheme, variant = defaultVariant, size = defaultSize, ...props }) => (
         <SelectRef theme={theme} variant={variant} size={size} {...props} />
     )) as (props: SelectProps<V, S>, ref: Ref<HTMLButtonElement>) => SelectReturn;
 
@@ -85,4 +80,3 @@ export const Select = createSelectWithTheme<typeof Variant, typeof Size>(
     Variant.primary,
     Size.md
 )
-

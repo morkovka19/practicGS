@@ -1,7 +1,7 @@
 import { Layout, scale } from "@greensight/gds";
+import { useState } from "react";
 import { Button } from '../controls/Button'
 import OpenIcon from '../../icons/chevronDown.svg'
-import { useState } from "react";
 import {colors, shadows} from '../../scripts/gds';
 import { CardProps } from "./types";
 
@@ -52,12 +52,12 @@ export default function Card({ cardInfo, number }: CardProps) {
                                 <li key={1}>Требования: {cardInfo.requirement}</li>
                                 <li key={2}>Обязанности: {cardInfo.responsibility ? cardInfo.responsibility : "Не найдено"}</li>
                                 <li key={3}>График работы: {cardInfo.working_time_modes}</li>
-                                <div css={{ position: 'absolute', bottom: '0',right: '0', width: '100%', height: `${scale(19)}px`, opacity: '1', background: 'linear-gradient(to bottom, rgba(255, 255, 255, .7), rgba(255, 255, 255, 1))', display: `${!open ? 'block' : 'none'}`}}></div>
+                                <div css={{ position: 'absolute', bottom: '0',right: '0', width: '100%', height: `${scale(19)}px`, opacity: '1', background: 'linear-gradient(to bottom, rgba(255, 255, 255, .7), rgba(255, 255, 255, 1))', display: `${!open ? 'block' : 'none'}`}} />
                             </ul>
                         </dd>
                     </dl>
                 </Layout.Item>
-                <Button variant="link" size="sm" css={{zIndex: 1}} Icon={OpenIcon} iconAfter onClick={handleClick} children={!open ? 'More details' : 'Less details'} rounded={open}></Button>
+                <Button variant="link" size="sm" css={{zIndex: 1}} Icon={OpenIcon} iconAfter onClick={handleClick} rounded={open}>{!open ? 'More details' : 'Less details'}</Button>
             </Layout>
         </li>
     )

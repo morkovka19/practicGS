@@ -1,12 +1,10 @@
 import { Section, scale } from "@greensight/gds"
 import List from "@components/List"
-import {CardsProps} from "../../types/types"
 import Pagination from "@components/Pagination"
 import { useEffect, useState } from "react";
 import Filters from "@components/Filtres";
+import {CardsProps} from "../../types/types"
 import { FilterProps } from "./types";
-
-
 
 export default function Main ({cards}: CardsProps){
 
@@ -15,14 +13,14 @@ export default function Main ({cards}: CardsProps){
     const [filter, setFilter] = useState(false)
 
     useEffect(() =>{
-        if (actualPage !== 0) setCards(cards.slice((actualPage - 1) * 5, (actualPage * 5)))
-    }, [actualPage])
+        if (actualPage !== 0) setCards(cards?.slice((actualPage - 1) * 5, (actualPage * 5)))
+    }, [actualPage, cards])
 
     const handlePagination = (numberPage: number) =>{
         setActualPage(numberPage)
     }
 
-    function handleFilter({valueForm, valuePosition}: FilterProps){
+    const handleFilter = ({valueForm, valuePosition}: FilterProps) => {
         const actualCards = cards.filter((card) =>{
             if (valueForm === '') return card.adress === valuePosition && card;
             if (valuePosition === '') return card.work_form === valueForm && card;
@@ -33,7 +31,7 @@ export default function Main ({cards}: CardsProps){
         setActualPage(0)
     }
 
-    function handleClearFilter(){
+    const handleClearFilter = () =>{
         setFilter(false);
         setActualPage(1)
     }
