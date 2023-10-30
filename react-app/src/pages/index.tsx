@@ -4,6 +4,7 @@ import useAllVacancies from 'src/api/useAllVacancies';
 import getCardsInfo from 'src/helpers/getVacansies';
 import Content from '@components/Content';
 import FooterContainer from '@components/FooterSection';
+import { scale } from '@greensight/gds';
 
 export async function getServerSideProps() {
   const vacancies = await getAllVacancies();
@@ -15,7 +16,7 @@ export default function HomePage(props: any) {
   const cards = getCardsInfo(vacancies?.items);
 
   return (
-    <div css={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between'}}>
+    <div css={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', minHeight: '100vh', minWidth: `${scale(37)}px`}}>
       <Content cards={cards} />
       <FooterContainer />
     </div>

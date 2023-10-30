@@ -26,7 +26,6 @@ const typography = (name: TypographyParam = 'body') => GDStypography(name, theme
 const useTheme = () => useGDSTheme() as ExtendedTheme;
 
 import {
-    // ...
     createMediaQueries,
 } from '@greensight/gds';
 

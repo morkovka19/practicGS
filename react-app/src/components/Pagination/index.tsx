@@ -3,6 +3,7 @@ import { getAmountPages } from "src/helpers/getColPages";
 import { useEffect, useState } from "react";
 import { scale } from "@greensight/gds";
 import { amountCardsType } from "./types";
+import { MEDIA_QUERIES } from "src/scripts/gds";
 
 
 export default function Pagination({amountCards, handlePagination, filter}: amountCardsType) {
@@ -29,7 +30,13 @@ export default function Pagination({amountCards, handlePagination, filter}: amou
     }
 
     return (
-        <div css={{ margin: '0 auto', marginTop: `${scale(4)}px`, width: '40%', display: `${filter ? 'none' : 'block'}`}} >
+        <div css={{ margin: '0 auto',
+            marginTop: `${scale(4)}px`,
+             width: '40%',
+              display: `${filter ? 'none' : 'block'}`,
+              [MEDIA_QUERIES.xs]: {
+                width: '90%',
+              }}} >
             <ul css={{ display: 'flex', justifyContent: 'space-around', padding: '0' }}>
                 {arrButtonsNumbers.map((item, i) => (
                     <li key={i}>

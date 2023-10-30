@@ -5,6 +5,7 @@ import { Select } from "@components/controls/Select";
 import { arrForm, arrPosition } from "src/utils/constants";
 import ArrowGrey from '../../icons/chevronDownGrey.svg';
 import CloseIcon from '../../icons/close.svg';
+import { MEDIA_QUERIES } from "src/scripts/gds";
 
 
 export default function Filters(handleFilterCards: any) {
@@ -45,13 +46,40 @@ export default function Filters(handleFilterCards: any) {
     }
 
     return (
-        <Section css={{ marginBottom: `${scale(5)}px`, width: '68%', padding: 0, position: 'relative' }} container={false}>
-            <div css={{ display: 'flex', flexDirection: 'row', padding: '0', justifyContent: "space-between", alignItems: "end" }}>
-                <div css={{ width: '70%', display: 'flex', justifyContent: 'space-between'}}>
+        <Section css={{
+            marginBottom: `${scale(5)}px`,
+            width: '68%',
+            padding: '0',
+            position: 'relative',
+            [MEDIA_QUERIES.sm]: {
+                width: '100%',
+                marginBottom: `${scale(4)}px`,
+            }
+            }} container={false}>
+            <div css={{ display: 'flex',
+                flexDirection: 'row',
+                padding: '0',
+                justifyContent: "space-between",
+                alignItems: "end",
+                [MEDIA_QUERIES.sm] : {
+                    flexDirection: 'column',
+                    gap: `${scale(3)}px`,
+                    width: '100%',
+                } }}>
+                <div css={{ width: '70%',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    [MEDIA_QUERIES.sm]: {
+                        flexDirection: 'column',
+                        width:'100%',
+                        gap: `${scale(2)}px`
+                    }}}>
                     <Select label="Form" Icon={ArrowGrey} optionsArr={arrForm} open={openForm} handleClickSelected={handleClickSelectedForm} handleClickOption={handleClickOptionForm} value={valueForm} disabled={!Boolean(valueForm)} />
                     <Select label="Position" Icon={ArrowGrey} optionsArr={arrPosition} open={openPosition} handleClickSelected={handleClickSelectedPosition} handleClickOption={handleClickOptionPosition} value={valuePosition} disabled={!Boolean(valuePosition)} />
                 </div>
-                <Button variant="primary" size="md" onClick={handleFilter}>Search</Button>
+                <Button variant="primary" size="md" onClick={handleFilter} css={{
+                    [MEDIA_QUERIES.sm]: {margin: '0 auto'},
+                    [MEDIA_QUERIES.xs]: {width: '100%'}}}>Search</Button>
             </div>
             <Button variant="link" Icon={CloseIcon} block hidden={activeFilter} onClick={handleClickClear}>Clear filtres</Button>
         </Section>

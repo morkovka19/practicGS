@@ -1,5 +1,5 @@
 import { OptionizedCSS, extractCSSOption, scale, typography} from "@greensight/gds";
-import { colors } from "src/scripts/gds";
+import { MEDIA_QUERIES, colors } from "src/scripts/gds";
 import { Variant, Size } from "../enums";
 import { ButtonTheme } from "../types"
 
@@ -44,8 +44,15 @@ const basicTheme: ButtonTheme<typeof Variant, typeof Size> = {
                 padding: `${scale(1)}px ${scale(4)}px`,
                 fontSize: '15px',
                 fontWeight: '700',
+                lineHeight: '140%',
                 ':hover': {
                     backgroundColor: colors.black
+                },
+                [MEDIA_QUERIES.sm]: {
+                    margin: `${scale(3)}px auto 0`,
+                },
+                [MEDIA_QUERIES.xs]: {
+                    width: '100%',
                 }
             },
             "notactive": {
@@ -67,7 +74,11 @@ const basicTheme: ButtonTheme<typeof Variant, typeof Size> = {
                 display: 'flex',
                 alignItems: 'start',
                 justifyContent: 'center',
-                gap: '4px',
+                gap: '0',
+                [MEDIA_QUERIES.md]: {
+                    width: '100%',
+                    marginBottom: '10%',
+                },
                 ...(state.hidden && {
                     display: "none"
                 }),
@@ -77,7 +88,7 @@ const basicTheme: ButtonTheme<typeof Variant, typeof Size> = {
                     top: `${scale(8)}px`,
                     width: '100%',
                     justifyContent: 'start',
-                    columnGap:  `${scale(1)}`
+                    columnGap:  `${scale(1)}`,
                 })
             }
         };
@@ -120,7 +131,7 @@ const basicTheme: ButtonTheme<typeof Variant, typeof Size> = {
             ...extractCSSOption(sized, state.size),
             ...extractCSSOption(variant, state.variant),
         }
-        
+
     },
 };
 

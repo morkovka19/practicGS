@@ -1,5 +1,5 @@
 import { OptionizedCSS, extractCSSOption, scale} from "@greensight/gds";
-import { colors } from "src/scripts/gds";
+import { MEDIA_QUERIES, colors } from "src/scripts/gds";
 import {SelectTheme} from "../types";
 import { Size, Variant } from "../enums";
 import tokens from '../../../../../public/tokens.json'
@@ -128,7 +128,10 @@ const basicTheme: SelectTheme<typeof Variant, typeof Size> = {
         const size: OptionizedCSS<typeof Size> = {
             "md" : {
                 position: 'relative',
-                width: "40%"
+                width: "40%",
+                [MEDIA_QUERIES.sm]: {
+                    width: '100%'
+                }
             }
         }
         return {

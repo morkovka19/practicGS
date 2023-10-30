@@ -17,7 +17,8 @@ export const BaseSelect = <V extends EnumLike, S extends EnumLike>(
         open,
         handleClickSelected,
         handleClickOption,
-    }: SelectProps<V, S>) => {
+    }: SelectProps<V, S>,
+    ref: Ref<HTMLSelectElement>) => {
 
     const state = useMemo<SelectStateFull<V, S>>(
         () => ({
@@ -66,13 +67,13 @@ export const createSelectWithTheme = <V extends EnumLike, S extends EnumLike>(
 ) => {
     type SelectReturn = ReturnType<typeof SelectRef>;
 
-    const ThemedButton = (({ theme = defaultTheme, variant = defaultVariant, size = defaultSize, ...props }) => (
+    const ThemedSelect = (({ theme = defaultTheme, variant = defaultVariant, size = defaultSize, ...props }, ref) => (
         <SelectRef theme={theme} variant={variant} size={size} {...props} />
     )) as (props: SelectProps<V, S>, ref: Ref<HTMLButtonElement>) => SelectReturn;
 
-    (ThemedButton as any).displayName = 'Button';
+    (ThemedSelect as any).displayName = 'Button';
 
-    return forwardRef(ThemedButton) as typeof ThemedButton;
+    return forwardRef(ThemedSelect) as typeof ThemedSelect;
 };
 
 export const Select = createSelectWithTheme<typeof Variant, typeof Size>(

@@ -5,11 +5,9 @@ import { colors } from "src/scripts/gds";
 
 export default function FooterContainer() {
     return (
-        <div css={{ width: '100%'}}>
-            <Layout type="flex" direction="column" align="center" justify="start" css={{ minWidth: '100%', margin: 0, padding: 0, backgroundColor: colors.grey100 }}>
+            <div css={{ display: 'flex',flexDirection: 'column', minWidth: '100%', margin: "0 auto", padding: 0, backgroundColor: colors.grey100, alignItems: 'center' }}>
                 <FormSection />
                 <Footer />
-            </Layout>
-        </div>
+            </div>
     )
 }
