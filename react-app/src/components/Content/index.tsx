@@ -1,20 +1,19 @@
 import Header from "@components/Header";
-import { Container, Section } from "@greensight/gds";
+import { Container, scale} from "@greensight/gds";
 import Main  from '../Main' 
-import { MAJOR_STEP } from "src/utils/constants";
-import tokens from '../../../public/tokens.json'
-import { CardType } from "src/types/types";
 import { CardsProps } from "./types";
 
-export default function Content(cards: CardsProps) {
+export default function Content({cards}: CardsProps) {
     return (
         <Container css={{
-            margin: `${MAJOR_STEP * 8}px ${tokens.layout.padding.xl}px ${MAJOR_STEP * 13}px ${tokens.layout.padding.xl}px `,
             padding: '0',
-            maxWidth: '1200px'
+            maxWidth: `${scale(15)}px`,
+            width: `83%`,
+            marginTop: `${scale(8)}px`,
+            marginBottom: `${scale(13)}px`
         }}>
             <Header />
-            <Main cards={cards.cards} />
+            <Main cards={cards} />
         </Container>
     )
 }

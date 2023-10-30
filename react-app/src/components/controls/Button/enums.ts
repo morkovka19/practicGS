@@ -1,6 +1,8 @@
 export enum Variant{
     primary="primary",
-    secondary="secondary"
+    secondary="secondary",
+    link="link",
+    notactive="notactive"
 }
 
 export enum Size{

@@ -6,6 +6,7 @@ export type ColorsTheme = typeof colors;
 export type TypographyParam = keyof typeof tokens.typography.styles;
 
 const colors = tokens.colors;
+const shadows = tokens.shadows
 
 export interface ExtendedTheme extends Omit<Theme, 'colors'> {
     components?: ComponentsTheme;
@@ -37,4 +38,4 @@ const {
 export const MEDIA_QUERIES = createMediaQueries(breakpoints);
 
 export * from '@greensight/gds';
-export { typography, theme, useTheme, colors };
+export { typography, theme, useTheme, colors, shadows };

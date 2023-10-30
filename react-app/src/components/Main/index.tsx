@@ -1,15 +1,49 @@
-import { Container, Section } from "@greensight/gds"
-import { AppProps } from "next/app"
-import { CardType } from "src/types/types"
+import { Section, scale } from "@greensight/gds"
 import List from "@components/List"
 import {CardsProps} from "../../types/types"
-import { MAJOR_STEP } from "src/utils/constants"
+import Pagination from "@components/Pagination"
+import { useEffect, useState } from "react";
+import Filters from "@components/Filtres";
+import { FilterProps } from "./types";
 
-export default function Main (cards: CardsProps){
+
+
+export default function Main ({cards}: CardsProps){
+
+    const [cardsActive, setCards] = useState(cards.slice(0, 5));
+    const [actualPage, setActualPage] = useState(1);
+    const [filter, setFilter] = useState(false)
+
+    useEffect(() =>{
+        if (actualPage !== 0) setCards(cards.slice((actualPage - 1) * 5, (actualPage * 5)))
+    }, [actualPage])
+
+    const handlePagination = (numberPage: number) =>{
+        setActualPage(numberPage)
+    }
+
+    function handleFilter({valueForm, valuePosition}: FilterProps){
+        const actualCards = cards.filter((card) =>{
+            if (valueForm === '') return card.adress === valuePosition && card;
+            if (valuePosition === '') return card.work_form === valueForm && card;
+            return card.adress === valuePosition && card.work_form === valueForm && card;
+        })
+        setCards(actualCards);
+        setFilter(true);
+        setActualPage(0)
+    }
+
+    function handleClearFilter(){
+        setFilter(false);
+        setActualPage(1)
+    }
+
     return (
         <main>
-            <Section css={{marginTop: `${MAJOR_STEP * 8}px`, padding: '0'}} container={false}>
-                    <List cards={cards.cards} />
+            <Section css={{marginTop: `${scale(5)}px`, padding: '0'}} container={false}>
+                <Filters handleFilterCards={handleFilter} handleClearFilter={handleClearFilter} />
+                    <List cards={cardsActive} />
+                    <Pagination amountCards={cards.length} handlePagination={handlePagination} filter={filter} />
             </Section>
         </main>
     )

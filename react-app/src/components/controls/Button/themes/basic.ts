@@ -1,16 +1,8 @@
-import { EnumLike, OptionizedCSS, StyleDefinition, extractCSSOption, scale, typography} from "@greensight/gds";
-import { ButtonStateFull} from "../types";
+import { OptionizedCSS, extractCSSOption, scale, typography} from "@greensight/gds";
 import { colors } from "src/scripts/gds";
 import { Variant, Size } from "../enums";
+import { ButtonTheme } from "../types"
 
-interface ButtonTheme<V extends EnumLike, S extends EnumLike> {
-    button: StyleDefinition<ButtonStateFull<V, S>>;
-    icon: StyleDefinition<ButtonStateFull<V, S>>;
-}
-
-export function createButtonWithTheme<T, U>(basic: ButtonTheme<typeof Variant, typeof Size>, primary: Variant, sm: Size) {
-    throw new Error("Function not implemented.");
-};
 
 const basicTheme: ButtonTheme<typeof Variant, typeof Size> = {
     button: state => {
@@ -39,16 +31,54 @@ const basicTheme: ButtonTheme<typeof Variant, typeof Size> = {
                 }),
                 ...(state.rounded && {
                     borderRadius: scale(1, true),
-                })
+                }),
+                ...(state.block) && {
+                    width: '77%',
+                },
             },
             "secondary": {
                 backgroundColor: colors.grey900,
                 color: colors.white,
                 borderRadius: scale(1, true),
                 marginLeft: "auto",
+                padding: `${scale(1)}px ${scale(4)}px`,
+                fontSize: '15px',
+                fontWeight: '700',
                 ':hover': {
                     backgroundColor: colors.black
                 }
+            },
+            "notactive": {
+                backgroundColor: colors.grey200,
+                color: colors.grey800,
+                size: 44,
+                ':hover': {
+                    backgroundColor: colors.blueHover,
+                },
+            },
+
+            "link": {
+                backgroundColor: "none",
+                color: colors.blue,
+                fontSize: '14px',
+                width: '20%',
+                textAlign: 'center',
+                margin: 'auto',
+                display: 'flex',
+                alignItems: 'start',
+                justifyContent: 'center',
+                gap: '4px',
+                ...(state.hidden && {
+                    display: "none"
+                }),
+                ...(state.block && {
+                    position: 'absolute',
+                    left: '0',
+                    top: `${scale(8)}px`,
+                    width: '100%',
+                    justifyContent: 'start',
+                    columnGap:  `${scale(1)}`
+                })
             }
         };
 
@@ -60,8 +90,8 @@ const basicTheme: ButtonTheme<typeof Variant, typeof Size> = {
     icon: state => {
         const sized: OptionizedCSS<typeof Size> = {
             sm: {
-                width:"16px",
-                height: "16px",
+                width: `${scale(2)}px`,
+                height: `${scale(2)}px`,
                 ...(typography('buttonSm') as any),
             },
             md: {
@@ -69,8 +99,26 @@ const basicTheme: ButtonTheme<typeof Variant, typeof Size> = {
                 ...(typography('buttonMd') as any)
             },
         };
+
+        const variant: OptionizedCSS<typeof Variant>={
+            link: {
+                ...(state.rounded && {
+                    transform: 'rotate(180deg)'
+                })
+            },
+            primary: {
+                display: 'none'
+            },
+            "secondary": {
+                display: 'none'
+            },
+            "notactive": {
+                display: 'none'
+            }
+        }
         return{
             ...extractCSSOption(sized, state.size),
+            ...extractCSSOption(variant, state.variant),
         }
         
     },

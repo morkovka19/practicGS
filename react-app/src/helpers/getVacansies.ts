@@ -1,8 +1,10 @@
 import { CardType } from "src/types/types";
 import { haveProp } from "./haveProp";
+import { arrPosition } from "src/utils/constants";
 
 export default function getCardsInfo(vacancies: any[]): CardType[]{
     const cards: CardType[] = vacancies.map((item) =>{
+        arrPosition.add(item?.area?.name)
         return {
             title: haveProp(item, "name"),
             img: haveProp(item?.employer?.logo_urls, "original"),
@@ -16,5 +18,5 @@ export default function getCardsInfo(vacancies: any[]): CardType[]{
         }
 
     });
-    return cards
+    return cards;
 }

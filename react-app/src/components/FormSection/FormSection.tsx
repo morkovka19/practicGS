@@ -1,18 +1,14 @@
 import Form from "@components/Form";
-import { Container, Layout, Section } from "@greensight/gds";
-import tokens from '../../../public/tokens.json'
+import { Layout, Section, scale } from "@greensight/gds";
 import FormTitle from "@components/FormTitle";
-import FormContainer from "@components/FormContainer";
-import { MAJOR_STEP } from "src/utils/constants";
-import { Button } from "@components/Button";
 
 export default function FormSection() {
     return (
-        <Section container={false}>
-            <Container css={{ display: 'flex', flexDirection: 'column', alignItems: 'center', rowGap: `${MAJOR_STEP * 7}px`, paddingTop: `${MAJOR_STEP * 5}px` }}>
+        <Section container={false} css={{marginTop: `${scale(8)}px`}}>
+            <Layout type="flex" direction="column" align="center" css={{ rowGap: `${scale(7)}px` }}>{' '}
                     <FormTitle />
                     <Form />
-            </Container>
+            </Layout>
         </Section>
     )
 }

@@ -1,13 +1,15 @@
 import Footer from "@components/Footer";
 import FormSection from "@components/FormSection/FormSection";
-import { Container } from "@greensight/gds";
-import tokens from '../../../public/tokens.json'
+import { Container, Layout, scale } from "@greensight/gds";
+import { colors } from "src/scripts/gds";
 
 export default function FooterContainer() {
     return (
-        <Container  css={{ minWidth: '100%', margin: 0, padding: 0, backgroundColor: tokens.colors.grey100 }}>
-            <FormSection />
-            <Footer />
-        </Container>
+        <div css={{ width: '100%'}}>
+            <Layout type="flex" direction="column" align="center" justify="start" css={{ minWidth: '100%', margin: 0, padding: 0, backgroundColor: colors.grey100 }}>
+                <FormSection />
+                <Footer />
+            </Layout>
+        </div>
     )
 }
