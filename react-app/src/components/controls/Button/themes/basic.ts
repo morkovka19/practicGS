@@ -85,7 +85,6 @@ const basicTheme: ButtonTheme<typeof Variant, typeof Size> = {
                 gap: '0',
                 [MEDIA_QUERIES.md]: {
                     width: '100%',
-                    marginBottom: '10%',
                 },
                 ...(state.hidden && {
                     display: "none"

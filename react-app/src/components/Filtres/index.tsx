@@ -1,6 +1,6 @@
 import { Button } from "@components/controls/Button";
 import { Section, scale } from "@greensight/gds";
-import {  useState } from "react";
+import { useState } from "react";
 import { Select } from "@components/controls/Select";
 import { arrForm, arrPosition } from "src/utils/constants";
 import ArrowGrey from '../../icons/chevronDownGrey.svg';
@@ -46,44 +46,43 @@ export default function Filters(handleFilterCards: any) {
     }
 
     return (
-        <Section css={{
-            marginBottom: `${scale(5)}px`,
-            width: '70%',
-            maxWidth: scale(80),
+        <div css={{
+            display: 'flex',
+            flexDirection: 'row',
             padding: '0',
+            justifyContent: "space-between",
+            alignItems: "end",
             position: 'relative',
-            [MEDIA_QUERIES.xl]: {
-                width: '100%',
-                marginBottom: `${scale(4)}px`,
+            maxWidth: scale(80),
+            marginBottom: `${scale(5)}px`,
+            width: '57%',
+            gap: `${scale(4)} px`,
+            [MEDIA_QUERIES.lg]: {
+                width: '80%'
+            },
+            [MEDIA_QUERIES.sm]: {
+                flexDirection: 'column',
+                gap: `${scale(3)}px`,
+                width: '100%'
             }
-            }} container={false}>
-            <div css={{ display: 'flex',
-                flexDirection: 'row',
-                padding: '0',
-                justifyContent: "space-between",
-                alignItems: "end",
-                [MEDIA_QUERIES.sm] : {
+        }}>
+            <div css={{
+                width: '74%',
+                display: 'flex',
+                justifyContent: 'space-between',
+                [MEDIA_QUERIES.sm]: {
                     flexDirection: 'column',
-                    gap: `${scale(3)}px`,
                     width: '100%',
-                } }}>
-                <div css={{ width: '80%',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    [MEDIA_QUERIES.xl] : {
-                        width: '70%'
-                    },
-                    [MEDIA_QUERIES.sm]: {
-                        flexDirection: 'column',
-                        width:'100%',
-                        gap: `${scale(2)}px`
-                    }}}>
-                    <Select label="Form" Icon={ArrowGrey} optionsArr={arrForm} open={openForm} handleClickSelected={handleClickSelectedForm} handleClickOption={handleClickOptionForm} value={valueForm} disabled={!Boolean(valueForm)} />
-                    <Select label="Position" Icon={ArrowGrey} optionsArr={arrPosition} open={openPosition} handleClickSelected={handleClickSelectedPosition} handleClickOption={handleClickOptionPosition} value={valuePosition} disabled={!Boolean(valuePosition)} />
-                </div>
-                <Button variant="primary" size="md" onClick={handleFilter}>Search</Button>
+                    gap: `${scale(2)} px`,
+                }
+            }}>
+                <Select label="Form" Icon={ArrowGrey} optionsArr={arrForm} open={openForm} handleClickSelected={handleClickSelectedForm} handleClickOption={handleClickOptionForm} value={valueForm} disabled={!Boolean(valueForm)} />
+                <Select label="Position" Icon={ArrowGrey} optionsArr={arrPosition} open={openPosition} handleClickSelected={handleClickSelectedPosition} handleClickOption={handleClickOptionPosition} value={valuePosition} disabled={!Boolean(valuePosition)} />
             </div>
+            <Button variant="primary" size="md" onClick={handleFilter}>Search</Button>
+
             <Button variant="link" Icon={CloseIcon} block hidden={activeFilter} onClick={handleClickClear}>Clear filtres</Button>
-        </Section>
+        </div>
     )
 }
+

@@ -30,7 +30,6 @@ export default function Pagination({ amountCards, handlePagination, filter }: am
     }
 
     return (
-        <Section>
             <Container css={{
                 margin: '0 auto',
                 marginTop: `${scale(4)}px`,
@@ -54,6 +53,5 @@ export default function Pagination({ amountCards, handlePagination, filter }: am
                     </Layout>
                 </ul>
             </Container>
-        </Section>
     )
 }
