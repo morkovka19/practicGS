@@ -48,7 +48,8 @@ export default function Filters(handleFilterCards: any) {
     return (
         <Section css={{
             marginBottom: `${scale(5)}px`,
-            width: '68%',
+            width: '70%',
+            maxWidth: scale(80),
             padding: '0',
             position: 'relative',
             [MEDIA_QUERIES.sm]: {
@@ -66,7 +67,7 @@ export default function Filters(handleFilterCards: any) {
                     gap: `${scale(3)}px`,
                     width: '100%',
                 } }}>
-                <div css={{ width: '70%',
+                <div css={{ width: '80%',
                     display: 'flex',
                     justifyContent: 'space-between',
                     [MEDIA_QUERIES.sm]: {
@@ -77,9 +78,7 @@ export default function Filters(handleFilterCards: any) {
                     <Select label="Form" Icon={ArrowGrey} optionsArr={arrForm} open={openForm} handleClickSelected={handleClickSelectedForm} handleClickOption={handleClickOptionForm} value={valueForm} disabled={!Boolean(valueForm)} />
                     <Select label="Position" Icon={ArrowGrey} optionsArr={arrPosition} open={openPosition} handleClickSelected={handleClickSelectedPosition} handleClickOption={handleClickOptionPosition} value={valuePosition} disabled={!Boolean(valuePosition)} />
                 </div>
-                <Button variant="primary" size="md" onClick={handleFilter} css={{
-                    [MEDIA_QUERIES.sm]: {margin: '0 auto'},
-                    [MEDIA_QUERIES.xs]: {width: '100%'}}}>Search</Button>
+                <Button variant="primary" size="md" onClick={handleFilter}>Search</Button>
             </div>
             <Button variant="link" Icon={CloseIcon} block hidden={activeFilter} onClick={handleClickClear}>Clear filtres</Button>
         </Section>

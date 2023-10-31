@@ -128,7 +128,7 @@ const basicTheme: SelectTheme<typeof Variant, typeof Size> = {
         const size: OptionizedCSS<typeof Size> = {
             "md" : {
                 position: 'relative',
-                width: "40%",
+                width: "48%",
                 [MEDIA_QUERIES.sm]: {
                     width: '100%'
                 }

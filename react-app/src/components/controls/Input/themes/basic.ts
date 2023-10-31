@@ -30,9 +30,17 @@ const basicTheme: InputTheme<typeof Variant, typeof Size> = {
                 fontSize: '14px',
                 fontWeight: '400',
                 lineHeight: '140%',
+                ":focus": {
+                    outline: 'none',
+                    borderColor: colors.blueHover,
+                },
                 "::placeholder" : {
                     color: colors.grey600,
                 },
+
+                ...(state.error && state.touched && {
+                    borderColor: colors.error
+                })
             }
         }
         return {
@@ -53,6 +61,10 @@ const basicTheme: InputTheme<typeof Variant, typeof Size> = {
         const variant: OptionizedCSS<typeof Variant> = {
             "primary" : {
             color: colors.black,
+
+            ...(state.error && state.touched && {
+                color: colors.error
+            })
             }
         }
         return {
@@ -63,7 +75,12 @@ const basicTheme: InputTheme<typeof Variant, typeof Size> = {
     inputBlock: state => {
         const size: OptionizedCSS<typeof Size> = {
             md: {
-
+                display: "flex",
+                flexDirection: 'column',
+                width: '100%',
+                boxSizing: 'border-box',
+                margin: '0 auto',
+                position: 'relative'
             },
             sm: {
 
@@ -72,17 +89,43 @@ const basicTheme: InputTheme<typeof Variant, typeof Size> = {
         }
         const variant: OptionizedCSS<typeof Variant> = {
             "primary": {
-                display: "flex",
-                flexDirection: 'column',
-                width: '100%',
-                boxSizing: 'border-box',
-                margin: '0 auto'
+               
             }
         }
         return {
             ...extractCSSOption(size, state.size),
             ...extractCSSOption(variant, state.variant),
 
+        }
+    },
+    error: state => {
+
+        const size: OptionizedCSS<typeof Size> = {
+            md: {
+                position: "absolute",
+            },
+            sm: {
+
+            }
+        }
+        const variant: OptionizedCSS<typeof Variant> = {
+            "primary": {
+                color: colors.error,
+                fontSize: '12px',
+                display: 'none',
+
+                ...(state.error && state.touched && {
+                    display: "block",
+                    top: scale(6),
+                    ...(state.textArea && {
+                        top: scale(21, true)
+                    })
+                })
+            }
+        }
+        return {
+            ...extractCSSOption(size, state.size),
+            ...extractCSSOption(variant, state.variant)
         }
     }
 }

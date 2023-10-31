@@ -3,6 +3,7 @@ import { Ref, forwardRef, useMemo } from "react";
 import { InputProps, InputStateFull, InputTheme } from "./types";
 import { Size, Variant } from "./enums";
 import { INPUT_THEMES } from "./themes/basic";
+import { Field } from "formik"
 
 export const BaseInput = <V extends EnumLike, S extends EnumLike>({
     focus=false,
@@ -12,32 +13,34 @@ export const BaseInput = <V extends EnumLike, S extends EnumLike>({
     placeholder,
     inputId,
     variant,
-    size
+    size,
+    error='',
+    validate,
+    touched=false
 }: InputProps<V, S>, ref: Ref<HTMLInputElement>) => {
     const state  = useMemo<InputStateFull<V, S>>(
         () => ({
             focus,
             textArea,
             variant,
-            size
+            size,
+            error,
+            touched
         }),
-        [focus, size, variant, textArea]
+        [focus, size, variant, textArea, error, touched]
     );
 
     if (!theme) {
         throw new Error('[Input] theme is required');
     };
 
-    const {input: inputCSS, label: labelCSS, inputBlock: blockCSS} = useThemeCSS(theme!, state);
+    const {input: inputCSS, label: labelCSS, inputBlock: blockCSS, error: errorCSS} = useThemeCSS(theme!, state);
 
     return (
         <div css={blockCSS as any}>
             <label css={labelCSS as any} htmlFor={inputId}>{nameInput}</label>
-            {textArea ?
-                <textarea css={inputCSS as any} placeholder={placeholder} id={inputId}/> :
-                <input css={inputCSS as any} placeholder={placeholder} id={inputId}/>
-        }
-
+            <Field css={inputCSS as any} placeholder={placeholder} id={inputId} name={inputId} validate={validate} as={textArea ? "textarea" : "input"}/>
+            <span css={errorCSS as any}>{error}</span>
         </div>
     )
 

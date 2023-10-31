@@ -5,7 +5,6 @@ import OpenIcon from '../../icons/chevronDown.svg'
 import {MEDIA_QUERIES, colors, shadows} from '../../scripts/gds';
 import { CardProps } from "./types";
 
-
 export default function Card({ cardInfo, number }: CardProps) {
 
     const [open, setOpen] = useState(false)

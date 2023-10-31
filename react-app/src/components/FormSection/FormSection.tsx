@@ -1,5 +1,5 @@
-import Form from "@components/Form";
-import { Layout, Section, scale } from "@greensight/gds";
+import MyForm from "@components/Form";
+import { Section, scale } from "@greensight/gds";
 import FormTitle from "@components/FormTitle";
 import { MEDIA_QUERIES } from "src/scripts/gds";
 
@@ -16,7 +16,7 @@ export default function FormSection() {
             rowGap: `${scale(3)}px`,
         } }}>
                     <FormTitle />
-                    <Form />
+                    <MyForm />
             </div>
         </Section>
     )

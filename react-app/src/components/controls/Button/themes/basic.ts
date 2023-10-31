@@ -12,8 +12,16 @@ const basicTheme: ButtonTheme<typeof Variant, typeof Size> = {
                 ...(typography('buttonSm') as any),
             },
             md: {
-                padding:  `${scale(2, true) + 0.5}px ${scale(2)}px`,
-                ...(typography('buttonMd') as any)
+                padding:  `${scale(2, true) + 0.5}px ${scale(4)}px`,
+                ...(typography('buttonMd') as any),
+
+                [MEDIA_QUERIES.sm]: {
+                    margin: '0 auto'
+                },
+
+                [MEDIA_QUERIES.xs]: {
+                    width: '100%'
+                }
             },
         };
 
