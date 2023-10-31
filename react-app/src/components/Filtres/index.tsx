@@ -52,7 +52,7 @@ export default function Filters(handleFilterCards: any) {
             maxWidth: scale(80),
             padding: '0',
             position: 'relative',
-            [MEDIA_QUERIES.sm]: {
+            [MEDIA_QUERIES.xl]: {
                 width: '100%',
                 marginBottom: `${scale(4)}px`,
             }
@@ -70,6 +70,9 @@ export default function Filters(handleFilterCards: any) {
                 <div css={{ width: '80%',
                     display: 'flex',
                     justifyContent: 'space-between',
+                    [MEDIA_QUERIES.xl] : {
+                        width: '70%'
+                    },
                     [MEDIA_QUERIES.sm]: {
                         flexDirection: 'column',
                         width:'100%',

@@ -38,18 +38,19 @@ export default function Main({ cards }: CardsProps) {
     }
 
     return (
-        <main>
-            <Section css={{
-                marginTop: `${scale(5)}px`,
-                padding: '0',
-                [MEDIA_QUERIES.sm]: {
-                    marginTop: `${scale(3)}px`
-                }
-            }} container={false}>
-                <Filters handleFilterCards={handleFilter} handleClearFilter={handleClearFilter} />
-                <List cards={cardsActive} />
-                <Pagination amountCards={cards.length} handlePagination={handlePagination} filter={filter} />
-            </Section>
+        <main css={{
+            marginTop: `${scale(5)}px`,
+            marginBottom: `${scale(13)}px`,
+            padding: '0',
+            width: '83%',
+            [MEDIA_QUERIES.sm]: {
+                marginTop: `${scale(3)}px`,
+                marginBottom: `${scale(4)}px`
+            }
+        }}>
+            <Filters handleFilterCards={handleFilter} handleClearFilter={handleClearFilter} />
+            <List cards={cardsActive} />
+            <Pagination amountCards={cards.length} handlePagination={handlePagination} filter={filter} />
         </main>
     )
 }

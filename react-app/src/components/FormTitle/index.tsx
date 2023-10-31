@@ -1,9 +1,9 @@
-import { scale } from "@greensight/gds";
+import { Container, scale } from "@greensight/gds";
 import { MEDIA_QUERIES } from "src/scripts/gds";
 
 export default function FormTitle() {
     return (
-        <div css={{ display: 'flex',
+        <Container css={{ display: 'flex',
         flexDirection: 'column',
         rowGap: `${scale(2)}px`,
         alignItems: 'center',
@@ -18,6 +18,6 @@ export default function FormTitle() {
             <p css={{textAlign: 'center', [MEDIA_QUERIES.sm]: {
                 fontSize: '16px'
             }}}>We will advise you and help you start  a new project</p>
-        </div>
+        </Container>
     )
 }

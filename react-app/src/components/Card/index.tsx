@@ -25,26 +25,24 @@ export default function Card({ cardInfo, number }: CardProps) {
             position: 'relative',
             height: `${open ? "auto": `${scale(45)}px`}`,
             [MEDIA_QUERIES.sm]: {
-                marginTop: `${number !== 0 ? scale(5, true) : '0'}px`,
-                padding: `${scale(5, true)}px`,
-                height: `${open ? 'auto': `${scale(65)}px`}`,
-            },
-            [MEDIA_QUERIES.xs]: {
-                height: `${open ? 'auto': `${scale(65)}px`}`,
-            },
-            [MEDIA_QUERIES.xxs]: {
-                height: `${open ? 'auto': `${scale(74)}px`}`,
+                height: `${open ? "auto": `${scale(75)}px`}`,
+                padding: `${scale(5, true)}px`
             }
         }}>
-            <Layout cols={1} gap={`${scale(3)}px`}>
+            <Layout cols={1} gap={`${scale(3)}px`} css={{
+                [MEDIA_QUERIES.sm]: {
+                    height: '100%',
+                    overflow: 'hidden'
+                }
+            }}>
                 <Layout.Item css={{
                     display: 'flex',
                     alignItems: "center",
                     height: `${scale(6)}px`,
                     [MEDIA_QUERIES.sm]: {
                         flexDirection: 'column',
-                        height: '100%',
                         justifyContent: 'space-between',
+                        height: '100%'
                     }}}>
                     <h3 css={{
                         maxWidth: "60%",
@@ -95,7 +93,8 @@ export default function Card({ cardInfo, number }: CardProps) {
                                 overflow: 'hidden',
                                 maxHeight: `${!open ? `${scale(5)}px`: 'auto'}`,
                                 [MEDIA_QUERIES.sm]: {
-                                    maxHeight: `${!open ? `${scale(9)}px`: 'auto'}`
+                                    maxHeight: 'auto',
+                                    height: 'auto'
                                 }
                                 }}>
                                 <li key={1}>Требования: {cardInfo.requirement}</li>
@@ -111,7 +110,7 @@ export default function Card({ cardInfo, number }: CardProps) {
                                     background: 'linear-gradient(to bottom, rgba(255, 255, 255, .7), rgba(255, 255, 255, 1))',
                                     display: `${!open ? 'block' : 'none'}`,
                                     [MEDIA_QUERIES.sm]: {
-                                        height: `10%`
+                                        height: `30%`
                                     }
                                     }} />
                             </ul>
