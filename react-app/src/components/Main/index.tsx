@@ -1,11 +1,11 @@
 import { scale } from '@greensight/gds';
 import List from '@components/List';
 import Pagination from '@components/Pagination';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Filters from '@components/Filtres';
 import { FilterProps } from './types';
 import { MEDIA_QUERIES } from 'src/scripts/gds';
-import { CardType } from 'src/api';
+import { CardType } from 'src/api/vacancies/types';
 
 export default function Main({ cards }: { cards: CardType[] }) {
     const [cardsActive, setCards] = useState(cards?.slice(0, 5));
@@ -20,21 +20,21 @@ export default function Main({ cards }: { cards: CardType[] }) {
         setActualPage(numberPage);
     };
 
-    const handleFilter = ({ valueForm, valuePosition }: FilterProps) => {
+    const handleFilter = useCallback(({ valueForm, valuePosition }: FilterProps) => {
         const actualCards = cards.filter(card => {
             if (valueForm === '') return card.adress === valuePosition && card;
             if (valuePosition === '') return card.work_form === valueForm && card;
             return card.adress === valuePosition && card.work_form === valueForm && card;
-        });
+        }); 
         setCards(actualCards);
         setFilter(true);
         setActualPage(0);
-    };
+    }, [filter, cardsActive]);
 
-    const handleClearFilter = () => {
+    const handleClearFilter = useCallback(() => {
         setFilter(false);
         setActualPage(1);
-    };
+    },[filter]);
 
     return (
         <main

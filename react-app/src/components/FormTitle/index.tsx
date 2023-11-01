@@ -1,6 +1,5 @@
 import { Container, scale } from '@greensight/gds';
 import { MEDIA_QUERIES } from 'src/scripts/gds';
-
 export default function FormTitle() {
     return (
         <Container
@@ -14,15 +13,13 @@ export default function FormTitle() {
             }}
         >
             <h3
-                css={
-                    {
-                        fontSize: '34px',
-                        fontWeight: 500,
-                        [MEDIA_QUERIES.sm]: {
-                            fontSize: scale(7, true),
-                        },
-                    }
-                }
+                css={{
+                    fontSize: '34px',
+                    fontWeight: 500,
+                    [MEDIA_QUERIES.sm]: {
+                        fontSize: scale(7, true),
+                    },
+                }}
             >
                 Leave a request
             </h3>

@@ -1,5 +1,5 @@
 import { MEDIA_QUERIES, colors } from 'src/scripts/gds';
-import { Container, Layout, scale } from '@greensight/gds';
+import { Container, Layout, scale, typography } from '@greensight/gds';
 
 export default function Footer() {
     return (
@@ -15,38 +15,18 @@ export default function Footer() {
                 },
             }}
         >
-            <Layout type="flex" direction="row" justify="space-between">
-                <Layout.Item>
-                    <Container
-                        css={{
-                            fontSize: '18px',
-                            color: colors.white,
-                            fontWeight: 500,
-                            [MEDIA_QUERIES.sm]: {
-                                fontSize: scale(2),
-                            },
-                        }}
-                    >
+            <Container>
+                <Layout type="flex" direction="row" justify="space-between" css={{color: colors.white}}>
+                    <Layout.Item css={...(typography('bodyLbold'))}>
                         <p>+7 499 391-66-69</p>
                         <p>mail@greensight.ru</p>
-                    </Container>
-                </Layout.Item>
-                <Layout.Item>
-                    <Container
-                        css={{
-                            fontSize: scale(2),
-                            color: colors.white,
-                            fontWeight: '400',
-                            [MEDIA_QUERIES.sm]: {
-                                fontSize: '14px',
-                            },
-                        }}
-                    >
+                    </Layout.Item>
+                    <Layout.Item  css={...(typography('bodyMbold'))}>
                         <p>322A, 2nd Floor, Zelenograd, Moscow, Russia</p>
                         <p css={{ textAlign: 'end', [MEDIA_QUERIES.sm]: { textAlign: 'start' } }}>Directions</p>
-                    </Container>
-                </Layout.Item>
-            </Layout>
+                    </Layout.Item>
+                </Layout>
+            </Container>
         </footer>
     );
 }

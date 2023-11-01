@@ -1,4 +1,4 @@
-import { CardType } from "src/api";
+import { CardType } from "src/api/vacancies/types";
 import { arrPosition } from "src/utils/constants";
 
 export function haveProp(item: any, key: string): string {

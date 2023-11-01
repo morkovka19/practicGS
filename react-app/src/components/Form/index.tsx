@@ -3,35 +3,34 @@ import { Input } from '@components/controls/Input';
 import { scale } from '@greensight/gds';
 import { Formik, Form } from 'formik';
 import { regPhone } from 'src/utils/regs';
-import FornLinkContainer from '@components/FormLinkContainer';
+import FormLinkContainer from '@components/FormLinkContainer';
 import * as yup from 'yup';
+import FormikTemplate from '@components/FormikTemplate';
 
+const schema = {
+    name: yup
+        .string()
+        .required('Required')
+        .min(2, 'Invalid name (min length 2)')
+        .max(50, 'Invalid name (max length 50)'),
+    email: yup.string().required('Required').email('Invalid email'),
+    phone: yup.string().required('Required').matches(regPhone, 'Invavid phone'),
+    comment: yup.string().required('Required').min(20, 'Min length 20'),
+};
 export default function MyForm() {
-    const validationSchema = yup.object().shape({
-        name: yup
-            .string()
-            .required('Required')
-            .min(2, 'Invalid name (min length 2)')
-            .max(50, 'Invalid name (max length 50)'),
-        email: yup.string().required('Required').email('Invalid email'),
-        phone: yup.string().required('Required').matches(regPhone, 'Invavid phone'),
-        comment: yup.string().required('Required').min(20, 'Min length 20'),
-    });
-
     return (
-        <Formik
-            validationSchema={validationSchema}
-            initialValues={{
+        <FormikTemplate
+            schema={schema}
+            values={{
                 name: '',
                 email: '',
                 phone: '',
                 comment: '',
             }}
-            onSubmit={values => {
+            handleSubmit={values => {
                 alert(`submit:\n${values.name}\n${values.email}\n${values.phone}\n${values.comment}`);
             }}
-        >
-            {({ errors, touched }) => (
+            baseForm={({ errors, touched }) => (
                 <Form css={{ width: '90%', margin: '0 auto' }}>
                     <div css={{ rowGap: scale(4), width: '100%', display: 'flex', flexDirection: 'column' }}>
                         <div css={{ rowGap: scale(2), display: 'flex', flexDirection: 'column' }}>
@@ -84,11 +83,11 @@ export default function MyForm() {
                             <Button block variant="primary" size="md" type="submit">
                                 Send
                             </Button>
-                            <FornLinkContainer />
+                            <FormLinkContainer />
                         </div>
                     </div>
                 </Form>
             )}
-        </Formik>
+        />
     );
 }

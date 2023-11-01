@@ -66,22 +66,20 @@ export default function Card({ cardInfo, number }: { cardInfo: CardType; number:
                     <img
                         src={cardInfo.img}
                         alt={cardInfo.title}
-                        css={
-                            {
-                                display: `${cardInfo.img === 'Не найдено' && 'none'}`,
-                                marginLeft: scale(1),
-                                height: '100%',
-                                [MEDIA_QUERIES.sm]: {
-                                    height: scale(7),
-                                    marginTop: scale(3),
-                                    order: -1,
-                                },
-                                [MEDIA_QUERIES.xs]: {
-                                    height: scale(5),
-                                    width: 'auto',
-                                },
-                            }
-                        }
+                        css={{
+                            display: `${cardInfo.img === 'Не найдено' && 'none'}`,
+                            marginLeft: scale(1),
+                            height: '100%',
+                            [MEDIA_QUERIES.sm]: {
+                                height: scale(7),
+                                marginTop: scale(3),
+                                order: -1,
+                            },
+                            [MEDIA_QUERIES.xs]: {
+                                height: scale(5),
+                                width: 'auto',
+                            },
+                        }}
                     />
                     <Button size="md" variant="secondary">
                         Respond

@@ -1,4 +1,4 @@
-import { CardType } from 'src/api';
+import { CardType } from 'src/api/vacancies/types';
 import Card from '@components/Card';
 import { Section } from '@greensight/gds';
 

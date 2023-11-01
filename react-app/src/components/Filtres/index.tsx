@@ -11,7 +11,7 @@ export default function Filters({
     handleFilterCards,
     handleClearFilter,
 }: {
-    handleFilterCards: ({ valueForm, valuePosition }: { valueForm: string; valuePosition: string }) => void;
+    handleFilterCards: ({ valueForm, valuePosition }: { valueForm: string; valuePosition: string }) => void,
     handleClearFilter: () => void;
 }) {
     const [openForm, setOpenForm] = useState(false);

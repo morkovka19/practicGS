@@ -10,7 +10,7 @@ handlePagination: (value: number) => void,
 filter: boolean
 }) {
     const amountPages = getAmountPages(amountCards);
-    const [arrButtonsNumbers, setArrButtonsNumbers] = useState([] as number[]);
+    const [arrButtonsNumbers, setArrButtonsNumbers] = useState<number[]>([]);
     const [numberActivePage, setNumberActivePage] = useState(1);
 
     useEffect(() => {
@@ -18,7 +18,7 @@ filter: boolean
     }, [filter])
 
     useEffect(() => {
-        const arrBuff: number[] = [];
+        const arrBuff: number[] = []
         for (let i = 0; i < amountPages; i += 1) {
             arrBuff.push(i + 1)
         }

@@ -12,9 +12,9 @@ const nextConfig = {
     },
     trailingSlash: true,
     i18n: {
-        locales: ["en"],
-        defaultLocale: "en"
-    }
+        locales: ['en'],
+        defaultLocale: 'en',
+    },
 };
 
 const config = withPlugins(

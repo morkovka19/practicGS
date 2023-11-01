@@ -18,7 +18,9 @@ const basicTheme: InputTheme<typeof Variant, typeof Size> = {
                     resize: 'none',
                 }),
             },
-            sm: {},
+            sm: {
+                fontSize: scale(3, true),
+            },
         };
         const variant: OptionizedCSS<typeof Variant> = {
             primary: {
@@ -53,7 +55,10 @@ const basicTheme: InputTheme<typeof Variant, typeof Size> = {
                 fontSize: scale(3, true),
                 fortWeight: 500,
             },
-            sm: {},
+            sm: {
+                fontSize: scale(2, true),
+                fortWeight: 500,
+            },
         };
         const variant: OptionizedCSS<typeof Variant> = {
             primary: {
