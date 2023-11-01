@@ -43,6 +43,7 @@ export default function Main({ cards }: CardsProps) {
             marginBottom: `${scale(13)}px`,
             padding: '0',
             width: '83%',
+            maxWidth: `${scale(150)}px`,
             [MEDIA_QUERIES.sm]: {
                 marginTop: `${scale(3)}px`,
                 marginBottom: `${scale(4)}px`

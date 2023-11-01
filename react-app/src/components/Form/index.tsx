@@ -4,32 +4,21 @@ import { scale } from "@greensight/gds";
 import { Formik, Form} from "formik";
 import { regEmail, regPhone } from "src/utils/regs";
 import FornLinkContainer from "@components/FormLinkContainer";
+import * as yup from 'yup';
 
 export default function MyForm() {
-    const validateName = (value: string) =>{
-        if (!value){
-            return 'Required';
-        }
-        else if (value.length < 2 || value.length > 20) return "Invalid name";
-    }
 
-    const validateEmail = (value: string) =>{
-        if (!value) return "Required";
-       else if (!regEmail.test(value)) return "Invalid email";
-    }
-
-    const validatePhone = (value: string) =>{
-        if (!value) return "Required";
-        else if (!regPhone.test(value)) return "Invalid phone";
-    }
-
-    const validateComment = (value: string) =>{
-        if (!value) return "Required";
-        else if (value.length < 20) return "Invalid comment"
-    }
+    const validationSchema = yup.object().shape({
+        name: yup.string().required('Required').min(2, 'Invalid name (min length 2)').max(50, "Invalid name (max length 50)"),
+        email: yup.string().required('Required').email('Invalid email'),
+        phone: yup.string().required('Required').matches(regPhone, 'Invavid phone'),
+        comment: yup.string().required('Required').min(20, 'Min length 20')
+    })
 
     return (
-        <Formik initialValues={{
+        <Formik 
+        validationSchema={validationSchema}
+        initialValues={{
             name: '',
             email: '',
             phone: '',
@@ -45,10 +34,10 @@ export default function MyForm() {
                       display: 'flex',
                       flexDirection: "column" }}>
                          <div css={{ rowGap: `${scale(2)}px`, display: 'flex', flexDirection: 'column' }}>
-                             <Input variant="primary" size="md" nameInput="Your name" placeholder="Please introduce yourself" inputId="name" error={errors.name} touched={touched.name} validate={validateName}/>
-                             <Input  variant="primary" size="md" nameInput="Email" placeholder="ivanov@gmail.com" inputId="email" error={errors.email} touched={touched.email} validate={validateEmail}/>
-                             <Input nameInput="Phone number" variant="primary" size="md" placeholder="+7 (999) 000 00 00" inputId="phone" error={errors.phone} touched={touched.phone} validate={validatePhone}/>
-                             <Input nameInput="Comment" placeholder="Message text" variant="primary" size="md" inputId="comment" textArea error={errors.comment} touched={touched.comment} validate={validateComment}/>
+                             <Input variant="primary" size="md" nameInput="Your name" placeholder="Please introduce yourself" inputId="name" error={errors.name} touched={touched.name} />
+                             <Input  variant="primary" size="md" nameInput="Email" placeholder="ivanov@gmail.com" inputId="email" error={errors.email} touched={touched.email} />
+                             <Input nameInput="Phone number" variant="primary" size="md" placeholder="+7 (999) 000 00 00" inputId="phone" error={errors.phone} touched={touched.phone} />
+                             <Input nameInput="Comment" placeholder="Message text" variant="primary" size="md" inputId="comment" textArea error={errors.comment} touched={touched.comment} />
                          </div>
                          <div css={{ rowGap: `${scale(2)}px`, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                              <Button block variant="primary" size="md" type="submit">Send</Button>

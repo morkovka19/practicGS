@@ -25,5 +25,4 @@ Partial<State>{
     inputId: string,
     touched?: boolean,
     error?: string,
-    validate: any
 }

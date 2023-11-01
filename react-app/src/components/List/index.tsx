@@ -1,6 +1,6 @@
 import { CardType, CardsProps } from "src/types/types";
 import Card from "@components/Card";
-import { Layout, Section} from "@greensight/gds";
+import { Layout, Section, scale} from "@greensight/gds";
 
 
 export default function List(cards: CardsProps) {

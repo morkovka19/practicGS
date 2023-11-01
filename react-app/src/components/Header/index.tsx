@@ -7,6 +7,7 @@ export default function Header() {
             width: '83%',
             margin: '0 auto',
             marginTop: `${scale(8)}px`,
+            maxWidth: `${scale(150)}px`,
             [MEDIA_QUERIES.sm] : {
                 marginTop: `${scale(4)}px`
             }

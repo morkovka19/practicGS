@@ -53,7 +53,6 @@ export default function Filters(handleFilterCards: any) {
             justifyContent: "space-between",
             alignItems: "end",
             position: 'relative',
-            maxWidth: scale(80),
             marginBottom: `${scale(5)}px`,
             width: '57%',
             gap: `${scale(4)} px`,

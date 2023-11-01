@@ -15,7 +15,6 @@ export const BaseInput = <V extends EnumLike, S extends EnumLike>({
     variant,
     size,
     error='',
-    validate,
     touched=false
 }: InputProps<V, S>, ref: Ref<HTMLInputElement>) => {
     const state  = useMemo<InputStateFull<V, S>>(
@@ -39,7 +38,7 @@ export const BaseInput = <V extends EnumLike, S extends EnumLike>({
     return (
         <div css={blockCSS as any}>
             <label css={labelCSS as any} htmlFor={inputId}>{nameInput}</label>
-            <Field css={inputCSS as any} placeholder={placeholder} id={inputId} name={inputId} validate={validate} as={textArea ? "textarea" : "input"}/>
+            <Field css={inputCSS as any} placeholder={placeholder} id={inputId} name={inputId} as={textArea ? "textarea" : "input"}/>
             <span css={errorCSS as any}>{error}</span>
         </div>
     )
