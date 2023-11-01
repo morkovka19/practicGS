@@ -1,5 +1,5 @@
 import { ReactNode, useState } from 'react';
-import { Hydrate, QueryClient, QueryClientProvider } from 'react-query';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { ThemeProvider } from '@greensight/gds';
 import { theme } from '../../scripts/gds';

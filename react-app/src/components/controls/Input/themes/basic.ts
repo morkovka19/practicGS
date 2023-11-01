@@ -1,4 +1,4 @@
-import { OptionizedCSS, extractCSSOption, scale } from '@greensight/gds';
+import { OptionizedCSS, extractCSSOption, scale, typography } from '@greensight/gds';
 import { Size, Variant } from '../enums';
 import { InputTheme } from '../types';
 import { colors } from 'src/scripts/gds';
@@ -8,18 +8,16 @@ const basicTheme: InputTheme<typeof Variant, typeof Size> = {
         const size: OptionizedCSS<typeof Size> = {
             md: {
                 width: '100%',
-                padding: `${scale(1, true)}px ${scale(3, true)}px`,
-                fontSize: '14px',
-                fontWeight: 400,
-
+                padding: `${scale(2, true)}px ${scale(3, true)}px`,
+                ...typography('desktop/bodyS'),
                 ...(state.textArea && {
                     padding: scale(3, true),
-                    height: scale(8),
+                    height: scale(9),
                     resize: 'none',
                 }),
             },
             sm: {
-                fontSize: scale(3, true),
+                ...typography('desktop/bodyS'),
             },
         };
         const variant: OptionizedCSS<typeof Variant> = {
@@ -27,15 +25,14 @@ const basicTheme: InputTheme<typeof Variant, typeof Size> = {
                 borderRadius: scale(1, true),
                 border: `1px solid ${colors.grey400}`,
                 color: colors.black,
-                fontSize: '14px',
-                fontWeight: 400,
-                lineHeight: '140%',
+                ...typography('desktop/bodyS'),
                 ':focus': {
                     outline: 'none',
                     borderColor: colors.blueHover,
                 },
                 '::placeholder': {
                     color: colors.grey600,
+                    ...typography('desktop/bodyS'),
                 },
 
                 ...(state.error &&
@@ -52,12 +49,10 @@ const basicTheme: InputTheme<typeof Variant, typeof Size> = {
     label: state => {
         const size: OptionizedCSS<typeof Size> = {
             md: {
-                fontSize: scale(3, true),
-                fortWeight: 500,
+                ...typography('desktop/bodyXSbold'),
             },
             sm: {
-                fontSize: scale(2, true),
-                fortWeight: 500,
+                ...typography('desktop/bodyXSbold'),
             },
         };
         const variant: OptionizedCSS<typeof Variant> = {
@@ -105,7 +100,7 @@ const basicTheme: InputTheme<typeof Variant, typeof Size> = {
         const variant: OptionizedCSS<typeof Variant> = {
             primary: {
                 color: colors.error,
-                fontSize: scale(3, true),
+                ...typography('desktop/bodyXSbold'),
                 display: 'none',
 
                 ...(state.error &&

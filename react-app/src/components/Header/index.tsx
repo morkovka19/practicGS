@@ -1,4 +1,4 @@
-import { MEDIA_QUERIES, scale } from 'src/scripts/gds';
+import { MEDIA_QUERIES, scale, typography } from 'src/scripts/gds';
 export default function Header() {
     return (
         <header
@@ -13,18 +13,13 @@ export default function Header() {
             }}
         >
             <h1
-                css={
-                    {
-                        fontSize: scale(6),
-                        lineHeight: '58px',
-                        fontWeight: 500,
-                        margin: 0,
-                        [MEDIA_QUERIES.sm]: {
-                            fontSize: '34px',
-                            lineHeight: '120%',
-                        },
-                    }
-                }
+                css={{
+                    margin: 0,
+                    ...typography('desktop/h1'),
+                    [MEDIA_QUERIES.sm]: {
+                        ...typography('mobile/h1'),
+                    },
+                }}
             >
                 List of vacancies
             </h1>

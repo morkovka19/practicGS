@@ -1,4 +1,4 @@
-import { Container, scale } from '@greensight/gds';
+import { Container, scale, typography } from '@greensight/gds';
 import { MEDIA_QUERIES } from 'src/scripts/gds';
 export default function FormTitle() {
     return (
@@ -14,10 +14,9 @@ export default function FormTitle() {
         >
             <h3
                 css={{
-                    fontSize: '34px',
-                    fontWeight: 500,
+                    ...(typography('desktop/h2') as any),
                     [MEDIA_QUERIES.sm]: {
-                        fontSize: scale(7, true),
+                        ...(typography('mobile/h2') as any),
                     },
                 }}
             >
@@ -26,8 +25,9 @@ export default function FormTitle() {
             <p
                 css={{
                     textAlign: 'center',
+                    ...(typography('desktop/bodyL') as any),
                     [MEDIA_QUERIES.sm]: {
-                        fontSize: scale(2),
+                        ...typography('desktop/bodyM'),
                     },
                 }}
             >

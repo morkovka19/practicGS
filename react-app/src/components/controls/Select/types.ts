@@ -30,6 +30,6 @@ export interface SelectProps<V extends EnumLike, S extends EnumLike>
     label: string;
     optionsArr: Set<string>;
     open: boolean;
-    handleClickSelected: () => void ;
+    handleClickSelected: () => void;
     handleClickOption: (e: any) => void;
 }

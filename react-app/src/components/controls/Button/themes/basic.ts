@@ -1,5 +1,5 @@
-import { OptionizedCSS, extractCSSOption, scale, typography } from '@greensight/gds';
-import { MEDIA_QUERIES, colors } from 'src/scripts/gds';
+import { OptionizedCSS, extractCSSOption, scale } from '@greensight/gds';
+import { MEDIA_QUERIES, colors, typography } from 'src/scripts/gds';
 import { Variant, Size } from '../enums';
 import { ButtonTheme } from '../types';
 
@@ -48,10 +48,8 @@ const basicTheme: ButtonTheme<typeof Variant, typeof Size> = {
                 color: colors.white,
                 borderRadius: scale(1, true),
                 marginLeft: 'auto',
-                padding: `${scale(1)}px ${scale(4)}px`,
-                fontSize: '15px',
-                fontWeight: '700',
-                lineHeight: '140%',
+                padding: `${scale(2)}px ${scale(4)}px`,
+                ...typography('desktop/button'),
                 ':hover': {
                     backgroundColor: colors.black,
                 },
@@ -74,7 +72,6 @@ const basicTheme: ButtonTheme<typeof Variant, typeof Size> = {
             link: {
                 backgroundColor: 'none',
                 color: colors.blue,
-                fontSize: '14px',
                 width: '20%',
                 textAlign: 'center',
                 margin: 'auto',

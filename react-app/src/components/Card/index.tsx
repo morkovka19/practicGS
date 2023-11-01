@@ -1,6 +1,6 @@
 import { scale, Layout } from '@greensight/gds';
 import { useCallback, useState } from 'react';
-import { shadows, MEDIA_QUERIES, colors } from 'src/scripts/gds';
+import { shadows, MEDIA_QUERIES, colors, typography } from 'src/scripts/gds';
 import { CardType } from './types';
 import OpenIcon from '../../icons/chevronDown.svg';
 import { Button } from '@components/controls/Button';
@@ -53,11 +53,10 @@ export default function Card({ cardInfo, number }: { cardInfo: CardType; number:
                     <h2
                         css={{
                             maxWidth: '60%',
-                            fontWeight: 500,
-                            fontSize: scale(3),
+                            ...typography('desktop/h4'),
                             [MEDIA_QUERIES.sm]: {
                                 maxWidth: '100%',
-                                fontSize: scale(5, true),
+                                ...(typography('mobile/h4') as any),
                             },
                         }}
                     >
@@ -91,9 +90,11 @@ export default function Card({ cardInfo, number }: { cardInfo: CardType; number:
                     css={{
                         display: 'flex',
                         columnGap: scale(6),
+                        ...typography('desktop/bodyM'),
                         [MEDIA_QUERIES.sm]: {
                             flexDirection: 'column',
                             gap: scale(1),
+                            ...typography('desktop/bodyS'),
                         },
                     }}
                 >
@@ -108,7 +109,15 @@ export default function Card({ cardInfo, number }: { cardInfo: CardType; number:
                     </p>
                 </Layout.Item>
 
-                <Layout.Item css={{ margin: 0 }}>
+                <Layout.Item
+                    css={{
+                        margin: 0,
+                        ...typography('desktop/bodyM'),
+                        [MEDIA_QUERIES.sm]: {
+                            ...typography('desktop/bodyS'),
+                        },
+                    }}
+                >
                     <p>Описание: {cardInfo.description}</p>
                 </Layout.Item>
 
@@ -123,9 +132,11 @@ export default function Card({ cardInfo, number }: { cardInfo: CardType; number:
                                     display: 'grid',
                                     overflow: 'hidden',
                                     maxHeight: !open ? scale(5) : 'auto',
+                                    ...typography('desktop/bodyM'),
                                     [MEDIA_QUERIES.sm]: {
                                         maxHeight: 'auto',
                                         height: 'auto',
+                                        ...typography('desktop/bodyS'),
                                     },
                                 }}
                             >

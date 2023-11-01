@@ -1,7 +1,7 @@
 import { Button } from '@components/controls/Button';
 import { Input } from '@components/controls/Input';
 import { scale } from '@greensight/gds';
-import { Formik, Form } from 'formik';
+import { Form } from 'formik';
 import { regPhone } from 'src/utils/regs';
 import FormLinkContainer from '@components/FormLinkContainer';
 import * as yup from 'yup';
@@ -74,7 +74,7 @@ export default function MyForm() {
                         </div>
                         <div
                             css={{
-                                rowGap: `${scale(2)}px`,
+                                rowGap: scale(2),
                                 display: 'flex',
                                 flexDirection: 'column',
                                 alignItems: 'center',

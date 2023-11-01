@@ -1,5 +1,5 @@
 import { OptionizedCSS, extractCSSOption, scale } from '@greensight/gds';
-import { MEDIA_QUERIES, colors, shadows } from 'src/scripts/gds';
+import { MEDIA_QUERIES, colors, shadows, typography } from 'src/scripts/gds';
 import { SelectTheme } from '../types';
 import { Size, Variant } from '../enums';
 
@@ -11,11 +11,11 @@ const basicTheme: SelectTheme<typeof Variant, typeof Size> = {
                 padding: `${scale(1)}px ${scale(1, true)}px`,
                 boxSizing: 'border-box',
                 position: 'relative',
-                fontSize: '14px',
                 border: `1px solid ${colors.grey400}`,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
+                ...typography('desktop/bodyS'),
             },
         };
         const variant: OptionizedCSS<typeof Variant> = {
@@ -37,8 +37,7 @@ const basicTheme: SelectTheme<typeof Variant, typeof Size> = {
         const sized: OptionizedCSS<typeof Size> = {
             md: {
                 padding: `${scale(1)}px ${scale(2)}px`,
-                fontSize: '14px',
-                fornWeight: '400',
+                ...typography('desktop/bodyS'),
             },
         };
         const variant: OptionizedCSS<typeof Variant> = {
@@ -86,8 +85,7 @@ const basicTheme: SelectTheme<typeof Variant, typeof Size> = {
     label: state => {
         const sized: OptionizedCSS<typeof Size> = {
             md: {
-                fontSize: scale(3, true),
-                fontWeight: 500,
+                ...typography('desktop/bodyXSbold'),
             },
         };
         const variant: OptionizedCSS<typeof Variant> = {

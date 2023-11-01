@@ -1,8 +1,8 @@
 import tokens from '../../../../public/tokens.json';
 
 export const global = {
-        base: {
-            body: {
+    base: {
+        body: {
             typography: 'body',
             color: tokens.colors.black,
             bg: tokens.colors.white,
@@ -20,8 +20,8 @@ export const global = {
     },
     fonts: {
         families: {
-            'Roboto': {
-                stack:  '-apple-system, Roboto, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
+            Roboto: {
+                stack: '-apple-system, Roboto, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
             },
         },
         fontFace: [
@@ -50,4 +50,4 @@ export const global = {
             },
         ],
     },
-}
+};

@@ -10,7 +10,7 @@ export const BaseSelect = <V extends EnumLike, S extends EnumLike>(
         size,
         variant,
         Icon,
-        value = "Not selected",
+        value = 'Not selected',
         disabled = true,
         label,
         optionsArr,

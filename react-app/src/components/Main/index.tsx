@@ -3,7 +3,6 @@ import List from '@components/List';
 import Pagination from '@components/Pagination';
 import { useCallback, useEffect, useState } from 'react';
 import Filters from '@components/Filtres';
-import { FilterProps } from './types';
 import { MEDIA_QUERIES } from 'src/scripts/gds';
 import { CardType } from 'src/api/vacancies/types';
 
@@ -20,21 +19,24 @@ export default function Main({ cards }: { cards: CardType[] }) {
         setActualPage(numberPage);
     };
 
-    const handleFilter = useCallback(({ valueForm, valuePosition }: FilterProps) => {
-        const actualCards = cards.filter(card => {
-            if (valueForm === '') return card.adress === valuePosition && card;
-            if (valuePosition === '') return card.work_form === valueForm && card;
-            return card.adress === valuePosition && card.work_form === valueForm && card;
-        }); 
-        setCards(actualCards);
-        setFilter(true);
-        setActualPage(0);
-    }, [filter, cardsActive]);
+    const handleFilter = useCallback(
+        ({ valueForm, valuePosition }: { valueForm: string; valuePosition: string }) => {
+            const actualCards = cards.filter(card => {
+                if (valueForm === '') return card.adress === valuePosition && card;
+                if (valuePosition === '') return card.work_form === valueForm && card;
+                return card.adress === valuePosition && card.work_form === valueForm && card;
+            });
+            setCards(actualCards);
+            setFilter(true);
+            setActualPage(0);
+        },
+        [filter, cardsActive]
+    );
 
     const handleClearFilter = useCallback(() => {
         setFilter(false);
         setActualPage(1);
-    },[filter]);
+    }, [filter]);
 
     return (
         <main

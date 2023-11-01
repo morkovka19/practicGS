@@ -1,6 +1,5 @@
 import { createFutureButtonWithTheme } from '@greensight/gds';
 import { CSSObject } from '@emotion/core';
-import { TypographyParam } from 'src/scripts/gds';
 import { Variant, Size } from './enums';
 import { BUTTON_THEMES } from './themes/basic';
 
@@ -26,7 +25,7 @@ function custonTypography(
     throw new Error(`Function not implemented. name: ${name}`);
 }
 
-export const Button = createFutureButtonWithTheme<typeof Variant, typeof Size, TypographyParam>(
+export const Button = createFutureButtonWithTheme<typeof Variant, typeof Size, any>(
     BUTTON_THEMES.basic,
     Variant.primary,
     Size.sm,
