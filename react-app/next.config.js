@@ -21,6 +21,10 @@ const nextConfig = {
         emotion: true,
     },
     trailingSlash: true,
+    i18n: {
+        locales: ["en"],
+        defaultLocale: "en"
+    }
 };
 
 const config = withPlugins(

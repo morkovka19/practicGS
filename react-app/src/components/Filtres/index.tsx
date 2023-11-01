@@ -1,5 +1,5 @@
 import { Button } from "@components/controls/Button";
-import { Section, scale } from "@greensight/gds";
+import { Section, scale, typography } from "@greensight/gds";
 import { useState } from "react";
 import { Select } from "@components/controls/Select";
 import { arrForm, arrPosition } from "src/utils/constants";
@@ -50,15 +50,11 @@ export default function Filters(handleFilterCards: any) {
             display: 'flex',
             flexDirection: 'row',
             padding: '0',
-            justifyContent: "space-between",
-            alignItems: "end",
             position: 'relative',
+            maxWidth: `${scale(86)}px`,
             marginBottom: `${scale(5)}px`,
-            width: '57%',
-            gap: `${scale(4)} px`,
-            [MEDIA_QUERIES.lg]: {
-                width: '80%'
-            },
+            alignItems:'end',
+            gap: `${scale(4)}px`,
             [MEDIA_QUERIES.sm]: {
                 flexDirection: 'column',
                 gap: `${scale(3)}px`,
@@ -66,13 +62,13 @@ export default function Filters(handleFilterCards: any) {
             }
         }}>
             <div css={{
-                width: '74%',
+                width: '80%',
                 display: 'flex',
-                justifyContent: 'space-between',
+                gap: `${scale(2)}px`,
                 [MEDIA_QUERIES.sm]: {
                     flexDirection: 'column',
                     width: '100%',
-                    gap: `${scale(2)} px`,
+                    gap: `${scale(2)}px`,
                 }
             }}>
                 <Select label="Form" Icon={ArrowGrey} optionsArr={arrForm} open={openForm} handleClickSelected={handleClickSelectedForm} handleClickOption={handleClickOptionForm} value={valueForm} disabled={!Boolean(valueForm)} />
@@ -84,4 +80,3 @@ export default function Filters(handleFilterCards: any) {
         </div>
     )
 }
-

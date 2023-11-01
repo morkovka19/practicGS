@@ -1,6 +1,4 @@
-import { MEDIA_QUERIES, scale } from "src/scripts/gds"
-
-export default function Header() {
+import { MEDIA_QUERIES, scale } from "src/scripts/gds";export default function Header() {
 
     return (
         <header css={{

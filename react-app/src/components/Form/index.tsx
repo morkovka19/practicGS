@@ -16,7 +16,7 @@ export default function MyForm() {
     })
 
     return (
-        <Formik 
+        <Formik
         validationSchema={validationSchema}
         initialValues={{
             name: '',
@@ -46,7 +46,7 @@ export default function MyForm() {
                  </div>
              </Form>
             )}
-       
+
         </Formik>
     )
 }
