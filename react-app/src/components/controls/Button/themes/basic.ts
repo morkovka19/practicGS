@@ -1,8 +1,7 @@
-import { OptionizedCSS, extractCSSOption, scale, typography} from "@greensight/gds";
-import { MEDIA_QUERIES, colors } from "src/scripts/gds";
-import { Variant, Size } from "../enums";
-import { ButtonTheme } from "../types"
-
+import { OptionizedCSS, extractCSSOption, scale, typography } from '@greensight/gds';
+import { MEDIA_QUERIES, colors } from 'src/scripts/gds';
+import { Variant, Size } from '../enums';
+import { ButtonTheme } from '../types';
 
 const basicTheme: ButtonTheme<typeof Variant, typeof Size> = {
     button: state => {
@@ -12,21 +11,21 @@ const basicTheme: ButtonTheme<typeof Variant, typeof Size> = {
                 ...(typography('buttonSm') as any),
             },
             md: {
-                padding:  `${scale(2, true) + 0.5}px ${scale(4)}px`,
+                padding: `${scale(2, true) + 0.5}px ${scale(4)}px`,
                 ...(typography('buttonMd') as any),
 
                 [MEDIA_QUERIES.sm]: {
-                    margin: '0 auto'
+                    margin: '0 auto',
                 },
 
                 [MEDIA_QUERIES.xs]: {
-                    width: '100%'
-                }
+                    width: '100%',
+                },
             },
         };
 
         const variant: OptionizedCSS<typeof Variant> = {
-            "primary": {
+            primary: {
                 backgroundColor: colors.blue,
                 color: colors.white,
                 size: 44,
@@ -40,30 +39,30 @@ const basicTheme: ButtonTheme<typeof Variant, typeof Size> = {
                 ...(state.rounded && {
                     borderRadius: scale(1, true),
                 }),
-                ...(state.block) && {
+                ...(state.block && {
                     width: '77%',
-                },
+                }),
             },
-            "secondary": {
+            secondary: {
                 backgroundColor: colors.grey900,
                 color: colors.white,
                 borderRadius: scale(1, true),
-                marginLeft: "auto",
+                marginLeft: 'auto',
                 padding: `${scale(1)}px ${scale(4)}px`,
                 fontSize: '15px',
                 fontWeight: '700',
                 lineHeight: '140%',
                 ':hover': {
-                    backgroundColor: colors.black
+                    backgroundColor: colors.black,
                 },
                 [MEDIA_QUERIES.sm]: {
                     margin: `${scale(3)}px auto 0`,
                 },
                 [MEDIA_QUERIES.xs]: {
                     width: '100%',
-                }
+                },
             },
-            "notactive": {
+            notactive: {
                 backgroundColor: colors.grey200,
                 color: colors.grey800,
                 size: 44,
@@ -72,8 +71,8 @@ const basicTheme: ButtonTheme<typeof Variant, typeof Size> = {
                 },
             },
 
-            "link": {
-                backgroundColor: "none",
+            link: {
+                backgroundColor: 'none',
                 color: colors.blue,
                 fontSize: '14px',
                 width: '20%',
@@ -87,7 +86,7 @@ const basicTheme: ButtonTheme<typeof Variant, typeof Size> = {
                     width: '100%',
                 },
                 ...(state.hidden && {
-                    display: "none"
+                    display: 'none',
                 }),
                 ...(state.block && {
                     position: 'absolute',
@@ -95,9 +94,9 @@ const basicTheme: ButtonTheme<typeof Variant, typeof Size> = {
                     top: `${scale(8)}px`,
                     width: '100%',
                     justifyContent: 'start',
-                    columnGap:  `${scale(1)}`,
-                })
-            }
+                    columnGap: `${scale(1)}`,
+                }),
+            },
         };
 
         return {
@@ -113,35 +112,34 @@ const basicTheme: ButtonTheme<typeof Variant, typeof Size> = {
                 ...(typography('buttonSm') as any),
             },
             md: {
-                padding:  `${scale(1, true) + 0.5}px ${scale(1)}px`,
-                ...(typography('buttonMd') as any)
+                padding: `${scale(1, true) + 0.5}px ${scale(1)}px`,
+                ...(typography('buttonMd') as any),
             },
         };
 
-        const variant: OptionizedCSS<typeof Variant>={
+        const variant: OptionizedCSS<typeof Variant> = {
             link: {
                 ...(state.rounded && {
-                    transform: 'rotate(180deg)'
-                })
+                    transform: 'rotate(180deg)',
+                }),
             },
             primary: {
-                display: 'none'
+                display: 'none',
             },
-            "secondary": {
-                display: 'none'
+            secondary: {
+                display: 'none',
             },
-            "notactive": {
-                display: 'none'
-            }
-        }
-        return{
+            notactive: {
+                display: 'none',
+            },
+        };
+        return {
             ...extractCSSOption(sized, state.size),
             ...extractCSSOption(variant, state.variant),
-        }
-
+        };
     },
 };
 
 export const BUTTON_THEMES = {
-    basic: basicTheme
-}
+    basic: basicTheme,
+};

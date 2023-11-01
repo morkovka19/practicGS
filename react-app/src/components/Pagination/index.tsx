@@ -1,13 +1,14 @@
 import { Button } from "@components/controls/Button";
-import { getAmountPages } from "src/helpers/getColPages";
+import { getAmountPages } from "./helpers"
 import { useEffect, useState } from "react";
-import { Container, Layout, Section, scale } from "@greensight/gds";
-import { amountCardsType } from "./types";
+import { Container, scale } from "@greensight/gds";
 import { MEDIA_QUERIES } from "src/scripts/gds";
 
 
-export default function Pagination({ amountCards, handlePagination, filter }: amountCardsType) {
-
+export default function Pagination({ amountCards, handlePagination, filter }: {amountCards: number,
+handlePagination: (value: number) => void,
+filter: boolean
+}) {
     const amountPages = getAmountPages(amountCards);
     const [arrButtonsNumbers, setArrButtonsNumbers] = useState([] as number[]);
     const [numberActivePage, setNumberActivePage] = useState(1);
@@ -40,17 +41,17 @@ export default function Pagination({ amountCards, handlePagination, filter }: am
                     margin: '0 auto',
                     width: '40%',
                     paddingTop: `${scale(4)}px`,
+                    display: 'flex',
+                    justifyContent: 'space-around',
                     [MEDIA_QUERIES.xs]: {
                         width: '90%',
                     }
                 }}>
-                    <Layout type="flex" justify="space-around">
                         {arrButtonsNumbers.map((item, i) => (
                             <li key={i}>
                                 <Button variant={`${Number(numberActivePage) === Number(item) ? "primary" : "notactive"}`} size="sm" onClick={handleClickButton} value={item}>{item}</Button>
                             </li>
                         ))}
-                    </Layout>
                 </ul>
             </Container>
     )

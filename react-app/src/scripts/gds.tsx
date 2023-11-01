@@ -4,7 +4,7 @@ import { ComponentsTheme, Theme, createTheme, useTheme as useGDSTheme, typograph
 import { global } from './themes/global';
 
 
-const {colors, shadows } = tokens;
+const {colors, shadows} = tokens;
 export type ColorsTheme = typeof colors;
 export type TypographyParam = keyof typeof tokens.typography.styles;
 

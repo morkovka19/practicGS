@@ -1,7 +1,7 @@
-export enum Variant{
-    primary="primary"
+export enum Variant {
+    primary = 'primary',
 }
 
-export enum Size{
-    md="md"
+export enum Size {
+    md = 'md',
 }

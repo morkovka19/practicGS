@@ -1,4 +1,4 @@
-import { BaseThemeState, EnumLike, StyleDefinition } from "@greensight/gds";
+import { BaseThemeState, EnumLike, StyleDefinition } from '@greensight/gds';
 
 export interface State {
     // скрыт ли текст кнопки
@@ -11,8 +11,6 @@ export interface State {
     iconAfter: boolean;
     // включено скругление иконки?
     rounded: boolean;
-
-
 }
 
 export type ButtonStateFull<V extends EnumLike, S extends EnumLike> = BaseThemeState<V, S> & State;

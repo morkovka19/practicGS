@@ -1,13 +1,3 @@
-// /** @type {import('next').NextConfig} */
-// const nextConfig = {
-//   compiler: {
-//     emotion: true,
-//   },
-//   swcMinify: true,
-// }
-
-// module.exports = nextConfig
-
 const withPlugins = require('next-compose-plugins');
 const withSvgr = require('next-plugin-svgr');
 

@@ -1,9 +1,15 @@
-import { CardType } from "src/types/types";
-import { haveProp } from "./haveProp";
+import { CardType } from "src/api";
 import { arrPosition } from "src/utils/constants";
 
+export function haveProp(item: any, key: string): string {
+    if (item) {
+        return (Object.keys(item).includes(key)) && item[key] !== null ? item[key] : "Не найдено";
+    }
+    return "Не найдено"
+}
+
 export default function getCardsInfo(vacancies: any[]): CardType[]{
-    const cards: CardType[] = vacancies.map((item) =>{
+    const cards: CardType[] = vacancies?.map((item) =>{
         arrPosition.add(item?.area?.name)
         return {
             title: haveProp(item, "name"),
