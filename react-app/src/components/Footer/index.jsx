@@ -1,5 +1,6 @@
 import { MEDIA_QUERIES, colors } from 'src/scripts/gds';
-import { Container, Layout, scale, typography } from '@greensight/gds';
+import { Container, Layout, scale } from '@greensight/gds';
+import { typography } from 'src/scripts/gds';
 
 export default function Footer() {
     return (

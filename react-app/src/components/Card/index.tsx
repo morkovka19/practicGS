@@ -102,7 +102,7 @@ export default function Card({ cardInfo, number }: { cardInfo: CardType; number:
                         Form <span css={{ color: colors.black }}>{cardInfo.work_form}</span>
                     </p>
                     <p css={{ color: colors.grey700 }}>
-                        Company <span css={{ color: colors.black }}>{cardInfo.companyName}</span>
+                        Company <span css={{ color: colors.black }}>{cardInfo.company_name}</span>
                     </p>
                     <p css={{ color: colors.grey700 }}>
                         Address <span css={{ color: colors.black }}>{cardInfo.adress}</span>

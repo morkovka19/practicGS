@@ -1,4 +1,5 @@
-import { OptionizedCSS, extractCSSOption, scale, typography } from '@greensight/gds';
+import { OptionizedCSS, extractCSSOption, scale } from '@greensight/gds';
+import { typography } from 'src/scripts/gds';
 import { Size, Variant } from '../enums';
 import { InputTheme } from '../types';
 import { colors } from 'src/scripts/gds';

@@ -3,7 +3,7 @@ export interface CardType {
     title: string;
     description: string;
     adress: string;
-    companyName: string;
+    company_name: string;
     work_form: string;
     requirement: string;
     responsibility: string;

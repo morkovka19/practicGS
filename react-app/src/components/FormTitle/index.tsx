@@ -1,5 +1,5 @@
-import { Container, scale, typography } from '@greensight/gds';
-import { MEDIA_QUERIES } from 'src/scripts/gds';
+import { Container, scale } from '@greensight/gds';
+import { typography, MEDIA_QUERIES } from 'src/scripts/gds';
 export default function FormTitle() {
     return (
         <Container
