@@ -107,9 +107,9 @@ const basicTheme: InputTheme<typeof Variant, typeof Size> = {
                 ...(state.error &&
                     state.touched && {
                         display: 'block',
-                        top: scale(6),
+                        top: scale(7),
                         ...(state.textArea && {
-                            top: scale(21, true),
+                            top: scale(23, true),
                         }),
                     }),
             },

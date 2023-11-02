@@ -39,7 +39,7 @@ export default function MyForm() {
                                 size="md"
                                 nameInput="Your name"
                                 placeholder="Please introduce yourself"
-                                inputId="name"
+                                id="name"
                                 error={errors.name}
                                 touched={touched.name}
                             />
@@ -48,7 +48,7 @@ export default function MyForm() {
                                 size="md"
                                 nameInput="Email"
                                 placeholder="ivanov@gmail.com"
-                                inputId="email"
+                                id="email"
                                 error={errors.email}
                                 touched={touched.email}
                             />
@@ -57,7 +57,7 @@ export default function MyForm() {
                                 variant="primary"
                                 size="md"
                                 placeholder="+7 (999) 000 00 00"
-                                inputId="phone"
+                                id="phone"
                                 error={errors.phone}
                                 touched={touched.phone}
                             />
@@ -66,7 +66,7 @@ export default function MyForm() {
                                 placeholder="Message text"
                                 variant="primary"
                                 size="md"
-                                inputId="comment"
+                                id="comment"
                                 textArea
                                 error={errors.comment}
                                 touched={touched.comment}

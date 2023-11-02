@@ -23,7 +23,8 @@ export interface InputProps<V extends EnumLike, S extends EnumLike>
     nameInput?: string;
     children?: ReactNode;
     placeholder: string;
-    inputId: string;
+    id: string;
     touched?: boolean;
     error?: string;
+    mask?: string | undefined;
 }

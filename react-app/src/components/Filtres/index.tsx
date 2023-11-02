@@ -6,6 +6,14 @@ import { arrForm, arrPosition } from 'src/utils/constants';
 import ArrowGrey from '../../icons/chevronDownGrey.svg';
 import CloseIcon from '../../icons/close.svg';
 import { MEDIA_QUERIES } from 'src/scripts/gds';
+import FormikTemplate from '@components/FormikTemplate';
+import * as yup from 'yup';
+import { Form } from 'formik';
+
+const schema = {
+    valueForm: yup.string(),
+    valuePosition: yup.string(),
+};
 
 export default function Filters({
     handleFilterCards,
@@ -51,63 +59,70 @@ export default function Filters({
     };
 
     return (
-        <div
-            css={{
-                display: 'flex',
-                flexDirection: 'row',
-                padding: 0,
-                position: 'relative',
-                maxWidth: scale(86),
-                marginBottom: scale(5),
-                alignItems: 'end',
-                gap: scale(4),
-                [MEDIA_QUERIES.sm]: {
-                    flexDirection: 'column',
-                    gap: scale(3),
-                    width: '100%',
-                },
-            }}
-        >
-            <div
-                css={{
-                    width: '80%',
-                    display: 'flex',
-                    gap: scale(2),
-                    [MEDIA_QUERIES.sm]: {
-                        flexDirection: 'column',
-                        width: '100%',
-                        gap: scale(2),
-                    },
-                }}
-            >
-                <Select
-                    label="Form"
-                    Icon={ArrowGrey}
-                    optionsArr={arrForm}
-                    open={openForm}
-                    handleClickSelected={handleClickSelectedForm}
-                    handleClickOption={handleClickOptionForm}
-                    value={valueForm}
-                    disabled={!Boolean(valueForm)}
-                />
-                <Select
-                    label="Position"
-                    Icon={ArrowGrey}
-                    optionsArr={arrPosition}
-                    open={openPosition}
-                    handleClickSelected={handleClickSelectedPosition}
-                    handleClickOption={handleClickOptionPosition}
-                    value={valuePosition}
-                    disabled={!Boolean(valuePosition)}
-                />
-            </div>
-            <Button variant="primary" size="md" onClick={handleFilter}>
-                Search
-            </Button>
+        <FormikTemplate
+            values={{ valueForm: '', valuePosition: '' }}
+            handleSubmit={handleFilter}
+            schema={schema}
+            baseForm={({ errors, touched }) => (
+                <Form
+                    css={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        padding: 0,
+                        position: 'relative',
+                        maxWidth: scale(86),
+                        marginBottom: scale(5),
+                        alignItems: 'end',
+                        gap: scale(4),
+                        [MEDIA_QUERIES.sm]: {
+                            flexDirection: 'column',
+                            gap: scale(3),
+                            width: '100%',
+                        },
+                    }}
+                >
+                    <div
+                        css={{
+                            width: '80%',
+                            display: 'flex',
+                            gap: scale(2),
+                            [MEDIA_QUERIES.sm]: {
+                                flexDirection: 'column',
+                                width: '100%',
+                                gap: scale(2),
+                            },
+                        }}
+                    >
+                        <Select
+                            label="Form"
+                            Icon={ArrowGrey}
+                            optionsArr={arrForm}
+                            open={openForm}
+                            handleClickSelected={handleClickSelectedForm}
+                            handleClickOption={handleClickOptionForm}
+                            value={valueForm}
+                            disabled={!Boolean(valueForm)}
+                        />
+                        <Select
+                            label="Position"
+                            Icon={ArrowGrey}
+                            optionsArr={arrPosition}
+                            open={openPosition}
+                            handleClickSelected={handleClickSelectedPosition}
+                            handleClickOption={handleClickOptionPosition}
+                            value={valuePosition}
+                            disabled={!Boolean(valuePosition)}
+                        />
+                    </div>
+                    <Button variant="primary" type="submit" size="md" onClick={handleFilter}>
+                        Search
+                    </Button>
 
-            <Button variant="link" Icon={CloseIcon} block hidden={activeFilter} onClick={handleClickClear}>
-                Clear filtres
-            </Button>
-        </div>
+                    <Button variant="link" Icon={CloseIcon} block hidden={activeFilter} onClick={handleClickClear}>
+                        Clear filtres
+                    </Button>
+                </Form>
+            )}
+        />
     );
 }

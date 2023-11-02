@@ -12,11 +12,12 @@ export const BaseInput = <V extends EnumLike, S extends EnumLike>(
         theme,
         nameInput = '',
         placeholder,
-        inputId,
+        id,
         variant,
         size,
         error = '',
         touched = false,
+        mask = ''
     }: InputProps<V, S>,
     ref: Ref<HTMLInputElement>
 ) => {
@@ -28,6 +29,7 @@ export const BaseInput = <V extends EnumLike, S extends EnumLike>(
             size,
             error,
             touched,
+            mask
         }),
         [focus, size, variant, textArea, error, touched]
     );
@@ -40,22 +42,23 @@ export const BaseInput = <V extends EnumLike, S extends EnumLike>(
 
     return (
         <div css={blockCSS as any}>
-            <label css={labelCSS as any} htmlFor={inputId}>
+            <label css={labelCSS as any} htmlFor={id}>
                 {nameInput}
             </label>
             <Field
                 css={inputCSS as any}
                 placeholder={placeholder}
-                id={inputId}
-                name={inputId}
+                id={id}
+                name={id}
                 as={textArea ? 'textarea' : 'input'}
+                mask={mask && null}
             />
             <span css={errorCSS as any}>{error}</span>
         </div>
     );
 };
 
-const InputRef = forwardRef(BaseInput) as typeof BaseInput;
+export const InputRef = forwardRef(BaseInput) as typeof BaseInput;
 
 export const createInputWithTheme = <V extends EnumLike, S extends EnumLike>(
     defaultTheme: InputTheme<V, S>,
@@ -65,7 +68,7 @@ export const createInputWithTheme = <V extends EnumLike, S extends EnumLike>(
     type InputReturn = ReturnType<typeof InputRef>;
     const ThemeInput = (({ theme = defaultTheme, variant = defaultVariant, size = defaultSize, ...props }, ref) => (
         <InputRef theme={theme} variant={variant} size={size} {...props} />
-    )) as (props: InputProps<V, S>, ref: Ref<HTMLButtonElement>) => InputReturn;
+    )) as (props: InputProps<V, S>, ref: Ref<HTMLInputElement>) => InputReturn;
 
     (ThemeInput as any).displayName = 'Input';
 
