@@ -23,9 +23,33 @@ const basicTheme: SelectTheme<typeof Variant, typeof Size> = {
                 backgroundColor: colors.white,
                 color: colors.black,
                 borderRadius: scale(1, true),
-                ...(state.disabled && {
-                    color: colors.grey600,
-                }),
+            },
+        };
+
+        return {
+            ...extractCSSOption(sized, state.size),
+            ...extractCSSOption(variant, state.variant),
+        };
+    },
+    disabledSelect: state => {
+        const sized: OptionizedCSS<typeof Size> = {
+            md: {
+                minWidth: '100%',
+                padding: `${scale(1)}px ${scale(1, true)}px`,
+                boxSizing: 'border-box',
+                position: 'relative',
+                border: `1px solid ${colors.grey400}`,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                ...typography('desktop/bodyS'),
+            },
+        };
+        const variant: OptionizedCSS<typeof Variant> = {
+            primary: {
+                backgroundColor: colors.white,
+                color: colors.grey400,
+                borderRadius: scale(1, true),
             },
         };
 
@@ -132,7 +156,7 @@ const basicTheme: SelectTheme<typeof Variant, typeof Size> = {
                 },
             },
         };
-        
+
         return {
             ...extractCSSOption(size, state.size),
         };

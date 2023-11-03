@@ -42,7 +42,7 @@ const basicTheme: InputTheme<typeof Variant, typeof Size> = {
                     }),
             },
         };
-        
+
         return {
             ...extractCSSOption(size, state.size),
             ...extractCSSOption(variant, state.variant),
@@ -80,7 +80,7 @@ const basicTheme: InputTheme<typeof Variant, typeof Size> = {
                 position: 'relative',
             },
             sm: {
-                width: scale(10)
+                width: scale(10),
             },
         };
         const variant: OptionizedCSS<typeof Variant> = {

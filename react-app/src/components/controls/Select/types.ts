@@ -17,6 +17,7 @@ export interface SelectTheme<V extends EnumLike, S extends EnumLike> {
     label: StyleDefinition<SelectStateFull<V, S>>;
     optionsGroup: StyleDefinition<SelectStateFull<V, S>>;
     selectContainer: StyleDefinition<SelectStateFull<V, S>>;
+    disabledSelect:  StyleDefinition<SelectStateFull<V, S>>;
 }
 
 export interface SelectProps<V extends EnumLike, S extends EnumLike>
@@ -25,11 +26,12 @@ export interface SelectProps<V extends EnumLike, S extends EnumLike>
     children?: ReactNode;
     Icon?: SVGRIcon | FC<any>;
     iconRight?: boolean;
-    value?: string;
     css?: CSSObject;
     label?: string;
     optionsArr?: Set<string>;
     open?: boolean;
     handleClickSelected?: () => void;
-    handleClickOption?: (value: string) => void;
+    field?: any,
+    meta?: any,
+    helpers?: any,
 }

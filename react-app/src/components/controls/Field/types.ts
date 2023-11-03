@@ -14,5 +14,4 @@ export interface FormFieldProps extends Omit<HTMLProps<HTMLInputElement>, 'label
     Icon?: SVGAElement;
     optionsArr?: Set<string>;
     handleClickSelected?: () => void;
-    handleClickOption?: (value: string) => void;
 }

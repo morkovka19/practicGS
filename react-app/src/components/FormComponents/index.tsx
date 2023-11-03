@@ -1,6 +1,6 @@
-import MyForm from '@components/Form';
+import MyForm from '@components/FormComponents/Form';
 import { Container, Section, scale } from '@greensight/gds';
-import FormTitle from '@components/FormTitle';
+import FormTitle from '@components/FormComponents/FormTitle';
 import { MEDIA_QUERIES } from 'src/scripts/gds';
 
 export default function FormSection() {

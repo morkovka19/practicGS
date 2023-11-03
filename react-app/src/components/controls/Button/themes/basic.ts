@@ -92,6 +92,11 @@ const basicTheme: ButtonTheme<typeof Variant, typeof Size> = {
                     width: '100%',
                     justifyContent: 'start',
                     columnGap: scale(1),
+                    [MEDIA_QUERIES.sm]: {
+                        top: scale(17),
+                        right: 0,
+                        padding: 0
+                    }
                 }),
             },
         };

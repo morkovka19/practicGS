@@ -1,7 +1,7 @@
 import { regPhone } from 'src/utils/regs';
 import * as yup from 'yup';
 import FormikTemplate from '@components/FormikTemplate';
-import { FormFields } from '@components/FormFields';
+import { FormFields } from '@components/FormComponents/FormFields';
 
 const schema = {
     name: yup

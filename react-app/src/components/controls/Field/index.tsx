@@ -1,14 +1,18 @@
 import { Children, cloneElement, isValidElement } from 'react';
 import { Input } from '@components/controls/Input';
 import { FormFieldProps } from './types';
+import { useField } from 'formik';
 
 export const FormField = ({ name, children, ...props }: FormFieldProps) => {
+    const [field, meta, helpers] = useField(name);
     const inputProps = {
         type: 'text',
         name,
+        field: field,
+        meta: meta,
+        helpers: helpers,
         ...props,
     };
-
     return (
         <div css={{ width: '100%' }}>
             {children ? (

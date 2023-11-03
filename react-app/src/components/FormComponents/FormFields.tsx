@@ -1,4 +1,4 @@
-import FormLinkContainer from '@components/FormLinkContainer';
+import FormLinkContainer from '@components/FormComponents/FormLinkContainer';
 import { scale } from '@greensight/gds';
 import { Button } from '@components/controls/Button';
 import { FormField } from '@components/controls/Field';

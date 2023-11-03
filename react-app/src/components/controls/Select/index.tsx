@@ -1,8 +1,9 @@
 import { EnumLike, useThemeCSS } from '@greensight/gds';
-import { Ref, useMemo, forwardRef } from 'react';
+import { Ref, useMemo, forwardRef, useCallback } from 'react';
 import { Size, Variant } from './enums';
 import { SELECT_THEMES } from './themes/basic';
 import { SelectProps, SelectStateFull, SelectTheme } from './types';
+import { colors } from 'src/scripts/gds';
 
 export const BaseSelect = <V extends EnumLike, S extends EnumLike>(
     {
@@ -10,13 +11,14 @@ export const BaseSelect = <V extends EnumLike, S extends EnumLike>(
         size,
         variant,
         Icon,
-        value = 'Not selected',
         disabled = true,
         label,
         optionsArr = new Set(),
         open = false,
         handleClickSelected,
-        handleClickOption,
+        meta,
+        helpers,
+        field,
     }: SelectProps<V, S>,
     ref: Ref<HTMLSelectElement>
 ) => {
@@ -25,11 +27,10 @@ export const BaseSelect = <V extends EnumLike, S extends EnumLike>(
             disabled,
             size,
             variant,
-            value,
             label,
             open,
         }),
-        [disabled, size, variant, label, value, open]
+        [disabled, size, variant, label, open]
     );
     if (!theme) {
         throw new Error('[Select] theme is required');
@@ -41,21 +42,19 @@ export const BaseSelect = <V extends EnumLike, S extends EnumLike>(
         label: labelCSS,
         optionsGroup: optionsGroupCSS,
         selectContainer: selectContainerCSS,
+        disabledSelect: disabledSelectCSS,
     } = useThemeCSS(theme!, state);
-    const onClickOption = (e: any) => {
-        handleClickOption && handleClickOption(e?.target?.textContent || '');
-    };
 
     return (
         <div css={selectContainerCSS as any} onClick={handleClickSelected}>
             <span css={labelCSS as any}>{label}</span>
-            <div css={totalCSS as any}>
-                {value || 'Not selected'}
+            <div css={meta.value ? totalCSS as any : disabledSelectCSS}>
+                {meta.value || 'Not selected'}
                 {Icon && <Icon css={iconCSS as any} />}
             </div>
             <ul css={optionsGroupCSS as any}>
                 {[...optionsArr].map((item, i) => (
-                    <li key={i} css={optionCSS as any} onClick={onClickOption}>
+                    <li key={i} css={optionCSS as any} onClick={() => helpers.setValue(item)}>
                         {item}
                     </li>
                 ))}

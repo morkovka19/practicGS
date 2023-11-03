@@ -6,29 +6,13 @@ import ArrowGrey from '../../icons/chevronDownGrey.svg';
 import CloseIcon from '../../icons/close.svg';
 import { arrPosition, arrForm } from 'src/utils/constants';
 import { useCallback, useState } from 'react';
+import { useField } from 'formik';
 
-export const FilterFields = ({
-    errors,
-    touched,
-    handleClear,
-    activeFilter,
-    valueForm,
-    valuePosition,
-    handleClickFormOption,
-    handleClickPositionOption
-}: {
-    errors: any;
-    touched: any;
-    handleClear: () => void;
-    activeFilter: boolean;
-    handleClickFormOption: (value: string) => void,
-    handleClickPositionOption: (value: string) => void,
-    valueForm: string,
-    valuePosition: string
-
-}) => {
+export const FilterFields = ({ handleClear, activeFilter }: { handleClear: () => void; activeFilter: boolean }) => {
     const [openForm, setOpenForm] = useState(false);
     const [openPosition, setOpenPosition] = useState(false);
+    const metaFormField = useField('form');
+    const metaPositionField = useField('position');
 
     const handleClickForm = useCallback(() => {
         setOpenForm(() => !openForm);
@@ -38,22 +22,30 @@ export const FilterFields = ({
         setOpenPosition(() => !openPosition);
     }, [openPosition]);
 
+    const handleClearClick = () => {
+        metaFormField[2].setValue('');
+        metaPositionField[2].setValue('');
+        handleClear();
+    };
+
     return (
-        <div css={{
-            display: 'flex',
-            flexDirection: 'row',
-            padding: 0,
-            position: 'relative',
-            maxWidth: scale(86),
-            marginBottom: scale(5),
-            alignItems: 'end',
-            gap: scale(4),
-            [MEDIA_QUERIES.sm]: {
-                flexDirection: 'column',
-                gap: scale(3),
-                width: '100%',
-            },
-        }}>
+        <div
+            css={{
+                display: 'flex',
+                flexDirection: 'row',
+                padding: 0,
+                position: 'relative',
+                maxWidth: scale(86),
+                marginBottom: scale(5),
+                alignItems: 'end',
+                gap: scale(4),
+                [MEDIA_QUERIES.sm]: {
+                    flexDirection: 'column',
+                    gap: scale(3),
+                    width: '100%',
+                },
+            }}
+        >
             <div
                 css={{
                     width: '80%',
@@ -68,29 +60,22 @@ export const FilterFields = ({
             >
                 <FormField
                     handleClickSelected={handleClickForm}
-                    handleClickOption={handleClickFormOption}
-                    value={valueForm}
                     name="form"
                     label="Form"
                     optionsArr={arrForm}
                     Icon={ArrowGrey}
                     open={openForm}
-                    css={{width: '100%'}}
-                    disabled={!Boolean(valueForm)}
                 >
                     <Select />
                 </FormField>
                 <FormField
                     label="Position"
-                    value={valuePosition}
-                    handleClickOption={handleClickPositionOption}
                     Icon={ArrowGrey}
                     optionsArr={arrPosition}
                     open={openPosition}
                     handleClickSelected={handleClickPosition}
                     name="position"
-                    disabled={!Boolean(valuePosition)}
-                    >
+                >
                     <Select />
                 </FormField>
             </div>
@@ -98,7 +83,7 @@ export const FilterFields = ({
                 Search
             </Button>
 
-            <Button variant="link" Icon={CloseIcon} block hidden={activeFilter} onClick={handleClear}>
+            <Button variant="link" Icon={CloseIcon} block hidden={activeFilter} onClick={handleClearClick}>
                 Clear filtres
             </Button>
         </div>

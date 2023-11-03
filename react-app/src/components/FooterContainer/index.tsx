@@ -1,5 +1,5 @@
 import Footer from '@components/Footer';
-import FormSection from '@components/FormSection/FormSection';
+import FormSection from '@components/FormComponents';
 import { colors } from 'src/scripts/gds';
 
 export default function FooterContainer() {
