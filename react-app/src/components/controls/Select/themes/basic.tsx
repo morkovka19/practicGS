@@ -28,6 +28,7 @@ const basicTheme: SelectTheme<typeof Variant, typeof Size> = {
                 }),
             },
         };
+
         return {
             ...extractCSSOption(sized, state.size),
             ...extractCSSOption(variant, state.variant),
@@ -76,6 +77,7 @@ const basicTheme: SelectTheme<typeof Variant, typeof Size> = {
                 }),
             },
         };
+
         return {
             ...extractCSSOption(sized, state.size),
             ...extractCSSOption(variant, state.variant),
@@ -107,10 +109,9 @@ const basicTheme: SelectTheme<typeof Variant, typeof Size> = {
                 position: 'absolute',
                 top: scale(8),
                 boxShadow: shadows.big,
-                zIndex: 1,
+                zIndex: 2,
                 borderRadius: scale(1, true),
                 display: 'none',
-
                 ...(state.open && {
                     display: 'block',
                 }),
@@ -125,12 +126,13 @@ const basicTheme: SelectTheme<typeof Variant, typeof Size> = {
         const size: OptionizedCSS<typeof Size> = {
             md: {
                 position: 'relative',
-                width: '48%',
+                width: '100%',
                 [MEDIA_QUERIES.sm]: {
                     width: '100%',
                 },
             },
         };
+        
         return {
             ...extractCSSOption(size, state.size),
         };

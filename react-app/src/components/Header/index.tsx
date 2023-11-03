@@ -16,9 +16,7 @@ export default function Header() {
                 css={{
                     margin: 0,
                     ...typography('desktop/h1'),
-                    [MEDIA_QUERIES.sm]: {
-                        ...typography('mobile/h1'),
-                    },
+                    [MEDIA_QUERIES.sm]: typography('mobile/h1'),
                 }}
             >
                 List of vacancies

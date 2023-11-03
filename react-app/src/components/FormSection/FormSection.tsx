@@ -28,7 +28,12 @@ export default function FormSection() {
                     },
                 }}
             >
-                <Container css={{ display: 'flex', flexDirection: 'column', gap: scale(4), padding: 0, width: '100%' }}>
+                <Container css={{ display: 'flex', 
+                flexDirection: 'column', 
+                gap: scale(4), 
+                padding: 0, 
+                width: '100%'
+                }}>
                     <FormTitle />
                     <MyForm />
                 </Container>

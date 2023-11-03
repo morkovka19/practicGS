@@ -14,10 +14,8 @@ export default function FormTitle() {
         >
             <h3
                 css={{
-                    ...(typography('desktop/h2') as any),
-                    [MEDIA_QUERIES.sm]: {
-                        ...(typography('mobile/h2') as any),
-                    },
+                    ...(typography('desktop/h2')),
+                    [MEDIA_QUERIES.sm]: (typography('mobile/h2')),
                 }}
             >
                 Leave a request
@@ -25,10 +23,8 @@ export default function FormTitle() {
             <p
                 css={{
                     textAlign: 'center',
-                    ...(typography('desktop/bodyL') as any),
-                    [MEDIA_QUERIES.sm]: {
-                        ...typography('desktop/bodyM'),
-                    },
+                    ...(typography('desktop/bodyL')),
+                    [MEDIA_QUERIES.sm]: typography('desktop/bodyM')
                 }}
             >
                 We will advise you and help you start a new project

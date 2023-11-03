@@ -42,6 +42,7 @@ const basicTheme: InputTheme<typeof Variant, typeof Size> = {
                     }),
             },
         };
+        
         return {
             ...extractCSSOption(size, state.size),
             ...extractCSSOption(variant, state.variant),
@@ -49,12 +50,8 @@ const basicTheme: InputTheme<typeof Variant, typeof Size> = {
     },
     label: state => {
         const size: OptionizedCSS<typeof Size> = {
-            md: {
-                ...typography('desktop/bodyXSbold'),
-            },
-            sm: {
-                ...typography('desktop/bodyXSbold'),
-            },
+            md: typography('desktop/bodyXSbold'),
+            sm: typography('desktop/bodyXSbold'),
         };
         const variant: OptionizedCSS<typeof Variant> = {
             primary: {
@@ -66,6 +63,7 @@ const basicTheme: InputTheme<typeof Variant, typeof Size> = {
                     }),
             },
         };
+
         return {
             ...extractCSSOption(size, state.size),
             ...extractCSSOption(variant, state.variant),
@@ -81,11 +79,14 @@ const basicTheme: InputTheme<typeof Variant, typeof Size> = {
                 margin: '0 auto',
                 position: 'relative',
             },
-            sm: {},
+            sm: {
+                width: scale(10)
+            },
         };
         const variant: OptionizedCSS<typeof Variant> = {
             primary: {},
         };
+
         return {
             ...extractCSSOption(size, state.size),
             ...extractCSSOption(variant, state.variant),
@@ -96,7 +97,9 @@ const basicTheme: InputTheme<typeof Variant, typeof Size> = {
             md: {
                 position: 'absolute',
             },
-            sm: {},
+            sm: {
+                position: 'relative',
+            },
         };
         const variant: OptionizedCSS<typeof Variant> = {
             primary: {
@@ -114,6 +117,7 @@ const basicTheme: InputTheme<typeof Variant, typeof Size> = {
                     }),
             },
         };
+
         return {
             ...extractCSSOption(size, state.size),
             ...extractCSSOption(variant, state.variant),

@@ -22,10 +22,7 @@ export default function Pagination({
     }, [filter]);
 
     useEffect(() => {
-        const arrBuff: number[] = [];
-        for (let i = 0; i < amountPages; i += 1) {
-            arrBuff.push(i + 1);
-        }
+        const arrBuff = Array.from(Array(amountPages > 0 ? amountPages : 1), (_, i) => i + 1);
         setArrButtonsNumbers(arrBuff);
     }, [amountPages]);
 
@@ -39,7 +36,7 @@ export default function Pagination({
             css={{
                 margin: '0 auto',
                 marginTop: scale(4),
-                display: `${filter ? 'none' : 'block'}`,
+                display: filter ? 'none' : 'block',
             }}
         >
             <ul
@@ -58,7 +55,7 @@ export default function Pagination({
                 {arrButtonsNumbers.map((item, i) => (
                     <li key={i}>
                         <Button
-                            variant={`${Number(numberActivePage) === Number(item) ? 'primary' : 'notactive'}`}
+                            variant={Number(numberActivePage) === Number(item) ? "primary" : "notactive"}
                             size="sm"
                             onClick={handleClickButton}
                             value={item}

@@ -13,8 +13,8 @@ export const BaseSelect = <V extends EnumLike, S extends EnumLike>(
         value = 'Not selected',
         disabled = true,
         label,
-        optionsArr,
-        open,
+        optionsArr = new Set(),
+        open = false,
         handleClickSelected,
         handleClickOption,
     }: SelectProps<V, S>,
@@ -31,11 +31,9 @@ export const BaseSelect = <V extends EnumLike, S extends EnumLike>(
         }),
         [disabled, size, variant, label, value, open]
     );
-
     if (!theme) {
         throw new Error('[Select] theme is required');
     }
-
     const {
         select: totalCSS,
         icon: iconCSS,
@@ -44,17 +42,16 @@ export const BaseSelect = <V extends EnumLike, S extends EnumLike>(
         optionsGroup: optionsGroupCSS,
         selectContainer: selectContainerCSS,
     } = useThemeCSS(theme!, state);
-
     const onClickOption = (e: any) => {
-        handleClickOption(e?.target?.textContent);
+        handleClickOption && handleClickOption(e?.target?.textContent || '');
     };
 
     return (
         <div css={selectContainerCSS as any} onClick={handleClickSelected}>
             <span css={labelCSS as any}>{label}</span>
             <div css={totalCSS as any}>
-                {value ? value : 'Not selected'}
-                <Icon css={iconCSS as any} />
+                {value || 'Not selected'}
+                {Icon && <Icon css={iconCSS as any} />}
             </div>
             <ul css={optionsGroupCSS as any}>
                 {[...optionsArr].map((item, i) => (
@@ -75,11 +72,9 @@ export const createSelectWithTheme = <V extends EnumLike, S extends EnumLike>(
     defaultSize: S | keyof S
 ) => {
     type SelectReturn = ReturnType<typeof SelectRef>;
-
     const ThemedSelect = (({ theme = defaultTheme, variant = defaultVariant, size = defaultSize, ...props }, ref) => (
         <SelectRef theme={theme} variant={variant} size={size} {...props} />
     )) as (props: SelectProps<V, S>, ref: Ref<HTMLButtonElement>) => SelectReturn;
-
     (ThemedSelect as any).displayName = 'Button';
 
     return forwardRef(ThemedSelect) as typeof ThemedSelect;

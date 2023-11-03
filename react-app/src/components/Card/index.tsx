@@ -1,7 +1,7 @@
 import { scale, Layout } from '@greensight/gds';
 import { useCallback, useState } from 'react';
 import { shadows, MEDIA_QUERIES, colors, typography } from 'src/scripts/gds';
-import { CardType } from './types';
+import { CardType } from 'src/api/vacancies/types';
 import OpenIcon from '../../icons/chevronDown.svg';
 import { Button } from '@components/controls/Button';
 
@@ -56,7 +56,7 @@ export default function Card({ cardInfo, number }: { cardInfo: CardType; number:
                             ...typography('desktop/h4'),
                             [MEDIA_QUERIES.sm]: {
                                 maxWidth: '100%',
-                                ...(typography('mobile/h4') as any),
+                                ...typography('mobile/h4'),
                             },
                         }}
                     >
@@ -66,9 +66,10 @@ export default function Card({ cardInfo, number }: { cardInfo: CardType; number:
                         src={cardInfo.img}
                         alt={cardInfo.title}
                         css={{
-                            display: `${cardInfo.img === 'Не найдено' && 'none'}`,
+                            display: cardInfo.img === 'Не найдено' ? 'none' : 'block',
                             marginLeft: scale(1),
                             height: '100%',
+                            maxWidth: scale(20),
                             [MEDIA_QUERIES.sm]: {
                                 height: scale(7),
                                 marginTop: scale(3),
@@ -113,9 +114,7 @@ export default function Card({ cardInfo, number }: { cardInfo: CardType; number:
                     css={{
                         margin: 0,
                         ...typography('desktop/bodyM'),
-                        [MEDIA_QUERIES.sm]: {
-                            ...typography('desktop/bodyS'),
-                        },
+                        [MEDIA_QUERIES.sm]: typography('desktop/bodyS'),
                     }}
                 >
                     <p>Описание: {cardInfo.description}</p>
@@ -154,7 +153,7 @@ export default function Card({ cardInfo, number }: { cardInfo: CardType; number:
                                     opacity: 1,
                                     background:
                                         'linear-gradient(to bottom, rgba(255, 255, 255, .7), rgba(255, 255, 255, 1))',
-                                    display: `${!open ? 'block' : 'none'}`,
+                                    display: !open ? 'block' : 'none',
                                     [MEDIA_QUERIES.sm]: {
                                         height: `30%`,
                                     },
@@ -166,7 +165,10 @@ export default function Card({ cardInfo, number }: { cardInfo: CardType; number:
                 <Button
                     variant="link"
                     size="sm"
-                    css={{ zIndex: 1, justifySelf: 'end' }}
+                    css={{
+                        zIndex: 1,
+                        justifySelf: 'end',
+                    }}
                     Icon={OpenIcon}
                     iconAfter
                     onClick={handleClick}

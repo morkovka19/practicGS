@@ -21,6 +21,7 @@ export default function getCardsInfo(vacancies: any[]): CardType[] {
             requirement: haveProp(item?.snippet, 'requirement'),
             responsibility: haveProp(item?.snippet, 'responsibility'),
             working_time_modes: haveProp(item?.working_time_modes[0], 'name'),
+            id: haveProp(item, 'id')
         };
     });
     return cards;

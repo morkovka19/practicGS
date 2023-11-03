@@ -8,11 +8,11 @@ const basicTheme: ButtonTheme<typeof Variant, typeof Size> = {
         const size: OptionizedCSS<typeof Size> = {
             sm: {
                 padding: `${scale(1, true) + 0.5}px ${scale(1)}px`,
-                ...(typography('buttonSm') as any),
+                ...(typography('buttonSm')),
             },
             md: {
                 padding: `${scale(2, true) + 0.5}px ${scale(4)}px`,
-                ...(typography('buttonMd') as any),
+                ...(typography('buttonMd')),
 
                 [MEDIA_QUERIES.sm]: {
                     margin: '0 auto',
@@ -88,10 +88,10 @@ const basicTheme: ButtonTheme<typeof Variant, typeof Size> = {
                 ...(state.block && {
                     position: 'absolute',
                     left: '0',
-                    top: `${scale(8)}px`,
+                    top: scale(8),
                     width: '100%',
                     justifyContent: 'start',
-                    columnGap: `${scale(1)}`,
+                    columnGap: scale(1),
                 }),
             },
         };
@@ -104,13 +104,13 @@ const basicTheme: ButtonTheme<typeof Variant, typeof Size> = {
     icon: state => {
         const sized: OptionizedCSS<typeof Size> = {
             sm: {
-                width: `${scale(2)}px`,
-                height: `${scale(2)}px`,
-                ...(typography('buttonSm') as any),
+                width: scale(2),
+                height: scale(2),
+                ...(typography('buttonSm')),
             },
             md: {
                 padding: `${scale(1, true) + 0.5}px ${scale(1)}px`,
-                ...(typography('buttonMd') as any),
+                ...(typography('buttonMd')),
             },
         };
 

@@ -18,11 +18,11 @@ export default function Footer() {
         >
             <Container>
                 <Layout type="flex" direction="row" justify="space-between" css={{color: colors.white}}>
-                    <Layout.Item css={...(typography('bodyLbold'))}>
+                    <Layout.Item css={typography('bodyLbold')}>
                         <p>+7 499 391-66-69</p>
                         <p>mail@greensight.ru</p>
                     </Layout.Item>
-                    <Layout.Item  css={...(typography('bodyMbold'))}>
+                    <Layout.Item  css={typography('bodyMbold')}>
                         <p>322A, 2nd Floor, Zelenograd, Moscow, Russia</p>
                         <p css={{ textAlign: 'end', [MEDIA_QUERIES.sm]: { textAlign: 'start' } }}>Directions</p>
                     </Layout.Item>

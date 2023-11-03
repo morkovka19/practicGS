@@ -8,4 +8,5 @@ export interface CardType {
     requirement: string;
     responsibility: string;
     working_time_modes: string;
+    id: string
 }

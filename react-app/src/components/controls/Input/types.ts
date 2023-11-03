@@ -5,7 +5,7 @@ export interface State {
     focus: boolean;
     textArea: boolean;
     error: string;
-    touched: boolean;
+    touched: string;
 }
 
 export type InputStateFull<V extends EnumLike, S extends EnumLike> = BaseThemeState<V, S> & State;
@@ -20,11 +20,11 @@ export interface InputTheme<V extends EnumLike, S extends EnumLike> {
 export interface InputProps<V extends EnumLike, S extends EnumLike>
     extends Partial<BaseThemeState<V, S, InputTheme<V, S>>>,
         Partial<State> {
-    nameInput?: string;
+    label?: string;
     children?: ReactNode;
-    placeholder: string;
-    id: string;
-    touched?: boolean;
+    placeholder?: string;
+    name?: string;
+    touched?: string;
     error?: string;
     mask?: string | undefined;
 }

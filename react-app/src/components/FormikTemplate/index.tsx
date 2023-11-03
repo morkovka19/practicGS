@@ -1,21 +1,22 @@
-import { Formik, FormikHelpers } from 'formik';
+import { Form, Formik, FormikHelpers } from 'formik';
 import * as yup from 'yup';
-import { ReactNode } from 'react';
+import { ReactElement, cloneElement } from 'react';
+import { CSSObject } from '@emotion/core';
 
-export default function MyForm({
+export default function FormikTemplate({
     schema,
     values,
     handleSubmit,
-    baseForm,
+    children,
 }: {
-    schema: yup.ObjectShape;
+    schema?: yup.AnyObject;
     values: Object;
     handleSubmit: ((values: any, formikHelpers: FormikHelpers<any>) => void | Promise<any>) & ((values: any) => void);
-    baseForm: ({ errors, touched }: { errors: any; touched: any }) => ReactNode;
+    children: ReactElement;
 }) {
     return (
-        <Formik validationSchema={yup.object().shape(schema)} initialValues={values} onSubmit={handleSubmit}>
-            {baseForm}
+        <Formik validationSchema={schema} initialValues={values} onSubmit={handleSubmit}>
+            {({ errors, touched }) => <Form>{children && cloneElement(children, { errors, touched })}</Form>}
         </Formik>
     );
 }

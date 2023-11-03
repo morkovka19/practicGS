@@ -7,8 +7,8 @@ import Header from '@components/Header';
 import Main from '@components/Main';
 import { QueryClient, dehydrate } from 'react-query';
 
-export default function HomePage(props: any) {
-    const vacancies = useVacancies(props);
+export default function HomePage() {
+    const vacancies = useVacancies();
     const cards = getCardsInfo(vacancies?.data?.items);
     return (
         <div
@@ -30,7 +30,8 @@ export default function HomePage(props: any) {
 
 export async function getServerSideProps() {
     const queryClient = new QueryClient();
-    await queryClient.prefetchQuery('vacanсies', getVacancies);
+    const { key, fetch } = getVacancies();
+    await queryClient.prefetchQuery(key, fetch);
     return {
         props: {
             dehydrateState: dehydrate(queryClient),

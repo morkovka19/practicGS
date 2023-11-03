@@ -1,11 +1,7 @@
-import { Button } from '@components/controls/Button';
-import { Input } from '@components/controls/Input';
-import { scale } from '@greensight/gds';
-import { Form } from 'formik';
 import { regPhone } from 'src/utils/regs';
-import FormLinkContainer from '@components/FormLinkContainer';
 import * as yup from 'yup';
 import FormikTemplate from '@components/FormikTemplate';
+import { FormFields } from '@components/FormFields';
 
 const schema = {
     name: yup
@@ -20,7 +16,7 @@ const schema = {
 export default function MyForm() {
     return (
         <FormikTemplate
-            schema={schema}
+            schema={yup.object().shape(schema)}
             values={{
                 name: '',
                 email: '',
@@ -30,64 +26,8 @@ export default function MyForm() {
             handleSubmit={values => {
                 alert(`submit:\n${values.name}\n${values.email}\n${values.phone}\n${values.comment}`);
             }}
-            baseForm={({ errors, touched }) => (
-                <Form css={{ width: '90%', margin: '0 auto' }}>
-                    <div css={{ rowGap: scale(4), width: '100%', display: 'flex', flexDirection: 'column' }}>
-                        <div css={{ rowGap: scale(2), display: 'flex', flexDirection: 'column' }}>
-                            <Input
-                                variant="primary"
-                                size="md"
-                                nameInput="Your name"
-                                placeholder="Please introduce yourself"
-                                id="name"
-                                error={errors.name}
-                                touched={touched.name}
-                            />
-                            <Input
-                                variant="primary"
-                                size="md"
-                                nameInput="Email"
-                                placeholder="ivanov@gmail.com"
-                                id="email"
-                                error={errors.email}
-                                touched={touched.email}
-                            />
-                            <Input
-                                nameInput="Phone number"
-                                variant="primary"
-                                size="md"
-                                placeholder="+7 (999) 000 00 00"
-                                id="phone"
-                                error={errors.phone}
-                                touched={touched.phone}
-                            />
-                            <Input
-                                nameInput="Comment"
-                                placeholder="Message text"
-                                variant="primary"
-                                size="md"
-                                id="comment"
-                                textArea
-                                error={errors.comment}
-                                touched={touched.comment}
-                            />
-                        </div>
-                        <div
-                            css={{
-                                rowGap: scale(2),
-                                display: 'flex',
-                                flexDirection: 'column',
-                                alignItems: 'center',
-                            }}
-                        >
-                            <Button block variant="primary" size="md" type="submit">
-                                Send
-                            </Button>
-                            <FormLinkContainer />
-                        </div>
-                    </div>
-                </Form>
-            )}
+            children={<FormFields errors={undefined} touched={undefined} />}
         />
-    );
-}
+    )
+        }
+        

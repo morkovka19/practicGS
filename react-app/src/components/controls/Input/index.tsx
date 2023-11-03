@@ -10,14 +10,13 @@ export const BaseInput = <V extends EnumLike, S extends EnumLike>(
         focus = false,
         textArea = false,
         theme,
-        nameInput = '',
-        placeholder,
-        id,
+        label = '',
+        placeholder = '',
+        name = '',
         variant,
         size,
         error = '',
-        touched = false,
-        mask = ''
+        touched = '',
     }: InputProps<V, S>,
     ref: Ref<HTMLInputElement>
 ) => {
@@ -29,29 +28,25 @@ export const BaseInput = <V extends EnumLike, S extends EnumLike>(
             size,
             error,
             touched,
-            mask
         }),
         [focus, size, variant, textArea, error, touched]
     );
-
     if (!theme) {
         throw new Error('[Input] theme is required');
     }
-
     const { input: inputCSS, label: labelCSS, inputBlock: blockCSS, error: errorCSS } = useThemeCSS(theme!, state);
 
     return (
         <div css={blockCSS as any}>
-            <label css={labelCSS as any} htmlFor={id}>
-                {nameInput}
+            <label css={labelCSS as any} htmlFor={name}>
+                {label}
             </label>
             <Field
                 css={inputCSS as any}
                 placeholder={placeholder}
-                id={id}
-                name={id}
+                id={name}
+                name={name}
                 as={textArea ? 'textarea' : 'input'}
-                mask={mask && null}
             />
             <span css={errorCSS as any}>{error}</span>
         </div>
@@ -69,7 +64,6 @@ export const createInputWithTheme = <V extends EnumLike, S extends EnumLike>(
     const ThemeInput = (({ theme = defaultTheme, variant = defaultVariant, size = defaultSize, ...props }, ref) => (
         <InputRef theme={theme} variant={variant} size={size} {...props} />
     )) as (props: InputProps<V, S>, ref: Ref<HTMLInputElement>) => InputReturn;
-
     (ThemeInput as any).displayName = 'Input';
 
     return forwardRef(ThemeInput) as typeof ThemeInput;
