@@ -1,9 +1,9 @@
 import { EnumLike, useThemeCSS } from '@greensight/gds';
-import { Ref, useMemo, forwardRef, useCallback } from 'react';
+import { Ref, useMemo, forwardRef } from 'react';
 import { Size, Variant } from './enums';
 import { SELECT_THEMES } from './themes/basic';
 import { SelectProps, SelectStateFull, SelectTheme } from './types';
-import { colors } from 'src/scripts/gds';
+import { CSSObject } from '@emotion/core';
 
 export const BaseSelect = <V extends EnumLike, S extends EnumLike>(
     {
@@ -46,15 +46,15 @@ export const BaseSelect = <V extends EnumLike, S extends EnumLike>(
     } = useThemeCSS(theme!, state);
 
     return (
-        <div css={selectContainerCSS as any} onClick={handleClickSelected}>
-            <span css={labelCSS as any}>{label}</span>
-            <div css={meta.value ? totalCSS as any : disabledSelectCSS}>
+        <div css={selectContainerCSS as CSSObject} onClick={handleClickSelected}>
+            <span css={labelCSS as CSSObject}>{label}</span>
+            <div css={meta.value ? totalCSS as CSSObject : disabledSelectCSS as CSSObject}>
                 {meta.value || 'Not selected'}
-                {Icon && <Icon css={iconCSS as any} />}
+                {Icon && <Icon css={iconCSS as CSSObject} />}
             </div>
-            <ul css={optionsGroupCSS as any}>
+            <ul css={optionsGroupCSS as CSSObject}>
                 {[...optionsArr].map((item, i) => (
-                    <li key={i} css={optionCSS as any} onClick={() => helpers.setValue(item)}>
+                    <li key={i} css={optionCSS as CSSObject} onClick={() => helpers.setValue(item)}>
                         {item}
                     </li>
                 ))}

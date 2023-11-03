@@ -15,20 +15,13 @@ export default function Filters({
     handleFilterCards: ({ form, position }: { form: string; position: string }) => void;
     handleClearFilter: () => void;
 }) {
-    const [activeFilter, setActiveFilter] = useState(true);
     
     const handleFilter = ({form, position}: {form: string, position: string}) => {
         if (form || position) {
             handleFilterCards({ form, position });
-            setActiveFilter(false);
         }
     };
-
-    const handleClickClear = () => {
-        setActiveFilter(true);
-        handleClearFilter();
-    };
-
+    
     return (
         <FormikTemplate
             values={{ form: '', position: '' }}
@@ -36,8 +29,7 @@ export default function Filters({
             schema={yup.object().shape(schema)}
         >
             <FilterFields
-                handleClear={handleClickClear}
-                activeFilter={activeFilter}
+                handleClear={() => handleClearFilter()}
             />
         </FormikTemplate>
     );

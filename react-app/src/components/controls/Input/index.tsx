@@ -4,6 +4,7 @@ import { InputProps, InputStateFull, InputTheme } from './types';
 import { Size, Variant } from './enums';
 import { INPUT_THEMES } from './themes/basic';
 import { Field } from 'formik';
+import { CSSObject } from '@emotion/core';
 
 export const BaseInput = <V extends EnumLike, S extends EnumLike>(
     {
@@ -37,18 +38,18 @@ export const BaseInput = <V extends EnumLike, S extends EnumLike>(
     const { input: inputCSS, label: labelCSS, inputBlock: blockCSS, error: errorCSS } = useThemeCSS(theme!, state);
 
     return (
-        <div css={blockCSS as any}>
-            <label css={labelCSS as any} htmlFor={name}>
+        <div css={blockCSS as CSSObject}>
+            <label css={labelCSS as CSSObject} htmlFor={name}>
                 {label}
             </label>
             <Field
-                css={inputCSS as any}
+                css={inputCSS as CSSObject}
                 placeholder={placeholder}
                 id={name}
                 name={name}
                 as={textArea ? 'textarea' : 'input'}
             />
-            <span css={errorCSS as any}>{error}</span>
+            <span css={errorCSS as CSSObject}>{error}</span>
         </div>
     );
 };

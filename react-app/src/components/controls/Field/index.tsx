@@ -8,9 +8,9 @@ export const FormField = ({ name, children, ...props }: FormFieldProps) => {
     const inputProps = {
         type: 'text',
         name,
-        field: field,
-        meta: meta,
-        helpers: helpers,
+        field,
+        meta,
+        helpers,
         ...props,
     };
     return (

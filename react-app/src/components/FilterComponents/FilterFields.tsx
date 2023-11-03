@@ -6,13 +6,14 @@ import ArrowGrey from '../../icons/chevronDownGrey.svg';
 import CloseIcon from '../../icons/close.svg';
 import { arrPosition, arrForm } from 'src/utils/constants';
 import { useCallback, useState } from 'react';
-import { useField } from 'formik';
+import { useField, useFormikContext } from 'formik';
 
-export const FilterFields = ({ handleClear, activeFilter }: { handleClear: () => void; activeFilter: boolean }) => {
+export const FilterFields = ({ handleClear }: { handleClear: () => void }) => {
     const [openForm, setOpenForm] = useState(false);
     const [openPosition, setOpenPosition] = useState(false);
     const metaFormField = useField('form');
     const metaPositionField = useField('position');
+    const context = useFormikContext();
 
     const handleClickForm = useCallback(() => {
         setOpenForm(() => !openForm);
@@ -25,6 +26,7 @@ export const FilterFields = ({ handleClear, activeFilter }: { handleClear: () =>
     const handleClearClick = () => {
         metaFormField[2].setValue('');
         metaPositionField[2].setValue('');
+        context.setSubmitting(false);
         handleClear();
     };
 
@@ -83,7 +85,7 @@ export const FilterFields = ({ handleClear, activeFilter }: { handleClear: () =>
                 Search
             </Button>
 
-            <Button variant="link" Icon={CloseIcon} block hidden={activeFilter} onClick={handleClearClick}>
+            <Button variant="link" Icon={CloseIcon} block hidden={!context.isSubmitting} onClick={handleClearClick}>
                 Clear filtres
             </Button>
         </div>
