@@ -1,14 +1,12 @@
 import { getVacancies } from '@views/api';
 import { useVacancies } from 'src/api/vacancies';
-import getCardsInfo from './index/helpers';
+import getCardsInfo from './helpers';
 import { scale } from '@greensight/gds';
-import Header from '@components/Header';
 import { QueryClient, dehydrate } from 'react-query';
 import Filters from '@views/index/components/Filters';
-import Pagination from './index/components/Pagination';
+import Pagination from './components/Pagination';
 import List from '@views/index/components/List';
 import { useCallback, useEffect, useState } from 'react';
-import Footer from '@components/Footer';
 import FeedbackForm from '@views/index/components/FeedbackForm';
 
 export default function HomePage() {
