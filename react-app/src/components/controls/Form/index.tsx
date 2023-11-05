@@ -23,6 +23,5 @@ const Form = ({
 };
 
 Form.Field = FormField;
-Form.Button = Button;
 
 export default Form;

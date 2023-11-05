@@ -4,8 +4,8 @@ import { HTMLProps } from 'react';
 export interface FormFieldProps extends Omit<HTMLProps<HTMLInputElement>, 'label' | 'size'> {
     name: string;
     css?: CSSObject;
-    variant?: 'primary' | undefined;
-    size?: 'sm' | 'md' | undefined;
+    variant?: 'primary';
+    size?: 'sm' | 'md';
     placeholder?: string;
     label?: string;
     error?: string;

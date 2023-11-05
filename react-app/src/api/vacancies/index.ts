@@ -1,5 +1,5 @@
 import { useQuery } from 'react-query';
-import { getVacancies } from './api';
+import { getVacancies } from '../../views/api';
 
 export const useVacancies = () => {
     const { key, fetch } = getVacancies();

@@ -3,6 +3,7 @@ import { MEDIA_QUERIES, colors, typography } from 'src/scripts/gds';
 import { regPhone } from 'src/utils/regs';
 import * as yup from 'yup';
 import Form from '@components/controls/Form';
+import Button from '@components/controls/Button';
 
 export default function FormSection() {
     const schema = {
@@ -141,9 +142,9 @@ export default function FormSection() {
                                     alignItems: 'center',
                                 }}
                             >
-                                <Form.Button block variant="primary" size="md" type="submit">
+                                <Button block variant="primary" size="md" type="submit">
                                     Send
-                                </Form.Button>
+                                </Button>
                                 <Container css={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                                     <span css={{ textAlign: 'center' }}>
                                         By clicking "Send" you confirm your consent to the

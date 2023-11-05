@@ -13,7 +13,7 @@ const Card = ({ cardInfo, number }: { cardInfo: CardType; number: number }) => {
     }, [open]);
 
     return (
-        <li
+        <div
             css={{
                 width: '100%',
                 padding: scale(5),
@@ -179,7 +179,7 @@ const Card = ({ cardInfo, number }: { cardInfo: CardType; number: number }) => {
                     {!open ? 'More details' : 'Less details'}
                 </Button>
             </Layout>
-        </li>
+        </div>
     );
 };
 

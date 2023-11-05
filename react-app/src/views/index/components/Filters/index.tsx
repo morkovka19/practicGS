@@ -15,20 +15,15 @@ export default function Filters({
     handleFilterCards: ({ form, position }: { form: string; position: string }) => void;
     handleClearFilter: () => void;
 }) {
-    const handleFilter = ({ form, position }: { form: string; position: string }) => {
-        if (form || position) {
-            handleFilterCards({ form, position });
-        }
-    };
 
     return (
         <div css={{ width: '83%', maxWidth: scale(150), marginTop: scale(5) }}>
             <Form
                 values={{ form: '', position: '' }}
-                handleSubmit={handleFilter}
+                handleSubmit={(values) => (values.form || values.position) && handleFilterCards({ form: values.form, position: values.position })}
                 schema={yup.object().shape(schema)}
             >
-                <FilterFields handleClear={() => handleClearFilter()} />
+                <FilterFields handleClear={handleClearFilter} />
             </Form>
         </div>
     );

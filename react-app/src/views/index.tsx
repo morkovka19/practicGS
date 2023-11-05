@@ -1,15 +1,15 @@
-import { getVacancies } from 'src/api/vacancies/api';
+import { getVacancies } from '@views/api';
 import { useVacancies } from 'src/api/vacancies';
 import getCardsInfo from './index/helpers';
 import { scale } from '@greensight/gds';
-import Header from '@components/Header';
+import Header from 'src/_app/Header';
 import { QueryClient, dehydrate } from 'react-query';
 import Filters from '@views/index/components/Filters';
 import Pagination from './index/components/Pagination';
 import List from '@views/index/components/List';
 import { useCallback, useEffect, useState } from 'react';
 import FormSection from '@views/index/components/FormSection';
-import Footer from '@components/Footer';
+import Footer from 'src/_app/Footer';
 
 export default function HomePage() {
     const vacancies = useVacancies();
@@ -57,12 +57,17 @@ export default function HomePage() {
             }}
         >
             <Header />
+
             <main css={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 <Filters handleFilterCards={handleFilter} handleClearFilter={handleClearFilter} />
+
                 <List cards={cardsActive} />
+
                 <Pagination amountCards={cards?.length} handlePagination={handlePagination} filter={filter} />
+
                 <FormSection />
             </main>
+
             <Footer />
         </div>
     );
