@@ -16,8 +16,9 @@ export const BaseInput = <V extends EnumLike, S extends EnumLike>(
         name = '',
         variant,
         size,
-        error = '',
-        touched = '',
+        meta,
+        helpers,
+        field,
     }: InputProps<V, S>,
     ref: Ref<HTMLInputElement>
 ) => {
@@ -27,10 +28,11 @@ export const BaseInput = <V extends EnumLike, S extends EnumLike>(
             textArea,
             variant,
             size,
-            error,
-            touched,
+            meta,
+            helpers,
+            field,
         }),
-        [focus, size, variant, textArea, error, touched]
+        [focus, size, variant, textArea, meta, field, helpers]
     );
     if (!theme) {
         throw new Error('[Input] theme is required');
@@ -43,13 +45,13 @@ export const BaseInput = <V extends EnumLike, S extends EnumLike>(
                 {label}
             </label>
             <Field
+                as={textArea ? 'textarea' : 'input'}
                 css={inputCSS as CSSObject}
                 placeholder={placeholder}
                 id={name}
                 name={name}
-                as={textArea ? 'textarea' : 'input'}
             />
-            <span css={errorCSS as CSSObject}>{error}</span>
+            <span css={errorCSS as CSSObject}>{meta.error}</span>
         </div>
     );
 };

@@ -7,11 +7,9 @@ export default function Footer() {
         <footer
             css={{
                 backgroundColor: colors.grey900,
-                marginTop: scale(11),
                 padding: `${scale(5)}px ${scale(15)}px`,
                 minWidth: '100%',
                 [MEDIA_QUERIES.sm]: {
-                    marginTop: scale(4),
                     padding: `${scale(2)}px ${scale(4)}px`,
                 },
             }}

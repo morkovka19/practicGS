@@ -3,7 +3,7 @@ import { Input } from '@components/controls/Input';
 import { FormFieldProps } from './types';
 import { useField } from 'formik';
 
-export const FormField = ({ name, children, ...props }: FormFieldProps) => {
+const FormField = ({ name, children, ...props }: FormFieldProps) => {
     const [field, meta, helpers] = useField(name);
     const inputProps = {
         type: 'text',
@@ -13,6 +13,7 @@ export const FormField = ({ name, children, ...props }: FormFieldProps) => {
         helpers,
         ...props,
     };
+
     return (
         <div css={{ width: '100%' }}>
             {children ? (
@@ -34,3 +35,5 @@ export const FormField = ({ name, children, ...props }: FormFieldProps) => {
         </div>
     );
 };
+
+export default FormField;

@@ -13,17 +13,14 @@ const basicTheme: ButtonTheme<typeof Variant, typeof Size> = {
             md: {
                 padding: `${scale(2, true) + 0.5}px ${scale(4)}px`,
                 ...(typography('buttonMd')),
-
                 [MEDIA_QUERIES.sm]: {
                     margin: '0 auto',
                 },
-
                 [MEDIA_QUERIES.xs]: {
                     width: '100%',
                 },
             },
         };
-
         const variant: OptionizedCSS<typeof Variant> = {
             primary: {
                 backgroundColor: colors.blue,
@@ -68,7 +65,6 @@ const basicTheme: ButtonTheme<typeof Variant, typeof Size> = {
                     backgroundColor: colors.blueHover,
                 },
             },
-
             link: {
                 backgroundColor: 'none',
                 color: colors.blue,
@@ -118,7 +114,6 @@ const basicTheme: ButtonTheme<typeof Variant, typeof Size> = {
                 ...(typography('buttonMd')),
             },
         };
-
         const variant: OptionizedCSS<typeof Variant> = {
             link: {
                 ...(state.rounded && {
@@ -135,6 +130,7 @@ const basicTheme: ButtonTheme<typeof Variant, typeof Size> = {
                 display: 'none',
             },
         };
+
         return {
             ...extractCSSOption(sized, state.size),
             ...extractCSSOption(variant, state.variant),

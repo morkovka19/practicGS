@@ -77,6 +77,7 @@ const basicTheme: SelectTheme<typeof Variant, typeof Size> = {
                 },
             },
         };
+        
         return {
             ...extractCSSOption(sized, state.size),
             ...extractCSSOption(variant, state.variant),

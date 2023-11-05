@@ -4,8 +4,9 @@ import { ReactNode } from 'react';
 export interface State {
     focus: boolean;
     textArea: boolean;
-    error: string;
-    touched: string;
+    meta?: any,
+    field?: any,
+    helpers?: any
 }
 
 export type InputStateFull<V extends EnumLike, S extends EnumLike> = BaseThemeState<V, S> & State;
@@ -24,7 +25,7 @@ export interface InputProps<V extends EnumLike, S extends EnumLike>
     children?: ReactNode;
     placeholder?: string;
     name?: string;
-    touched?: string;
-    error?: string;
-    mask?: string | undefined;
+    meta?: any,
+    helpers?: any,
+    field?: any,
 }

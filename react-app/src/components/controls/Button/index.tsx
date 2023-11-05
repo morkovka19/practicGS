@@ -25,9 +25,11 @@ function custonTypography(
     throw new Error(`Function not implemented. name: ${name}`);
 }
 
-export const Button = createFutureButtonWithTheme<typeof Variant, typeof Size, any>(
+const Button = createFutureButtonWithTheme<typeof Variant, typeof Size, any>(
     BUTTON_THEMES.basic,
     Variant.primary,
     Size.sm,
     custonTypography
 );
+
+export default Button;

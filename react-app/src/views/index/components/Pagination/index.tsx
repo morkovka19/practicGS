@@ -1,4 +1,4 @@
-import { Button } from '@components/controls/Button';
+import Button from '@components/controls/Button';
 import { getAmountPages } from './helpers';
 import { useEffect, useState } from 'react';
 import { Container, scale } from '@greensight/gds';
@@ -35,8 +35,10 @@ export default function Pagination({
         <Container
             css={{
                 margin: '0 auto',
-                marginTop: scale(4),
-                display: filter ? 'none' : 'block',
+                paddingTop: scale(4),
+                marginBottom: scale(6),
+                display: filter ? 'none' : 'flex',
+                width: '100%'
             }}
         >
             <ul

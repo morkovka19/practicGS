@@ -1,9 +1,10 @@
-import { Form, Formik, FormikHelpers } from 'formik';
+import { Form as FormFormik , Formik, FormikHelpers } from 'formik';
 import * as yup from 'yup';
 import { ReactElement, cloneElement } from 'react';
-import { CSSObject } from '@emotion/core';
+import FormField  from './Field';
+import Button from '../Button';
 
-export default function FormikTemplate({
+const Form = ({
     schema,
     values,
     handleSubmit,
@@ -13,10 +14,15 @@ export default function FormikTemplate({
     values: Object;
     handleSubmit: ((values: any, formikHelpers: FormikHelpers<any>) => void | Promise<any>) & ((values: any) => void);
     children: ReactElement;
-}) {
+}) => {
     return (
         <Formik validationSchema={schema} initialValues={values} onSubmit={handleSubmit}>
-            {({ errors, touched }) => <Form>{children && cloneElement(children, { errors, touched })}</Form>}
+            {({ errors, touched }) => <FormFormik>{children && cloneElement(children, { errors, touched })}</FormFormik>}
         </Formik>
     );
-}
+};
+
+Form.Field = FormField;
+Form.Button = Button;
+
+export default Form;

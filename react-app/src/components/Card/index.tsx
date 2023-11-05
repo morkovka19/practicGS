@@ -3,13 +3,15 @@ import { useCallback, useState } from 'react';
 import { shadows, MEDIA_QUERIES, colors, typography } from 'src/scripts/gds';
 import { CardType } from 'src/api/vacancies/types';
 import OpenIcon from '../../icons/chevronDown.svg';
-import { Button } from '@components/controls/Button';
+import Button from '@components/controls/Button';
 
-export default function Card({ cardInfo, number }: { cardInfo: CardType; number: number }) {
+const Card = ({ cardInfo, number }: { cardInfo: CardType; number: number }) => {
     const [open, setOpen] = useState(false);
+
     const handleClick = useCallback(() => {
         setOpen(() => !open);
     }, [open]);
+
     return (
         <li
             css={{
@@ -179,4 +181,6 @@ export default function Card({ cardInfo, number }: { cardInfo: CardType; number:
             </Layout>
         </li>
     );
-}
+};
+
+export default Card;

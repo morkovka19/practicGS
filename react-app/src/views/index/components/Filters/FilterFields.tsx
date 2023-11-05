@@ -1,11 +1,10 @@
-import { Button } from '@components/controls/Button';
-import { FormField } from '@components/controls/Field';
 import { Select } from '@components/controls/Select';
 import { MEDIA_QUERIES, scale } from 'src/scripts/gds';
-import ArrowGrey from '../../icons/chevronDownGrey.svg';
-import CloseIcon from '../../icons/close.svg';
+import ArrowGrey from '../../../../icons/chevronDownGrey.svg';
+import CloseIcon from '../../../../icons/close.svg';
 import { arrPosition, arrForm } from 'src/utils/constants';
 import { useCallback, useState } from 'react';
+import Form from '@components/controls/Form';
 import { useField, useFormikContext } from 'formik';
 
 export const FilterFields = ({ handleClear }: { handleClear: () => void }) => {
@@ -60,34 +59,32 @@ export const FilterFields = ({ handleClear }: { handleClear: () => void }) => {
                     },
                 }}
             >
-                <FormField
+                <Form.Field
                     handleClickSelected={handleClickForm}
                     name="form"
                     label="Form"
-                    optionsArr={arrForm}
                     Icon={ArrowGrey}
                     open={openForm}
                 >
-                    <Select />
-                </FormField>
-                <FormField
+                    <Select optionsArr={arrForm} />
+                </Form.Field>
+                <Form.Field
                     label="Position"
                     Icon={ArrowGrey}
-                    optionsArr={arrPosition}
                     open={openPosition}
                     handleClickSelected={handleClickPosition}
                     name="position"
                 >
-                    <Select />
-                </FormField>
+                    <Select optionsArr={arrPosition} />
+                </Form.Field>
             </div>
-            <Button variant="primary" type="submit" size="md">
+            <Form.Button variant="primary" type="submit" size="md">
                 Search
-            </Button>
+            </Form.Button>
 
-            <Button variant="link" Icon={CloseIcon} block hidden={!context.isSubmitting} onClick={handleClearClick}>
+            <Form.Button variant="link" Icon={CloseIcon} block hidden={!context.isSubmitting} onClick={handleClearClick}>
                 Clear filtres
-            </Button>
+            </Form.Button>
         </div>
     );
 };

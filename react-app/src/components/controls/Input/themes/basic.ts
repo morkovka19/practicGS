@@ -36,8 +36,8 @@ const basicTheme: InputTheme<typeof Variant, typeof Size> = {
                     ...typography('desktop/bodyS'),
                 },
 
-                ...(state.error &&
-                    state.touched && {
+                ...(state.meta.error &&
+                    state.meta.touched && {
                         borderColor: colors.error,
                     }),
             },
@@ -56,9 +56,8 @@ const basicTheme: InputTheme<typeof Variant, typeof Size> = {
         const variant: OptionizedCSS<typeof Variant> = {
             primary: {
                 color: colors.black,
-
-                ...(state.error &&
-                    state.touched && {
+                ...(state.meta.error &&
+                    state.meta.touched && {
                         color: colors.error,
                     }),
             },
@@ -107,12 +106,12 @@ const basicTheme: InputTheme<typeof Variant, typeof Size> = {
                 ...typography('desktop/bodyXSbold'),
                 display: 'none',
 
-                ...(state.error &&
-                    state.touched && {
+                ...(state.meta.error &&
+                    state.meta.touched && {
                         display: 'block',
                         top: scale(7),
                         ...(state.textArea && {
-                            top: scale(23, true),
+                            top: scale(11),
                         }),
                     }),
             },
