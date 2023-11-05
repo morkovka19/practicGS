@@ -8,8 +8,8 @@ import Filters from '@views/index/components/Filters';
 import Pagination from './index/components/Pagination';
 import List from '@views/index/components/List';
 import { useCallback, useEffect, useState } from 'react';
-import FormSection from '@views/index/components/FormSection';
 import Footer from 'src/_app/Footer';
+import FeedbackForm from '@views/index/components/FeedbackForm';
 
 export default function HomePage() {
     const vacancies = useVacancies();
@@ -65,7 +65,7 @@ export default function HomePage() {
 
                 <Pagination amountCards={cards?.length} handlePagination={handlePagination} filter={filter} />
 
-                <FormSection />
+                <FeedbackForm />
             </main>
 
             <Footer />
