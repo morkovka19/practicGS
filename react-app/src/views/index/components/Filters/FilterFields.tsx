@@ -5,7 +5,7 @@ import CloseIcon from '../../../../icons/close.svg';
 import { arrPosition, arrForm } from 'src/utils/constants';
 import { useCallback, useState } from 'react';
 import Form from '@components/controls/Form';
-import { useField, useFormikContext } from 'formik';
+import { useFormikContext } from 'formik';
 import Button from '@components/controls/Button';
 
 export const FilterFields = ({ handleClear }: { handleClear: () => void }) => {
