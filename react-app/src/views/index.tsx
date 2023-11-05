@@ -2,13 +2,13 @@ import { getVacancies } from '@views/api';
 import { useVacancies } from 'src/api/vacancies';
 import getCardsInfo from './index/helpers';
 import { scale } from '@greensight/gds';
-import Header from 'src/_app/Header';
+import Header from '@components/Header';
 import { QueryClient, dehydrate } from 'react-query';
 import Filters from '@views/index/components/Filters';
 import Pagination from './index/components/Pagination';
 import List from '@views/index/components/List';
 import { useCallback, useEffect, useState } from 'react';
-import Footer from 'src/_app/Footer';
+import Footer from '@components/Footer';
 import FeedbackForm from '@views/index/components/FeedbackForm';
 
 export default function HomePage() {
@@ -56,8 +56,6 @@ export default function HomePage() {
                 minWidth: scale(37),
             }}
         >
-            <Header />
-
             <main css={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 <Filters handleFilterCards={handleFilter} handleClearFilter={handleClearFilter} />
 
@@ -67,8 +65,6 @@ export default function HomePage() {
 
                 <FeedbackForm />
             </main>
-
-            <Footer />
         </div>
     );
 }

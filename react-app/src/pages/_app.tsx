@@ -3,6 +3,8 @@ import { FC } from 'react';
 import AppProviders from '@components/AppProviders';
 import { Hydrate } from 'react-query';
 import Head from 'next/head';
+import Header from '@components/Header';
+import Footer from '@components/Footer';
 
 const AppContent: FC<AppProps> = ({ Component, pageProps }) => <Component {...pageProps} />;
 
@@ -17,7 +19,9 @@ function MyApp(props: AppProps) {
             </Head>
             <AppProviders>
                 <Hydrate state={props.pageProps.dehydratedState}>
+                    <Header />
                     <AppContent {...props} />
+                    <Footer />
                 </Hydrate>
             </AppProviders>
         </>
